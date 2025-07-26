@@ -4,8 +4,11 @@ import ServicesSection from '@/components/sections/home/ServicesSection';
 import ReferencesSection from '@/components/sections/home/ReferencesSection';
 import WhyUsSection from '@/components/sections/home/WhyUsSection';
 import CtaSection from '@/components/sections/home/CtaSection';
-import TestimonialsSection from '@/components/sections/home/TestimonialsSection'; // TestimonialsSection import edildi
+import TestimonialsSection from '@/components/sections/home/TestimonialsSection';
 import { Divider } from '@mui/material';
+
+// Yeni oluşturduğumuz FadeInOnScroll bileşenini import ediyoruz
+import FadeInOnScroll from '@/components/common/FadeInOnScroll';
 
 export default function HomePage() {
   return (
@@ -13,23 +16,39 @@ export default function HomePage() {
       <HeroSection />
 
       <Divider variant="middle" sx={{ my: 4 }} />
-      <ServicesSection />
+      {/* ServicesSection'ı FadeInOnScroll ile sarmalıyoruz */}
+      <FadeInOnScroll delay={100}> {/* Animasyon 100ms gecikmeli başlar */}
+        <ServicesSection />
+      </FadeInOnScroll>
 
       {/* Hizmetler ve Referanslar arasına bir ayırıcı ekliyoruz */}
       <Divider variant="middle" sx={{ my: 4 }} />
 
-      <ReferencesSection />
+      {/* ReferencesSection'ı FadeInOnScroll ile sarmalıyoruz */}
+      <FadeInOnScroll delay={200}> {/* Animasyon 200ms gecikmeli başlar */}
+        <ReferencesSection />
+      </FadeInOnScroll>
 
       {/* Referanslar ve Müşteri Yorumları arasına bir ayırıcı ekliyoruz */}
       <Divider variant="middle" sx={{ my: 4 }} />
 
-      <TestimonialsSection /> {/* TestimonialsSection buraya eklendi */}
+      {/* TestimonialsSection'ı FadeInOnScroll ile sarmalıyoruz */}
+      <FadeInOnScroll delay={300}> {/* Animasyon 300ms gecikmeli başlar */}
+        <TestimonialsSection />
+      </FadeInOnScroll>
 
       {/* Müşteri Yorumları ve Neden Biz arasına bir ayırıcı ekliyoruz */}
       <Divider variant="middle" sx={{ my: 4 }} />
 
-      <WhyUsSection />
-      <CtaSection />
+      {/* WhyUsSection'ı FadeInOnScroll ile sarmalıyoruz */}
+      <FadeInOnScroll delay={400}> {/* Animasyon 400ms gecikmeli başlar */}
+        <WhyUsSection />
+      </FadeInOnScroll>
+
+      {/* CtaSection'ı FadeInOnScroll ile sarmalıyoruz */}
+      <FadeInOnScroll delay={500}> {/* Animasyon 500ms gecikmeli başlar */}
+        <CtaSection />
+      </FadeInOnScroll>
     </>
   );
 }

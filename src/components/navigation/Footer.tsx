@@ -8,6 +8,8 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import Link from 'next/link';
 
+// Bu fonksiyonu, halihazırda ana sayfadaysak kullanmaya devam edebiliriz,
+// ancak farklı bir sayfadan ana sayfadaki bölümlere yönlendirme için artık Next.js Link kullanacağız.
 const scrollToSection = (sectionId: string) => {
   const section = document.getElementById(sectionId);
   if (section) {
@@ -45,9 +47,10 @@ const Footer = () => {
               Çözümlerimiz
             </Typography>
             <Stack spacing={1}>
-              <MuiLink component="button" onClick={() => scrollToSection('hizmetler')} variant="body2" color="text.secondary" sx={{ textAlign: 'left' }}>Envanter Yönetimi & ERP</MuiLink>
-              <MuiLink component="button" onClick={() => scrollToSection('hizmetler')} variant="body2" color="text.secondary" sx={{ textAlign: 'left' }}>Web Tasarım & Geliştirme</MuiLink>
-              <MuiLink component="button" onClick={() => scrollToSection('hizmetler')} variant="body2" color="text.secondary" sx={{ textAlign: 'left' }}>SEO Stratejileri</MuiLink>
+              {/* ÖNEMLİ DEĞİŞİKLİK BURADA: Next.js Link kullanıyoruz ve ana sayfaya hash ile yönlendiriyoruz */}
+              <MuiLink component={Link} href="/#hizmetler" passHref variant="body2" color="text.secondary" sx={{ textAlign: 'left' }}>Envanter Yönetimi & ERP</MuiLink>
+              <MuiLink component={Link} href="/#hizmetler" passHref variant="body2" color="text.secondary" sx={{ textAlign: 'left' }}>Web Tasarım & Geliştirme</MuiLink>
+              <MuiLink component={Link} href="/#hizmetler" passHref variant="body2" color="text.secondary" sx={{ textAlign: 'left' }}>SEO Stratejileri</MuiLink>
             </Stack>
           </Grid>
 
@@ -57,7 +60,8 @@ const Footer = () => {
             </Typography>
             <Stack spacing={1}>
               <MuiLink component={Link} href="/blog" variant="body2" color="text.secondary">Blog</MuiLink>
-              <MuiLink component="button" onClick={() => scrollToSection('iletisim')} variant="body2" color="text.secondary" sx={{ textAlign: 'left' }}>İletişim</MuiLink>
+              {/* ÖNEMLİ DEĞİŞİKLİK BURADA: Next.js Link kullanıyoruz ve ana sayfaya hash ile yönlendiriyoruz */}
+              <MuiLink component={Link} href="/#iletisim" passHref variant="body2" color="text.secondary" sx={{ textAlign: 'left' }}>İletişim</MuiLink>
               <MuiLink href="/cerez-politikasi" variant="body2" color="text.secondary">Çerez Politikası</MuiLink>
             </Stack>
           </Grid>

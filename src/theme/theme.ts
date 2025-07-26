@@ -1,6 +1,7 @@
 // src/theme/theme.ts
 'use client';
-import { createTheme, PaletteMode } from '@mui/material';
+// 'Theme' tipini '@mui/material'dan import ediyoruz
+import { createTheme, PaletteMode, Theme } from '@mui/material';
 
 // Fontun ismini string olarak tanımlamak en temiz yöntemlerden biri
 const FONT_FAMILY = '"Inter", "Roboto", "Helvetica", "Arial", sans-serif';
@@ -10,12 +11,16 @@ export const getDesignTokens = (mode: PaletteMode) => ({
     mode,
     ...(mode === 'light'
       ? {
-          // Palette values for light mode
+          // Aydınlık mod için palet değerleri
           primary: {
             main: '#1976D2',
+            light: '#42a5f5',
+            dark: '#1565c0',
           },
           secondary: {
             main: '#FFC107',
+            light: '#ffe082',
+            dark: '#ffb300',
           },
           background: {
             default: '#FFFFFF',
@@ -27,12 +32,16 @@ export const getDesignTokens = (mode: PaletteMode) => ({
           },
         }
       : {
-          // Palette values for dark mode
+          // Karanlık mod için palet değerleri
           primary: {
-            main: '#90CAF9', // Softer blue for dark mode
+            main: '#90CAF9',
+            light: '#e3f2fd',
+            dark: '#64b5f6',
           },
           secondary: {
-            main: '#FFECB3', // Softer amber for dark mode
+            main: '#FFECB3',
+            light: '#fff8e1',
+            dark: '#ffdd70',
           },
           background: {
             default: '#121212',
@@ -47,8 +56,28 @@ export const getDesignTokens = (mode: PaletteMode) => ({
   typography: {
     fontFamily: FONT_FAMILY,
     button: {
-      textTransform: 'none' as const, // Hata düzeltme: 'none' değişmez tür olarak belirtildi
+      textTransform: 'none' as const,
       fontWeight: 600,
+    },
+  },
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        // 'theme' parametresini 'Theme' olarak açıkça belirtiyoruz
+        containedPrimary: ({ theme }: { theme: Theme }) => ({
+          '&:hover': {
+            backgroundColor: theme.palette.primary.dark,
+            boxShadow: '0 4px 10px rgba(0,0,0,0.2)',
+          },
+        }),
+        // 'theme' parametresini 'Theme' olarak açıkça belirtiyoruz
+        containedSecondary: ({ theme }: { theme: Theme }) => ({
+          '&:hover': {
+            backgroundColor: theme.palette.secondary.dark,
+            boxShadow: '0 4px 10px rgba(0,0,0,0.2)',
+          },
+        }),
+      },
     },
   },
 });
