@@ -1,12 +1,11 @@
 // src/components/navigation/Navbar.tsx
-'use client';
+'use client'; // Bu satır zaten var olmalı
 
 import React from 'react';
 import Link from 'next/link';
 import { AppBar, Toolbar, Typography, Button, Box, Container } from '@mui/material';
 
 const scrollToSection = (sectionId: string) => {
-  // Bu fonksiyon sadece tarayıcıda çalışır, bu yüzden sorun yok.
   const section = document.getElementById(sectionId);
   if (section) {
     section.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -27,6 +26,10 @@ const Navbar = () => {
           <Box>
             <Button component={Link} href="/blog" sx={{ color: 'text.primary', fontWeight: 500 }}>
               Blog
+            </Button>
+            {/* Yeni Vaka Analizleri butonu eklendi */}
+            <Button component={Link} href="/case-studies" sx={{ color: 'text.primary', fontWeight: 500, ml: 1 }}>
+              Vaka Analizleri
             </Button>
             <Button
               variant="contained"

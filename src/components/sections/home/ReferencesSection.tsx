@@ -1,9 +1,10 @@
 // src/components/sections/home/ReferencesSection.tsx
-'use client';
+'use client'; // Bu satır zaten var olmalı
 
 import React from 'react';
 import { Box, Container, Grid, Typography, Link as MuiLink } from '@mui/material';
 import { referencesData } from '@/data/referencesData';
+import Link from 'next/link'; // Next.js Link importu eklendi
 
 const ReferencesSection = () => {
   return (
@@ -23,7 +24,6 @@ const ReferencesSection = () => {
         </Typography>
         <Grid container spacing={{ xs: 4, sm: 6 }} justifyContent="center" alignItems="center">
           {referencesData.map((reference, index) => {
-            // Logo görselini bir değişkene atıyoruz
             const LogoImage = (
               <Box
                 component="img"
@@ -47,13 +47,12 @@ const ReferencesSection = () => {
 
             return (
               <Grid size={{ xs: 6, sm: 4, md: 2 }} key={index} sx={{ textAlign: 'center' }}>
-                {/* Eğer referansın bir linki varsa, görseli link ile sarmalıyoruz */}
                 {reference.linkUrl ? (
-                  <MuiLink href={reference.linkUrl} target="_blank" rel="noopener noreferrer">
+                  // ÖNEMLİ DEĞİŞİKLİK BURADA: MuiLink'i Next.js Link ile sarıyoruz
+                  <MuiLink component={Link} href={reference.linkUrl} passHref>
                     {LogoImage}
                   </MuiLink>
                 ) : (
-                  // Link yoksa sadece görseli gösteriyoruz
                   LogoImage
                 )}
               </Grid>
