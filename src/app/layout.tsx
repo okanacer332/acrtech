@@ -6,7 +6,7 @@ import theme from '@/theme/theme';
 import Navbar from '@/components/navigation/Navbar';
 import Footer from '@/components/navigation/Footer';
 import GoogleTagManager from '@/components/analytics/GoogleTagManager';
-import CookieConsent from '@/components/common/CookieConsent'; // Yeni bileşeni import ediyoruz
+import CookieConsent from '@/components/common/CookieConsent';
 import { Box, CssBaseline } from '@mui/material';
 import type { Metadata } from 'next';
 
@@ -24,7 +24,8 @@ export const metadata: Metadata = {
   creator: 'acrtech',
   publisher: 'acrtech',
   icons: {
-    icon: 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" rx="20" fill="%231976D2"/><text x="50" y="50" font-family="Inter" font-size="60" dy=".3em" font-weight="bold" fill="white" text-anchor="middle">A</text></svg>',
+    // Hatanın kaynağı olan tırnak işaretleri düzeltildi
+    icon: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231976D2'/><text x='50' y='50' font-family='Inter' font-size='60' dy='.3em' font-weight='bold' fill='white' text-anchor='middle'>A</text></svg>",
   },
 };
 
@@ -48,7 +49,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               </Box>
               <Footer />
             </Box>
-            {/* Çerez banner'ını buraya ekliyoruz */}
             <CookieConsent />
           </ThemeProvider>
         </AppRouterCacheProvider>
