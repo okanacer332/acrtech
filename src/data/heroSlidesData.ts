@@ -5,7 +5,7 @@ export const heroSlidesData = [
     id: 1,
     title: 'KOBİ\'ler İçin Güçlü Envanter Yönetimi',
     subtitle: 'Stoklarınızı kolayca takip edin, kayıpları azaltın ve verimliliğinizi artırın.',
-    imageUrl: '/images/hero-background.jpg',
+    imageUrl: '/images/hero-background.png',
     buttonText: 'Çözümleri Keşfet',
     buttonLink: '#hizmetler', // "Hizmetler Özeti" bölümüne yönlendirir
   },

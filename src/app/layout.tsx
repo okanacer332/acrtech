@@ -5,15 +5,15 @@ import { ThemeProvider } from '@mui/material/styles';
 import theme from '@/theme/theme';
 import Navbar from '@/components/navigation/Navbar';
 import Footer from '@/components/navigation/Footer';
-import GoogleTagManager from '@/components/analytics/GoogleTagManager'; // GTM bileşenini import ediyoruz
+import GoogleTagManager from '@/components/analytics/GoogleTagManager';
+import CookieConsent from '@/components/common/CookieConsent'; // Yeni bileşeni import ediyoruz
 import { Box, CssBaseline } from '@mui/material';
 import type { Metadata } from 'next';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-// Google Tag Manager Kapsayıcı Kimliği
-const GTM_ID = 'GTM-57R3ZQVW'; // KİMLİK GÜNCELLENDİ
+const GTM_ID = 'GTM-57R3ZQVW';
 
 export const metadata: Metadata = {
   title: {
@@ -37,7 +37,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="tr" className={inter.className}>
       <body>
-        {/* GTM Body kodunu body'nin hemen başına ekliyoruz */}
         <GoogleTagManager gtmId={GTM_ID} />
         <AppRouterCacheProvider>
           <ThemeProvider theme={theme}>
@@ -49,6 +48,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               </Box>
               <Footer />
             </Box>
+            {/* Çerez banner'ını buraya ekliyoruz */}
+            <CookieConsent />
           </ThemeProvider>
         </AppRouterCacheProvider>
       </body>
