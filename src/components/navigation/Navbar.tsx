@@ -5,6 +5,14 @@ import React from 'react';
 import Link from 'next/link';
 import { AppBar, Toolbar, Typography, Button, Box, Container } from '@mui/material';
 
+// Sayfa içinde belirli bir bölüme pürüzsüz kaydırma (smooth scroll) fonksiyonu
+const scrollToSection = (sectionId: string) => {
+  const section = document.getElementById(sectionId);
+  if (section) {
+    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+};
+
 const Navbar = () => {
   return (
     <AppBar position="sticky" component="nav" sx={{ bgcolor: 'background.default', color: 'text.primary', boxShadow: '0px 1px 4px rgba(0, 0, 0, 0.08)' }}>
@@ -17,13 +25,12 @@ const Navbar = () => {
             </Link>
           </Typography>
 
-          {/* İletişim Butonu (Artık mobil ve masaüstünde görünür) */}
+          {/* İletişim Butonu */}
           <Box>
             <Button
-              component={Link}
-              href="/#iletisim" // Sayfa içi "iletisim" ID'li bölüme yönlendirir
               variant="contained"
               color="primary"
+              onClick={() => scrollToSection('iletisim')} // Tıklandığında 'iletisim' ID'li bölüme kaydır
             >
               İletişim
             </Button>

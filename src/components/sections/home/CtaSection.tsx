@@ -3,11 +3,11 @@
 
 import React from 'react';
 import { Box, Container, Typography, Button } from '@mui/material';
-import Link from 'next/link';
 
 const CtaSection = () => {
   return (
-    <Box sx={{ bgcolor: 'primary.main', color: 'white' }}>
+    // Navbar'dan ve diğer linklerden gelen yönlendirmenin burayı bulabilmesi için ID ekliyoruz
+    <Box id="iletisim" sx={{ bgcolor: 'primary.main', color: 'white' }}>
       <Container
         maxWidth="md"
         sx={{
@@ -32,16 +32,16 @@ const CtaSection = () => {
           Fikrinizi bizimle paylaşın, size özel çözümlerle işinizi nasıl bir üst seviyeye taşıyabileceğimizi konuşalım.
         </Typography>
         <Button
-          component={Link}
-          href="/iletisim"
+          component="a" // E-posta linki için 'a' etiketi kullanıyoruz
+          href="mailto:info@acrtech.com.tr,acer.okanumut@gmail.com" // Her iki e-posta adresi de eklendi
           variant="contained"
-          color="secondary" // Dikkat çekici vurgu rengimiz
+          color="secondary"
           size="large"
           sx={{
             py: 1.5,
             px: 6,
             fontSize: '1.2rem',
-            color: 'primary.main', // Buton yazısının rengi
+            color: 'primary.main',
             fontWeight: 700,
             '&:hover': {
                 bgcolor: 'secondary.dark'

@@ -7,22 +7,17 @@ import { servicesData } from '@/data/servicesData';
 
 const ServicesSection = () => {
   return (
-    <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: 'background.default' }}>
+    // Hero slider'dan gelen linklerin burayı bulabilmesi için ID ekliyoruz
+    <Box id="hizmetler" sx={{ py: { xs: 8, md: 12 }, bgcolor: 'background.default' }}>
       <Container maxWidth="lg">
-        {/* Bölüm Başlığı */}
         <Typography
           variant="h3"
           component="h2"
-          sx={{
-            textAlign: 'center',
-            fontWeight: 700,
-            mb: 8, // Başlık ile kartlar arasına boşluk
-          }}
+          sx={{ textAlign: 'center', fontWeight: 700, mb: 8 }}
         >
           Sunduğumuz Çözümler
         </Typography>
 
-        {/* Hizmet Kartları */}
         <Grid container spacing={4}>
           {servicesData.map((service, index) => (
             <Grid size={{ xs: 12, md: 4 }} key={index}>
@@ -41,23 +36,10 @@ const ServicesSection = () => {
                 }}
               >
                 <CardContent>
-                  <Avatar
-                    sx={{
-                      width: 64,
-                      height: 64,
-                      bgcolor: 'primary.main',
-                      color: 'white',
-                      mx: 'auto',
-                      mb: 3,
-                    }}
-                  >
+                  <Avatar sx={{ width: 64, height: 64, bgcolor: 'primary.main', color: 'white', mx: 'auto', mb: 3 }}>
                     <service.icon sx={{ fontSize: 32 }} />
                   </Avatar>
-                  <Typography
-                    variant="h5"
-                    component="h3"
-                    sx={{ fontWeight: 600, mb: 2 }}
-                  >
+                  <Typography variant="h5" component="h3" sx={{ fontWeight: 600, mb: 2 }}>
                     {service.title}
                   </Typography>
                   <Typography variant="body1" color="text.secondary">
