@@ -5,14 +5,13 @@ import React from 'react';
 import { Box, Container, Typography, Avatar, Paper, Grid } from '@mui/material';
 import { testimonialsData } from '@/data/testimonialsData';
 
-// Testimonial objesi için bir interface tanımlıyoruz
 interface Testimonial {
   quote: string;
   name: string;
   title: string;
   company: string;
-  avatarUrl?: string; // avatarUrl artık isteğe bağlı (optional)
-  companyLogoUrl?: string; // companyLogoUrl da isteğe bağlı
+  avatarUrl?: string;
+  companyLogoUrl?: string;
 }
 
 const TestimonialsSection = () => {
@@ -35,7 +34,7 @@ const TestimonialsSection = () => {
 
         {/* Yorum Kartları */}
         <Grid container spacing={4} justifyContent="center">
-          {testimonialsData.map((testimonial: Testimonial, index) => ( // testimonial objesinin tipini belirtiyoruz
+          {testimonialsData.map((testimonial: Testimonial, index) => (
             <Grid size={{ xs: 12, sm: 6, md: 4 }} key={index}>
               <Paper
                 elevation={3}
@@ -56,7 +55,7 @@ const TestimonialsSection = () => {
               >
                 {/* Avatar için ismin ilk harfi gösteriliyor */}
                 <Avatar
-                  src={testimonial.avatarUrl} // avatarUrl isteğe bağlı olduğu için undefined olabilir
+                  src={testimonial.avatarUrl}
                   alt={testimonial.name}
                   sx={{
                     width: 80,
@@ -72,7 +71,7 @@ const TestimonialsSection = () => {
 
                 {/* Yorum Metni */}
                 <Typography variant="body1" color="text.secondary" sx={{ fontStyle: 'italic', mb: 2 }}>
-                  "{testimonial.quote}"
+                  {`"${testimonial.quote}"`} {/* DEĞİŞİKLİK BURADA */}
                 </Typography>
 
                 {/* Müşteri Bilgisi */}
@@ -84,7 +83,7 @@ const TestimonialsSection = () => {
                     {testimonial.title}, {testimonial.company}
                   </Typography>
                 )}
-                {testimonial.companyLogoUrl && ( // companyLogoUrl varsa göster
+                {testimonial.companyLogoUrl && (
                   <Box
                     component="img"
                     src={testimonial.companyLogoUrl}
