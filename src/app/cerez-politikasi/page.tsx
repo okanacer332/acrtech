@@ -42,7 +42,7 @@ const PolicyPage = () => {
         Son güncellenme: 26 Temmuz 2025
       </Paragraph>
       <Paragraph>
-        Bu Çerez Politikası, acrtech ("biz", "bize" veya "bizim") tarafından işletilen acrtech.com.tr web sitesinde ("Site") kullanılan çerezler ve benzeri teknolojiler hakkında size bilgi vermek amacıyla hazırlanmıştır. Sitemizi kullanarak, bu politikada açıklanan çerezlerin kullanımını kabul etmiş olursunuz.
+        Bu Çerez Politikası, acrtech (&quot;biz&quot;, &quot;bize&quot; veya &quot;bizim&quot;) tarafından işletilen acrtech.com.tr web sitesinde (&quot;Site&quot;) kullanılan çerezler ve benzeri teknolojiler hakkında size bilgi vermek amacıyla hazırlanmıştır. Sitemizi kullanarak, bu politikada açıklanan çerezlerin kullanımını kabul etmiş olursunuz.
       </Paragraph>
 
       <SectionTitle>Çerez Nedir?</SectionTitle>
@@ -86,7 +86,7 @@ const PolicyPage = () => {
             <ListItem><MuiLink href="https://support.microsoft.com/tr-tr/windows/tan%C4%B1mlama-bilgilerini-silme-ve-y%C3%B6netme-168dab11-0753-043d-7c16-ede5947fc64d" target="_blank" rel="noopener">Microsoft Edge</MuiLink></ListItem>
        </List>
        <Paragraph>
-        Ayrıca, sitemizi ilk ziyaret ettiğinizde karşınıza çıkan çerez banner'ı üzerinden de tercihlerinizi yönetebilirsiniz.
+        Ayrıca, sitemizi ilk ziyaret ettiğinizde karşınıza çıkan çerez banner&apos;ı üzerinden de tercihlerinizi yönetebilirsiniz.
       </Paragraph>
     </Container>
   );
