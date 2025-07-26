@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 // Tüm olası blog sayfalarını Next.js'e bildiren fonksiyon
-export async function generateStaticParams() {
+export function generateStaticParams() { // 'async' anahtar kelimesi kaldırıldı
   const paths = getAllPostIds();
   return paths;
 }
