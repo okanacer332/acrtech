@@ -1,30 +1,56 @@
 // src/theme/theme.ts
 'use client';
-import { createTheme } from '@mui/material/styles';
+import { createTheme, PaletteMode } from '@mui/material';
 
 // Fontun ismini string olarak tanımlamak en temiz yöntemlerden biri
 const FONT_FAMILY = '"Inter", "Roboto", "Helvetica", "Arial", sans-serif';
 
-const theme = createTheme({
+export const getDesignTokens = (mode: PaletteMode) => ({
   palette: {
-    primary: {
-      main: '#1976D2',
-    },
-    secondary: {
-      main: '#FFC107',
-    },
-    background: {
-      default: '#FFFFFF',
-      paper: '#F5F5F5',
-    }
+    mode,
+    ...(mode === 'light'
+      ? {
+          // Palette values for light mode
+          primary: {
+            main: '#1976D2',
+          },
+          secondary: {
+            main: '#FFC107',
+          },
+          background: {
+            default: '#FFFFFF',
+            paper: '#F5F5F5',
+          },
+          text: {
+            primary: '#212121',
+            secondary: '#757575',
+          },
+        }
+      : {
+          // Palette values for dark mode
+          primary: {
+            main: '#90CAF9', // Softer blue for dark mode
+          },
+          secondary: {
+            main: '#FFECB3', // Softer amber for dark mode
+          },
+          background: {
+            default: '#121212',
+            paper: '#1E1E1E',
+          },
+          text: {
+            primary: '#E0E0E0',
+            secondary: '#A0A0A0',
+          },
+        }),
   },
   typography: {
     fontFamily: FONT_FAMILY,
     button: {
-      textTransform: 'none',
+      textTransform: 'none' as const, // Hata düzeltme: 'none' değişmez tür olarak belirtildi
       fontWeight: 600,
-    }
+    },
   },
 });
 
-export default theme;
+// Artık varsayılan bir `theme` dışa aktarmıyoruz. Tema, layout.tsx'te dinamik olarak oluşturulacak.

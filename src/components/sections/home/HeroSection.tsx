@@ -3,7 +3,7 @@
 
 import React from 'react';
 import Slider from 'react-slick';
-import { Box, Typography, Button, Container, GlobalStyles, Grid } from '@mui/material';
+import { Box, Typography, Button, Container, GlobalStyles, Grid, useTheme, useMediaQuery } from '@mui/material';
 import Link from 'next/link';
 import { heroSlidesData } from '@/data/heroSlidesData';
 
@@ -27,14 +27,14 @@ const NextArrow: React.FC<ArrowProps> = ({ onClick }) => (
     sx={{
       position: 'absolute',
       top: '50%',
-      right: { xs: 16, md: 32 },
+      right: { xs: 8, md: 32 }, // Mobil için daha küçük sağ boşluk
       transform: 'translateY(-50%)',
       zIndex: 2,
       cursor: 'pointer',
     }}
     onClick={onClick}
   >
-    <ArrowForwardIos sx={{ color: 'text.primary', fontSize: 30, '&:hover': { opacity: 0.7 } }} />
+    <ArrowForwardIos sx={{ color: 'text.primary', fontSize: { xs: 24, md: 30 }, '&:hover': { opacity: 0.7 } }} /> {/* Mobil ikon boyutu */}
   </Box>
 );
 
@@ -45,18 +45,21 @@ const PrevArrow: React.FC<ArrowProps> = ({ onClick }) => (
     sx={{
       position: 'absolute',
       top: '50%',
-      left: { xs: 16, md: 32 },
+      left: { xs: 8, md: 32 }, // Mobil için daha küçük sol boşluk
       transform: 'translateY(-50%)',
       zIndex: 2,
       cursor: 'pointer',
     }}
     onClick={onClick}
   >
-    <ArrowBackIosNew sx={{ color: 'text.primary', fontSize: 30, '&:hover': { opacity: 0.7 } }} />
+    <ArrowBackIosNew sx={{ color: 'text.primary', fontSize: { xs: 24, md: 30 }, '&:hover': { opacity: 0.7 } }} /> {/* Mobil ikon boyutu */}
   </Box>
 );
 
 const HeroSection = () => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm')); // 'sm' breakpoint'inin altında mobil olarak kabul edelim
+
   const settings = {
     dots: true,
     infinite: true,
@@ -90,19 +93,19 @@ const HeroSection = () => {
       />
       <Slider {...settings}>
         {heroSlidesData.map((slide) => (
-          // Her bir slayt artık kendi içinde bir Grid yapısı barındırıyor
           <Box key={slide.id}>
-            <Container maxWidth="lg" sx={{ py: { xs: 8, md: 10 } }}>
-              <Grid container spacing={{ xs: 4, md: 8 }} alignItems="center">
+            <Container maxWidth="lg" sx={{ py: { xs: 6, md: 10 } }}>
+              <Grid container spacing={{ xs: 4, md: 8 }} alignItems="center" direction={isMobile ? 'column-reverse' : 'row'}>
                 {/* Sol Taraf: Metin ve Buton */}
-                <Grid size={{ xs: 12, md: 6 }}>
+                <Grid size={{ xs: 12, md: 6 }}> {/* Dökümantasyondaki 'size' prop'u kullanıldı */}
                   <Box sx={{ textAlign: { xs: 'center', md: 'left' } }}>
                     <Typography
                       variant="h2"
                       component="h1"
                       sx={{
                         fontWeight: 700,
-                        fontSize: { xs: '2.5rem', md: '3.5rem' },
+                        fontSize: { xs: '2rem', sm: '2.5rem', md: '3.5rem' },
+                        lineHeight: { xs: 1.2, md: 'normal' },
                         mb: 2,
                         color: 'text.primary',
                       }}
@@ -114,6 +117,7 @@ const HeroSection = () => {
                       component="p"
                       sx={{
                         mb: 4,
+                        fontSize: { xs: '1rem', sm: '1.25rem', md: '1.5rem' },
                         color: 'text.secondary',
                       }}
                     >
@@ -124,8 +128,8 @@ const HeroSection = () => {
                       href={slide.buttonLink}
                       variant="contained"
                       color="primary"
-                      size="large"
-                      sx={{ py: 1.5, px: 5, fontSize: '1.1rem' }}
+                      size={isMobile ? 'medium' : 'large'}
+                      sx={{ py: { xs: 1, md: 1.5 }, px: { xs: 3, md: 5 }, fontSize: { xs: '0.9rem', md: '1.1rem' } }}
                     >
                       {slide.buttonText}
                     </Button>
@@ -133,18 +137,18 @@ const HeroSection = () => {
                 </Grid>
 
                 {/* Sağ Taraf: Görsel */}
-                <Grid size={{ xs: 12, md: 6 }}>
+                <Grid size={{ xs: 12, md: 6 }}> {/* Dökümantasyondaki 'size' prop'u kullanıldı */}
                   <Box
                     sx={{
-                      height: { xs: 300, sm: 400, md: 450 },
+                      height: { xs: 200, sm: 300, md: 450 },
                       width: '100%',
                       borderRadius: '16px',
                       boxShadow: 6,
                       backgroundImage: `url(${slide.imageUrl})`,
-                      // --- DEĞİŞİKLİK BURADA ---
-                      backgroundSize: 'contain', // 'cover' yerine 'contain' kullanıldı
+                      backgroundSize: 'contain',
                       backgroundPosition: 'center',
-                      backgroundRepeat: 'no-repeat', // Resmin tekrarlanmasını engelle
+                      backgroundRepeat: 'no-repeat',
+                      mt: { xs: 4, md: 0 },
                     }}
                   />
                 </Grid>
