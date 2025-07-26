@@ -3,8 +3,14 @@ import { getPostData, getAllPostIds } from '@/lib/posts';
 import { Container, Typography, Box, Divider } from '@mui/material';
 import type { Metadata } from 'next';
 
+// Prop tiplerini daha net bir şekilde tanımlıyoruz
+type Props = {
+  params: { id: string };
+  searchParams: { [key: string]: string | string[] | undefined };
+};
+
 // Dinamik SEO bilgileri için metadata fonksiyonu
-export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const postData = await getPostData(params.id);
   return {
     title: postData.title,
@@ -18,8 +24,7 @@ export async function generateStaticParams() {
   return paths;
 }
 
-// Hatanın düzeltildiği kısım burası
-export default async function PostPage({ params }: { params: { id: string } }) {
+export default async function PostPage({ params }: Props) {
   const postData = await getPostData(params.id);
 
   return (
@@ -30,7 +35,7 @@ export default async function PostPage({ params }: { params: { id: string } }) {
           {postData.title}
         </Typography>
 
-        {/* Yazar ve Tarih Bilgisi */}
+        {/* Yazar ve Tarih Bilgisi (DEĞİŞİKLİK BURADA) */}
         <Typography variant="body1" color="text.secondary" sx={{ mb: 3 }}>
           Yazar: {postData.author} | Yayınlanma Tarihi: {new Date(postData.date).toLocaleDateString('tr-TR', { year: 'numeric', month: 'long', day: 'numeric' })}
         </Typography>
