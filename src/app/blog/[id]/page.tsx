@@ -1,31 +1,47 @@
 // src/app/blog/[id]/page.tsx
 import { getPostData, getAllPostIds } from '@/lib/posts';
 import { Container, Typography, Box, Divider } from '@mui/material';
-import type { Metadata } from 'next';
+import type { Metadata, ResolvingMetadata } from 'next'; // 'ResolvingMetadata' tipi eklendi
 
-// Prop tiplerini daha net bir şekilde tanımlıyoruz
+// Prop tiplerini Next.js 15 breaking change'ine göre güncelliyoruz.
+// 'params' ve 'searchParams' artık Promise tipinde.
 type Props = {
-  params: Record<string, string>; // 'id: string' yerine daha genel 'Record<string, string>' kullanıldı
-  searchParams: { [key: string]: string | string[] | undefined };
+  params: Promise<{ id: string }>;
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 };
 
-// Dinamik SEO bilgileri için metadata fonksiyonu
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const postData = await getPostData(params.id);
+// Dinamik SEO bilgileri için generateMetadata fonksiyonu
+export async function generateMetadata(
+  { params, searchParams }: Props, // Destructuring yaparken Promise'leri yakalıyoruz
+  parent: ResolvingMetadata // Üst segmentlerden gelen metadata için 'parent' parametresi
+): Promise<Metadata> {
+  const resolvedParams = await params; // params Promise olduğu için 'await' ediyoruz
+  const postData = await getPostData(resolvedParams.id);
+
+  // İsteğe bağlı olarak üst metadata'ya erişebilir ve genişletebiliriz (dökümantasyon örneğinden alınmıştır)
+  const previousImages = (await parent).openGraph?.images || [];
+
   return {
     title: postData.title,
     description: postData.contentHtml.substring(0, 160), // İçeriğin ilk 160 karakterini açıklama yap
+    openGraph: { // Dökümantasyon örneğinden bir openGraph alanı eklendi
+      images: ['/default-blog-image.jpg', ...previousImages],
+    },
   };
 }
 
-// Tüm olası blog sayfalarını Next.js'e bildiren fonksiyon
-export function generateStaticParams() { // 'async' anahtar kelimesi kaldırıldı
+// Tüm olası blog sayfalarını Next.js'e bildiren fonksiyon (Bu fonksiyon senkron kalabilir)
+export function generateStaticParams() {
   const paths = getAllPostIds();
   return paths;
 }
 
-export default async function PostPage({ params }: Props) {
-  const postData = await getPostData(params.id);
+export default async function PostPage({ params, searchParams }: Props) {
+  const resolvedParams = await params; // Sayfa bileşeninde de params Promise olduğu için 'await' ediyoruz
+  // searchParams'ı doğrudan kullanmıyorsanız await etmenize gerek yok, ancak tip tutarlılığı için yapabilirsiniz:
+  // const resolvedSearchParams = await searchParams;
+
+  const postData = await getPostData(resolvedParams.id);
 
   return (
     <Container maxWidth="md" sx={{ py: 8 }}>
@@ -35,7 +51,7 @@ export default async function PostPage({ params }: Props) {
           {postData.title}
         </Typography>
 
-        {/* Yazar ve Tarih Bilgisi (DEĞİŞİKLİK BURADA) */}
+        {/* Yazar ve Tarih Bilgisi */}
         <Typography variant="body1" color="text.secondary" sx={{ mb: 3 }}>
           Yazar: {postData.author} | Yayınlanma Tarihi: {new Date(postData.date).toLocaleDateString('tr-TR', { year: 'numeric', month: 'long', day: 'numeric' })}
         </Typography>
