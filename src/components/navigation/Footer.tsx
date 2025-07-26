@@ -6,6 +6,7 @@ import { Box, Container, Typography, Link as MuiLink, Grid, Stack } from '@mui/m
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import GitHubIcon from '@mui/icons-material/GitHub';
+import Link from 'next/link';
 
 // Sayfa içinde belirli bir bölüme pürüzsüz kaydırma (smooth scroll) fonksiyonu
 const scrollToSection = (sectionId: string) => {
@@ -59,6 +60,8 @@ const Footer = () => {
               Şirket
             </Typography>
             <Stack spacing={1}>
+              {/* Blog Linki */}
+              <MuiLink component={Link} href="/blog" variant="body2" color="text.secondary">Blog</MuiLink>
               <MuiLink component="button" onClick={() => scrollToSection('iletisim')} variant="body2" color="text.secondary" sx={{ textAlign: 'left' }}>İletişim</MuiLink>
               <MuiLink href="/cerez-politikasi" variant="body2" color="text.secondary">Çerez Politikası</MuiLink>
             </Stack>

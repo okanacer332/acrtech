@@ -18,19 +18,22 @@ const Navbar = () => {
     <AppBar position="sticky" component="nav" sx={{ bgcolor: 'background.default', color: 'text.primary', boxShadow: '0px 1px 4px rgba(0, 0, 0, 0.08)' }}>
       <Container maxWidth="lg">
         <Toolbar disableGutters>
-          {/* Logo */}
           <Typography variant="h6" component="div" sx={{ flexGrow: 1, fontWeight: 'bold' }}>
             <Link href="/" style={{ textDecoration: 'none', color: 'inherit' }}>
               acrtech
             </Link>
           </Typography>
 
-          {/* İletişim Butonu */}
           <Box>
+            {/* Blog Linki */}
+            <Button component={Link} href="/blog" sx={{ color: 'text.primary', fontWeight: 500 }}>
+              Blog
+            </Button>
             <Button
               variant="contained"
               color="primary"
-              onClick={() => scrollToSection('iletisim')} // Tıklandığında 'iletisim' ID'li bölüme kaydır
+              onClick={() => scrollToSection('iletisim')}
+              sx={{ ml: 2 }}
             >
               İletişim
             </Button>
