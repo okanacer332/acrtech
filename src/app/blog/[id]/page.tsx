@@ -5,7 +5,7 @@ import type { Metadata } from 'next';
 
 // Prop tiplerini daha net bir şekilde tanımlıyoruz
 type Props = {
-  params: { id: string };
+  params: Record<string, string>; // 'id: string' yerine daha genel 'Record<string, string>' kullanıldı
   searchParams: { [key: string]: string | string[] | undefined };
 };
 
