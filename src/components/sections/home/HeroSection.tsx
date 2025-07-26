@@ -5,61 +5,56 @@ import React from 'react';
 import Slider from 'react-slick';
 import { Box, Typography, Button, Container, GlobalStyles, Grid, useTheme, useMediaQuery } from '@mui/material';
 import Link from 'next/link';
-import Image from 'next/image'; // Image bileşenini import ediyoruz
+import Image from 'next/image';
 import { heroSlidesData } from '@/data/heroSlidesData';
 
-// İkonları import ediyoruz
 import ArrowForwardIos from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosNew from '@mui/icons-material/ArrowBackIosNew';
 
-// Gerekli CSS dosyaları
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-// TypeScript için props tiplerini tanımlıyoruz
 interface ArrowProps {
   onClick?: React.MouseEventHandler<HTMLDivElement>;
 }
 
-// Özel "İleri" oku bileşeni
 const NextArrow: React.FC<ArrowProps> = ({ onClick }) => (
   <Box
     className="slick-arrow"
     sx={{
       position: 'absolute',
       top: '50%',
-      right: { xs: 8, md: 32 }, // Mobil için daha küçük sağ boşluk
+      right: { xs: 8, md: 32 },
       transform: 'translateY(-50%)',
       zIndex: 2,
       cursor: 'pointer',
     }}
     onClick={onClick}
   >
-    <ArrowForwardIos sx={{ color: 'text.primary', fontSize: { xs: 24, md: 30 }, '&:hover': { opacity: 0.7 } }} /> {/* Mobil ikon boyutu */}
+    <ArrowForwardIos sx={{ color: 'text.primary', fontSize: { xs: 24, md: 30 }, '&:hover': { opacity: 0.7 } }} />
   </Box>
 );
 
-// Özel "Geri" oku bileşeni
 const PrevArrow: React.FC<ArrowProps> = ({ onClick }) => (
   <Box
     className="slick-arrow"
     sx={{
       position: 'absolute',
       top: '50%',
-      left: { xs: 8, md: 32 }, // Mobil için daha küçük sol boşluk
+      left: { xs: 8, md: 32 },
       transform: 'translateY(-50%)',
       zIndex: 2,
       cursor: 'pointer',
     }}
     onClick={onClick}
   >
-    <ArrowBackIosNew sx={{ color: 'text.primary', fontSize: { xs: 24, md: 30 }, '&:hover': { opacity: 0.7 } }} /> {/* Mobil ikon boyutu */}
+    <ArrowBackIosNew sx={{ color: 'text.primary', fontSize: { xs: 24, md: 30 }, '&:hover': { opacity: 0.7 } }} />
   </Box>
 );
 
 const HeroSection = () => {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm')); // 'sm' breakpoint'inin altında mobil olarak kabul edelim
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   const settings = {
     dots: true,
@@ -71,7 +66,7 @@ const HeroSection = () => {
     autoplaySpeed: 5000,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
-    fade: true, // Yumuşak geçiş için fade efekti
+    fade: true,
   };
 
   return (
@@ -96,10 +91,9 @@ const HeroSection = () => {
         {heroSlidesData.map((slide) => (
           <Box key={slide.id}>
             <Container maxWidth="lg" sx={{ py: { xs: 6, md: 10 } }}>
-              {/* Grid container prop'unu koruyoruz */}
               <Grid container spacing={{ xs: 4, md: 8 }} alignItems="center" direction={isMobile ? 'column-reverse' : 'row'}>
-                {/* Sol Taraf: Metin ve Buton - Grid size prop'u kullanıldı */}
-                <Grid size={{ xs: 12, md: 6 }}> {/* 'item xs={12} md={6}' yerine 'size={{ xs: 12, md: 6 }}' kullanıldı */}
+                {/* Sol Taraf: Metin ve Buton */}
+                <Grid size={{ xs: 12, md: 6 }}>
                   <Box sx={{ textAlign: { xs: 'center', md: 'left' } }}>
                     <Typography
                       variant="h2"
@@ -138,26 +132,26 @@ const HeroSection = () => {
                   </Box>
                 </Grid>
 
-                {/* Sağ Taraf: Görsel - Grid size prop'u kullanıldı */}
-                <Grid size={{ xs: 12, md: 6 }}> {/* 'item xs={12} md={6}' yerine 'size={{ xs: 12, md: 6 }}' kullanıldı */}
+                {/* Sağ Taraf: Görsel - objectFit: 'cover' olarak güncellendi */}
+                <Grid size={{ xs: 12, md: 6 }}>
                   <Box
                     sx={{
-                      position: 'relative', // Image'ın 'fill' prop'u için kapsayıcı olarak relative konumlandırma
-                      height: { xs: 200, sm: 300, md: 450 }, // Yüksekliği sabit tutarak alan ayırıyoruz
+                      position: 'relative',
+                      height: { xs: 200, sm: 300, md: 450 },
                       width: '100%',
                       borderRadius: '16px',
                       boxShadow: 6,
                       mt: { xs: 4, md: 0 },
-                      overflow: 'hidden', // Resim köşelerini kapsayıcıya uydurmak için
+                      overflow: 'hidden',
                     }}
                   >
                     <Image
                       src={slide.imageUrl}
-                      alt={slide.title} // Anlamlı bir alt metin ekleyin
-                      fill // Kapsayıcı Box'ın tamamını doldurur
-                      style={{ objectFit: 'contain' }} // Resmin Box içinde nasıl konumlanacağını belirler (backgroundSize: 'contain' eşdeğeri)
-                      sizes="(max-width: 768px) 100vw, 50vw" // Duyarlı görsel boyutlandırma için (performans ve CLS için önemlidir)
-                      priority // İlk yüklenen görseller olduğu için öncelik veriyoruz
+                      alt={slide.title}
+                      fill
+                      style={{ objectFit: 'cover' }} // Değişiklik burada: 'contain' yerine 'cover'
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      priority
                     />
                   </Box>
                 </Grid>
