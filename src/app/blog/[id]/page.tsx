@@ -18,7 +18,14 @@ export async function generateStaticParams() {
   return paths;
 }
 
-export default async function PostPage({ params }: { params: { id: string } }) {
+// Hatanın düzeltildiği kısım burası
+interface PostPageProps {
+  params: {
+    id: string;
+  };
+}
+
+export default async function PostPage({ params }: PostPageProps) {
   const postData = await getPostData(params.id);
 
   return (
