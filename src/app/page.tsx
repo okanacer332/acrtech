@@ -4,22 +4,28 @@ import ServicesSection from '@/components/sections/home/ServicesSection';
 import ReferencesSection from '@/components/sections/home/ReferencesSection';
 import WhyUsSection from '@/components/sections/home/WhyUsSection';
 import CtaSection from '@/components/sections/home/CtaSection';
-import { Divider } from '@mui/material'; // Bölücü çizgiyi import ediyoruz
+import TestimonialsSection from '@/components/sections/home/TestimonialsSection'; // TestimonialsSection import edildi
+import { Divider } from '@mui/material';
 
 export default function HomePage() {
   return (
     <>
       <HeroSection />
 
-      <Divider variant="middle" sx={{ my: 4 }} /> 
+      <Divider variant="middle" sx={{ my: 4 }} />
       <ServicesSection />
 
       {/* Hizmetler ve Referanslar arasına bir ayırıcı ekliyoruz */}
-      <Divider variant="middle" sx={{ my: 4 }} /> 
+      <Divider variant="middle" sx={{ my: 4 }} />
 
       <ReferencesSection />
 
-      {/* Referanslar ve Neden Biz arasına bir ayırıcı ekliyoruz */}
+      {/* Referanslar ve Müşteri Yorumları arasına bir ayırıcı ekliyoruz */}
+      <Divider variant="middle" sx={{ my: 4 }} />
+
+      <TestimonialsSection /> {/* TestimonialsSection buraya eklendi */}
+
+      {/* Müşteri Yorumları ve Neden Biz arasına bir ayırıcı ekliyoruz */}
       <Divider variant="middle" sx={{ my: 4 }} />
 
       <WhyUsSection />
