@@ -5,15 +5,15 @@ import { ThemeProvider } from '@mui/material/styles';
 import theme from '@/theme/theme';
 import Navbar from '@/components/navigation/Navbar';
 import Footer from '@/components/navigation/Footer';
-import GoogleAnalytics from '@/components/analytics/GoogleAnalytics'; // Analytics bileşenini import et
+import GoogleTagManager from '@/components/analytics/GoogleTagManager'; // GTM bileşenini import ediyoruz
 import { Box, CssBaseline } from '@mui/material';
 import type { Metadata } from 'next';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-// Google Analytics Ölçüm Kimliği
-const GA_MEASUREMENT_ID = 'G-FGVHFN9HHZ'; // KİMLİK GÜNCELLENDİ
+// Google Tag Manager Kapsayıcı Kimliği
+const GTM_ID = 'GTM-57R3ZQVW'; // KİMLİK GÜNCELLENDİ
 
 export const metadata: Metadata = {
   title: {
@@ -36,9 +36,9 @@ const inter = Inter({
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="tr" className={inter.className}>
-      {/* Google Analytics bileşenini body'nin sonuna ekliyoruz */}
-      <GoogleAnalytics gaId={GA_MEASUREMENT_ID} />
       <body>
+        {/* GTM Body kodunu body'nin hemen başına ekliyoruz */}
+        <GoogleTagManager gtmId={GTM_ID} />
         <AppRouterCacheProvider>
           <ThemeProvider theme={theme}>
             <CssBaseline />
