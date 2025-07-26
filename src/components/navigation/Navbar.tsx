@@ -5,8 +5,8 @@ import React from 'react';
 import Link from 'next/link';
 import { AppBar, Toolbar, Typography, Button, Box, Container } from '@mui/material';
 
-// Sayfa içinde belirli bir bölüme pürüzsüz kaydırma (smooth scroll) fonksiyonu
 const scrollToSection = (sectionId: string) => {
+  // Bu fonksiyon sadece tarayıcıda çalışır, bu yüzden sorun yok.
   const section = document.getElementById(sectionId);
   if (section) {
     section.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -25,7 +25,6 @@ const Navbar = () => {
           </Typography>
 
           <Box>
-            {/* Blog Linki */}
             <Button component={Link} href="/blog" sx={{ color: 'text.primary', fontWeight: 500 }}>
               Blog
             </Button>

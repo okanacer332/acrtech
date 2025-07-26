@@ -8,7 +8,6 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import Link from 'next/link';
 
-// Sayfa içinde belirli bir bölüme pürüzsüz kaydırma (smooth scroll) fonksiyonu
 const scrollToSection = (sectionId: string) => {
   const section = document.getElementById(sectionId);
   if (section) {
@@ -21,7 +20,6 @@ const Footer = () => {
     <Box component="footer" sx={{ py: 6, bgcolor: 'background.paper', borderTop: '1px solid', borderColor: 'divider' }}>
       <Container maxWidth="lg">
         <Grid container spacing={4}>
-          {/* Sol Taraf: Logo ve Sosyal Medya */}
           <Grid size={{ xs: 12, md: 4 }}>
             <Typography variant="h5" component="div" sx={{ fontWeight: 'bold', mb: 2 }}>
               acrtech
@@ -42,7 +40,6 @@ const Footer = () => {
             </Stack>
           </Grid>
 
-          {/* Orta Taraf: Hizmetler */}
           <Grid size={{ xs: 6, md: 4 }}>
             <Typography variant="h6" sx={{ fontWeight: 600, mb: 2 }}>
               Çözümlerimiz
@@ -54,13 +51,11 @@ const Footer = () => {
             </Stack>
           </Grid>
 
-          {/* Sağ Taraf: Şirket */}
           <Grid size={{ xs: 6, md: 4 }}>
             <Typography variant="h6" sx={{ fontWeight: 600, mb: 2 }}>
               Şirket
             </Typography>
             <Stack spacing={1}>
-              {/* Blog Linki */}
               <MuiLink component={Link} href="/blog" variant="body2" color="text.secondary">Blog</MuiLink>
               <MuiLink component="button" onClick={() => scrollToSection('iletisim')} variant="body2" color="text.secondary" sx={{ textAlign: 'left' }}>İletişim</MuiLink>
               <MuiLink href="/cerez-politikasi" variant="body2" color="text.secondary">Çerez Politikası</MuiLink>
@@ -68,7 +63,6 @@ const Footer = () => {
           </Grid>
         </Grid>
 
-        {/* Alt Kısım: Telif Hakkı */}
         <Box sx={{ mt: 6, pt: 3, borderTop: '1px solid', borderColor: 'divider', textAlign: 'center' }}>
           <Typography variant="body2" color="text.secondary">
             © {new Date().getFullYear()} acrtech. Tüm Hakları Saklıdır.

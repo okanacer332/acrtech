@@ -7,7 +7,6 @@ import {
   Dialog, DialogActions, DialogContent, DialogTitle, FormGroup, FormControlLabel, Switch
 } from '@mui/material';
 
-// Kullanıcının çerez tercihlerini saklayacak arayüz
 interface ConsentPreferences {
   necessary: boolean;
   analytics: boolean;
@@ -15,7 +14,7 @@ interface ConsentPreferences {
 }
 
 const CookieConsent = () => {
-  const [visible, setVisible] = useState(false);
+  const [showBanner, setShowBanner] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [preferences, setPreferences] = useState<ConsentPreferences>({
     necessary: true,
@@ -24,9 +23,12 @@ const CookieConsent = () => {
   });
 
   useEffect(() => {
+    // Bu kod sadece tarayıcıda çalışır.
+    // Sayfa yüklendikten sonra, kullanıcının seçim yapıp yapmadığını kontrol et.
     const consent = localStorage.getItem('cookie_consent');
     if (!consent) {
-      setVisible(true);
+      // Eğer seçim yoksa, banner'ı göster.
+      setShowBanner(true);
     }
   }, []);
 
@@ -39,7 +41,7 @@ const CookieConsent = () => {
 
   const savePreferences = (prefs: ConsentPreferences) => {
     localStorage.setItem('cookie_consent', JSON.stringify(prefs));
-    setVisible(false);
+    setShowBanner(false);
     setSettingsOpen(false);
   };
 
@@ -55,7 +57,9 @@ const CookieConsent = () => {
     savePreferences(preferences);
   };
 
-  if (!visible) {
+  // Eğer banner'ın gösterilmesi gerekmiyorsa, hiçbir şey render etme.
+  // Bu, sunucu ve tarayıcının ilk render'ının aynı olmasını sağlar.
+  if (!showBanner) {
     return null;
   }
 
@@ -100,7 +104,6 @@ const CookieConsent = () => {
         </Box>
       </Paper>
 
-      {/* Kişiselleştirme Ayarları Penceresi (Dialog) */}
       <Dialog open={settingsOpen} onClose={() => setSettingsOpen(false)}>
         <DialogTitle>Çerez Ayarları</DialogTitle>
         <DialogContent dividers>
