@@ -1,0 +1,43 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# Bağımlılıklar (Dependencies)
+# Bu klasör, 'npm install' komutuyla yeniden oluşturulabilir.
+/node_modules
+
+# Next.js build çıktıları (Build outputs)
+# Bu klasör, 'npm run build' komutuyla yeniden oluşturulur.
+/.next/
+
+# Statik site export çıktıları
+/out/
+
+# Üretim (Production)
+# Sadece canlıya alındığında oluşturulan dosyalar.
+/build
+
+# Çeşitli (Miscellaneous)
+# İşletim sistemi tarafından oluşturulan dosyalar
+.DS_Store
+*.pem
+
+# NPM tarafından oluşturulan log ve debug dosyaları
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Editör konfigürasyonları
+.vscode/
+.idea/
+
+# Ortam değişkenleri (Environment variables)
+# API anahtarları gibi GİZLİ bilgileri içerir. ASLA GÖNDERİLMEZ.
+.env
+.env*.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# TurboRepo cache
+.turbo
+
