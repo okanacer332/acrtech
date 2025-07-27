@@ -24,7 +24,8 @@ export default function BlogPage() {
           <Card key={id} sx={{ boxShadow: 3, borderRadius: '16px', transition: 'transform 0.2s', '&:hover': { transform: 'scale(1.02)' } }}>
             <CardContent sx={{ p: {xs: 2, sm: 4} }}>
               <Typography variant="h4" component="h2" sx={{ fontWeight: 600, mb: 1 }}>
-                <MuiLink component={Link} href={`/blog/${id}`} underline="hover" color="inherit">
+                {/* Başlık linki için aria-label eklendi */}
+                <MuiLink component={Link} href={`/blog/${id}`} underline="hover" color="inherit" aria-label={`${title} başlıklı yazıyı oku`}>
                   {title}
                 </MuiLink>
               </Typography>
@@ -34,7 +35,8 @@ export default function BlogPage() {
               <Typography variant="body1" color="text.secondary" sx={{ mb: 3 }}>
                 {excerpt}
               </Typography>
-              <Button component={Link} href={`/blog/${id}`} variant="contained">
+              {/* Devamını Oku butonu için aria-label eklendi */}
+              <Button component={Link} href={`/blog/${id}`} variant="contained" aria-label={`${title} yazısının devamını oku`}>
                 Devamını Oku
               </Button>
             </CardContent>

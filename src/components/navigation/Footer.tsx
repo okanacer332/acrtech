@@ -30,13 +30,16 @@ const Footer = () => {
               KOBİ&apos;ler için verimliliği artıran modern teknoloji çözümleri.
             </Typography>
             <Stack direction="row" spacing={1}>
-              <MuiLink href="https://linkedin.com" target="_blank" rel="noopener noreferrer" color="text.secondary">
+              {/* LinkedIn Linki için aria-label eklendi */}
+              <MuiLink href="https://linkedin.com" target="_blank" rel="noopener noreferrer" color="text.secondary" aria-label="LinkedIn profilimizi ziyaret edin">
                 <LinkedInIcon />
               </MuiLink>
-              <MuiLink href="https://twitter.com" target="_blank" rel="noopener noreferrer" color="text.secondary">
+              {/* Twitter Linki için aria-label eklendi */}
+              <MuiLink href="https://twitter.com" target="_blank" rel="noopener noreferrer" color="text.secondary" aria-label="Twitter profilimizi ziyaret edin">
                 <TwitterIcon />
               </MuiLink>
-              <MuiLink href="https://github.com" target="_blank" rel="noopener noreferrer" color="text.secondary">
+              {/* GitHub Linki için aria-label eklendi */}
+              <MuiLink href="https://github.com" target="_blank" rel="noopener noreferrer" color="text.secondary" aria-label="GitHub sayfamızı ziyaret edin">
                 <GitHubIcon />
               </MuiLink>
             </Stack>
@@ -47,10 +50,10 @@ const Footer = () => {
               Çözümlerimiz
             </Typography>
             <Stack spacing={1}>
-              {/* ÖNEMLİ DEĞİŞİKLİK BURADA: Next.js Link kullanıyoruz ve ana sayfaya hash ile yönlendiriyoruz */}
-              <MuiLink component={Link} href="/#hizmetler" passHref variant="body2" color="text.secondary" sx={{ textAlign: 'left' }}>Envanter Yönetimi & ERP</MuiLink>
-              <MuiLink component={Link} href="/#hizmetler" passHref variant="body2" color="text.secondary" sx={{ textAlign: 'left' }}>Web Tasarım & Geliştirme</MuiLink>
-              <MuiLink component={Link} href="/#hizmetler" passHref variant="body2" color="text.secondary" sx={{ textAlign: 'left' }}>SEO Stratejileri</MuiLink>
+              {/* Çözümler linkleri için aria-label eklendi (kontext eklemek için) */}
+              <MuiLink component={Link} href="/#hizmetler" passHref variant="body2" color="text.secondary" sx={{ textAlign: 'left' }} aria-label="Hizmetler sayfasındaki Envanter Yönetimi ve ERP çözümlerine git">Envanter Yönetimi & ERP</MuiLink>
+              <MuiLink component={Link} href="/#hizmetler" passHref variant="body2" color="text.secondary" sx={{ textAlign: 'left' }} aria-label="Hizmetler sayfasındaki Web Tasarım ve Geliştirme çözümlerine git">Web Tasarım & Geliştirme</MuiLink>
+              <MuiLink component={Link} href="/#hizmetler" passHref variant="body2" color="text.secondary" sx={{ textAlign: 'left' }} aria-label="Hizmetler sayfasındaki SEO Stratejileri çözümlerine git">SEO Stratejileri</MuiLink>
             </Stack>
           </Grid>
 
@@ -59,10 +62,10 @@ const Footer = () => {
               Şirket
             </Typography>
             <Stack spacing={1}>
-              <MuiLink component={Link} href="/blog" variant="body2" color="text.secondary">Blog</MuiLink>
-              {/* ÖNEMLİ DEĞİŞİKLİK BURADA: Next.js Link kullanıyoruz ve ana sayfaya hash ile yönlendiriyoruz */}
-              <MuiLink component={Link} href="/#iletisim" passHref variant="body2" color="text.secondary" sx={{ textAlign: 'left' }}>İletişim</MuiLink>
-              <MuiLink href="/cerez-politikasi" variant="body2" color="text.secondary">Çerez Politikası</MuiLink>
+              {/* Şirket linkleri için aria-label eklendi (kontext eklemek için) */}
+              <MuiLink component={Link} href="/blog" variant="body2" color="text.secondary" aria-label="Blog sayfamızı ziyaret edin">Blog</MuiLink>
+              <MuiLink component={Link} href="/#iletisim" passHref variant="body2" color="text.secondary" sx={{ textAlign: 'left' }} aria-label="İletişim bölümüne git">İletişim</MuiLink>
+              <MuiLink href="/cerez-politikasi" variant="body2" color="text.secondary" aria-label="Çerez Politikası sayfamızı inceleyin">Çerez Politikası</MuiLink>
             </Stack>
           </Grid>
         </Grid>

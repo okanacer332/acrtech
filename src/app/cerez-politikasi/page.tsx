@@ -81,9 +81,12 @@ const PolicyPage = () => {
         Tarayıcınızın ayarlarını kullanarak çerezleri yönetebilir, silebilir veya tamamen engelleyebilirsiniz. Ancak, zorunlu çerezleri engellemenin sitenin işlevselliğini olumsuz etkileyebileceğini unutmayın. Tarayıcınızda çerez ayarlarını nasıl değiştireceğinize dair bilgilere aşağıdaki linklerden ulaşabilirsiniz:
       </Paragraph>
        <List>
-            <ListItem><MuiLink href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener">Google Chrome</MuiLink></ListItem>
-            <ListItem><MuiLink href="https://support.mozilla.org/tr/kb/web-sitesi-tercihleri-cerezleri-etkinlestirme-ve-devre-disi-birakma" target="_blank" rel="noopener">Mozilla Firefox</MuiLink></ListItem>
-            <ListItem><MuiLink href="https://support.microsoft.com/tr-tr/windows/tan%C4%B1mlama-bilgilerini-silme-ve-y%C3%B6netme-168dab11-0753-043d-7c16-ede5947fc64d" target="_blank" rel="noopener">Microsoft Edge</MuiLink></ListItem>
+            {/* Google Chrome linki için aria-label eklendi */}
+            <ListItem><MuiLink href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener" aria-label="Google Chrome çerez ayarları sayfasına yeni sekmede git">Google Chrome</MuiLink></ListItem>
+            {/* Mozilla Firefox linki için aria-label eklendi */}
+            <ListItem><MuiLink href="https://support.mozilla.org/tr/kb/web-sitesi-tercihleri-cerezleri-etkinlestirme-ve-devre-disi-birakma" target="_blank" rel="noopener" aria-label="Mozilla Firefox çerez ayarları sayfasına yeni sekmede git">Mozilla Firefox</MuiLink></ListItem>
+            {/* Microsoft Edge linki için aria-label eklendi */}
+            <ListItem><MuiLink href="https://support.microsoft.com/tr-tr/windows/tan%C4%B1mlama-bilgilerini-silme-ve-y%C3%B6netme-168dab11-0753-043d-7c16-ede5947fc64d" target="_blank" rel="noopener" aria-label="Microsoft Edge çerez ayarları sayfasına yeni sekmede git">Microsoft Edge</MuiLink></ListItem>
        </List>
        <Paragraph>
         Ayrıca, sitemizi ilk ziyaret ettiğinizde karşınıza çıkan çerez banner&apos;ı üzerinden de tercihlerinizi yönetebilirsiniz.

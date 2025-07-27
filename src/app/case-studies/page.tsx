@@ -1,5 +1,5 @@
 // src/app/case-studies/page.tsx
-import { getSortedCaseStudiesData } from '@/lib/caseStudies'; // Yeni yardımcı fonksiyonu import ediyoruz
+import { getSortedCaseStudiesData } from '@/lib/caseStudies';
 import { Container, Typography, Box, Card, CardContent, Button, Link as MuiLink } from '@mui/material';
 import Link from 'next/link';
 import type { Metadata } from 'next';
@@ -24,7 +24,8 @@ export default function CaseStudiesPage() {
           <Card key={slug} sx={{ boxShadow: 3, borderRadius: '16px', transition: 'transform 0.2s', '&:hover': { transform: 'scale(1.02)' } }}>
             <CardContent sx={{ p: {xs: 2, sm: 4} }}>
               <Typography variant="h4" component="h2" sx={{ fontWeight: 600, mb: 1 }}>
-                <MuiLink component={Link} href={`/case-studies/${slug}`} underline="hover" color="inherit">
+                {/* Başlık linki için aria-label eklendi */}
+                <MuiLink component={Link} href={`/case-studies/${slug}`} underline="hover" color="inherit" aria-label={`${title} başlıklı vaka analizini incele`}>
                   {title}
                 </MuiLink>
               </Typography>
@@ -34,7 +35,8 @@ export default function CaseStudiesPage() {
               <Typography variant="body1" color="text.secondary" sx={{ mb: 3 }}>
                 {excerpt}
               </Typography>
-              <Button component={Link} href={`/case-studies/${slug}`} variant="contained">
+              {/* Detayı İncele butonu için aria-label eklendi */}
+              <Button component={Link} href={`/case-studies/${slug}`} variant="contained" aria-label={`${title} vaka analizinin detayını incele`}>
                 Detayı İncele
               </Button>
             </CardContent>

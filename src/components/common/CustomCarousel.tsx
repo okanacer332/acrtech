@@ -2,7 +2,7 @@
 'use client';
 
 import React, { useState, useEffect, useCallback } from 'react';
-import { Box, IconButton, Typography, useTheme, useMediaQuery, Button } from '@mui/material'; // Button importu eklendi
+import { Box, IconButton, Typography, useTheme, useMediaQuery, Button } from '@mui/material';
 import Image from 'next/image';
 import Link from 'next/link';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
@@ -143,6 +143,7 @@ const CustomCarousel: React.FC<CustomCarouselProps> = ({ slides, autoplayInterva
       {/* Navigasyon Okları */}
       <IconButton
         onClick={prevSlide}
+        aria-label="Önceki slayt" // aria-label eklendi
         sx={{
           position: 'absolute',
           left: { xs: 8, md: 32 },
@@ -152,14 +153,14 @@ const CustomCarousel: React.FC<CustomCarouselProps> = ({ slides, autoplayInterva
           color: 'text.primary',
           bgcolor: 'rgba(255, 255, 255, 0.7)',
           '&:hover': { bgcolor: 'rgba(255, 255, 255, 0.9)' },
-          // isMobile kontrolü kaldırıldı, oklar artık her zaman görünür
-          display: 'flex',
+          display: 'flex', // Oklar artık mobil dahil her zaman görünür
         }}
       >
         <ArrowBackIosNewIcon sx={{ fontSize: { xs: 24, md: 30 } }} />
       </IconButton>
       <IconButton
         onClick={nextSlide}
+        aria-label="Sonraki slayt" // aria-label eklendi
         sx={{
           position: 'absolute',
           right: { xs: 8, md: 32 },
@@ -169,8 +170,7 @@ const CustomCarousel: React.FC<CustomCarouselProps> = ({ slides, autoplayInterva
           color: 'text.primary',
           bgcolor: 'rgba(255, 255, 255, 0.7)',
           '&:hover': { bgcolor: 'rgba(255, 255, 255, 0.9)' },
-          // isMobile kontrolü kaldırıldı, oklar artık her zaman görünür
-          display: 'flex',
+          display: 'flex', // Oklar artık mobil dahil her zaman görünür
         }}
       >
         <ArrowForwardIosIcon sx={{ fontSize: { xs: 24, md: 30 } }} />
