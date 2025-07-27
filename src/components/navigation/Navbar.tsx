@@ -1,7 +1,6 @@
-// src/components/navigation/Navbar.tsx
 'use client';
 
-import React, { useContext, useState } from 'react'; // useContext ve useState eklendi
+import React, { useContext, useState } from 'react';
 import Link from 'next/link';
 import {
   AppBar,
@@ -10,16 +9,16 @@ import {
   Button,
   Box,
   Container,
-  IconButton, // IconButton eklendi
-  Menu, // Menu eklendi
-  MenuItem, // MenuItem eklendi
-  useMediaQuery, // useMediaQuery eklendi
-  useTheme, // useTheme eklendi
+  IconButton,
+  Menu,
+  MenuItem,
+  useMediaQuery,
+  useTheme,
 } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu'; // Hamburger menü ikonu
-import Brightness4Icon from '@mui/icons-material/Brightness4'; // Karanlık mod ikonu
-import Brightness7Icon from '@mui/icons-material/Brightness7'; // Aydınlık mod ikonu
-import { ColorModeContext } from '@/app/layout'; // ColorModeContext import edildi
+import MenuIcon from '@mui/icons-material/Menu';
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
+import { ColorModeContext } from '@/app/layout';
 
 const scrollToSection = (sectionId: string) => {
   const section = document.getElementById(sectionId);
@@ -29,9 +28,9 @@ const scrollToSection = (sectionId: string) => {
 };
 
 const Navbar = () => {
-  const { toggleColorMode, mode } = useContext(ColorModeContext); // Context'ten mod ve toggle fonksiyonu alındı
-  const theme = useTheme(); // Temaya erişim
-  const isMobile = useMediaQuery(theme.breakpoints.down('md')); // md breakpoint'inin altında mobil görünüm
+  const { toggleColorMode, mode } = useContext(ColorModeContext);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
 
@@ -61,13 +60,13 @@ const Navbar = () => {
           {isMobile ? (
             <Box sx={{ display: 'flex', alignItems: 'center' }}>
               {/* Tema Değiştirme Butonu (Mobil) */}
-              <IconButton sx={{ ml: 1 }} onClick={toggleColorMode} color="inherit">
+              <IconButton sx={{ ml: 1 }} onClick={toggleColorMode} color="inherit" aria-label={mode === 'dark' ? 'Aydınlık moda geç' : 'Karanlık moda geç'}> {/* DEĞİŞİKLİK BURADA */}
                 {mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
               </IconButton>
               {/* Hamburger Menü */}
               <IconButton
                 size="large"
-                aria-label="account of current user"
+                aria-label="Menüyü aç" // DEĞİŞİKLİK BURADA
                 aria-controls="menu-appbar"
                 aria-haspopup="true"
                 onClick={handleOpenNavMenu}
@@ -121,7 +120,7 @@ const Navbar = () => {
                 İletişim
               </Button>
               {/* Tema Değiştirme Butonu (Masaüstü) */}
-              <IconButton sx={{ ml: 1 }} onClick={toggleColorMode} color="inherit">
+              <IconButton sx={{ ml: 1 }} onClick={toggleColorMode} color="inherit" aria-label={mode === 'dark' ? 'Aydınlık moda geç' : 'Karanlık moda geç'}> {/* DEĞİŞİKLİK BURADA */}
                 {mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
               </IconButton>
             </Box>

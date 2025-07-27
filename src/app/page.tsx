@@ -10,6 +10,15 @@ import { Divider } from '@mui/material';
 // Yeni oluşturduğumuz FadeInOnScroll bileşenini import ediyoruz
 import FadeInOnScroll from '@/components/common/FadeInOnScroll';
 
+// BURADA DEĞİŞİKLİK YAPILDI: Ana sayfa için metadata eklendi
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'acrtech - KOBİler için Teknoloji Çözümleri, ERP, Web Tasarım, SEO',
+  description: 'acrtech, KOBİ\'lere özel envanter yönetimi, ERP, web tasarım ve SEO stratejileri sunarak işletmelerin dijital dönüşümüne liderlik eder.',
+};
+
+
 export default function HomePage() {
   return (
     <>
