@@ -30,7 +30,7 @@ export default function HomePage() {
         <ServicesSection />
       </FadeInOnScroll>
 
-      {/* Hizmetler ve Referanslar arasına bir ayırıcı ekliyoruz */}
+      {/* Hizmetler ve Referanslar arasına bir ayırıyoruz */}
       <Divider variant="middle" sx={{ my: 4 }} />
 
       {/* ReferencesSection'ı FadeInOnScroll ile sarmalıyoruz */}
@@ -38,7 +38,7 @@ export default function HomePage() {
         <ReferencesSection />
       </FadeInOnScroll>
 
-      {/* Referanslar ve Müşteri Yorumları arasına bir ayırıcı ekliyoruz */}
+      {/* Referanslar ve Müşteri Yorumları arasına bir ayırıyoruz */}
       <Divider variant="middle" sx={{ my: 4 }} />
 
       {/* TestimonialsSection'ı FadeInOnScroll ile sarmalıyoruz */}
@@ -46,7 +46,7 @@ export default function HomePage() {
         <TestimonialsSection />
       </FadeInOnScroll>
 
-      {/* Müşteri Yorumları ve Neden Biz arasına bir ayırıcı ekliyoruz */}
+      {/* Müşteri Yorumları ve Neden Biz arasına bir ayırıyoruz */}
       <Divider variant="middle" sx={{ my: 4 }} />
 
       {/* WhyUsSection'ı FadeInOnScroll ile sarmalıyoruz */}
