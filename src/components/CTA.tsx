@@ -16,7 +16,7 @@ export function CTA({ mode }: CTAProps) {
 
   return (
     <section className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 md:px-8 bg-slate-900 relative overflow-hidden">
-      {/* Background Gradient */}
+
       <div className={`absolute inset-0 transition-colors duration-1000 ${
         mode === 'design'
           ? 'bg-gradient-to-br from-purple-900/20 via-fuchsia-900/20 to-slate-900'
@@ -43,7 +43,7 @@ export function CTA({ mode }: CTAProps) {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                {/* 1. BUTON: Contact Modal Tetikleyici */}
+                
                 <button 
                   onClick={() => setIsModalOpen(true)}
                   className={`group px-6 sm:px-8 py-3 sm:py-4 rounded-full text-white transition-all shadow-lg hover:shadow-2xl transform hover:scale-105 flex items-center justify-center gap-2 w-full sm:w-auto font-medium ${
@@ -56,7 +56,7 @@ export function CTA({ mode }: CTAProps) {
                   <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
                 
-                {/* 2. BUTON: WhatsApp SVG Icon Link */}
+                
                 <a 
                   href="https://wa.me/905362487703" 
                   target="_blank" 
@@ -74,7 +74,7 @@ export function CTA({ mode }: CTAProps) {
                 </a>
               </div>
 
-              {/* Stats Section */}
+              
               <div className="grid grid-cols-3 gap-4 sm:gap-6 md:gap-8 mt-12 sm:mt-16 pt-12 sm:pt-16 border-t border-white/10">
                 <div>
                   <p className={`text-2xl sm:text-3xl md:text-4xl mb-1 sm:mb-2 transition-colors duration-500 ${
@@ -110,7 +110,7 @@ export function CTA({ mode }: CTAProps) {
         </TransitionWrapper>
       </div>
 
-      {/* Decorative Elements */}
+      
       <div className={`absolute top-0 right-0 w-96 h-96 rounded-full blur-3xl transition-colors duration-1000 ${
         mode === 'design' ? 'bg-purple-500/10' : 'bg-blue-500/10'
       }`}></div>
@@ -118,7 +118,7 @@ export function CTA({ mode }: CTAProps) {
         mode === 'design' ? 'bg-fuchsia-500/10' : 'bg-cyan-500/10'
       }`}></div>
 
-      {/* Contact Modal */}
+      
       <ContactModal 
         isOpen={isModalOpen} 
         onOpenChange={setIsModalOpen}

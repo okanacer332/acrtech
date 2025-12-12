@@ -11,7 +11,6 @@ import { FocusAreas } from '@/src/components/FocusAreas';
 import { CTA } from '@/src/components/CTA';
 import { Footer } from '@/src/components/Footer';
 
-// DİKKAT: 'export default' yerine 'export' kullandık ve ismini değiştirdik.
 export function ClientHomeWrapper() {
   const { mode, toggleMode } = useMode();
   const [isScrolled, setIsScrolled] = useState(false);

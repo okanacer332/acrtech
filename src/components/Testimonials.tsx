@@ -20,7 +20,6 @@ export function Testimonials({ mode }: TestimonialsProps) {
         : 'bg-gradient-to-b from-slate-900 via-blue-900/10 to-slate-900'
     }`}>
       <div className="max-w-7xl mx-auto relative z-10">
-        {/* Section Header */}
         <TransitionWrapper modeKey={mode} className="text-center mb-12 sm:mb-16">
           <div className={`inline-block px-4 sm:px-6 py-2 rounded-full text-xs sm:text-sm mb-4 transition-colors duration-500 ${
             mode === 'design'
@@ -41,7 +40,6 @@ export function Testimonials({ mode }: TestimonialsProps) {
           </p>
         </TransitionWrapper>
 
-        {/* Testimonials Grid */}
         <TransitionWrapper modeKey={mode + "-testimonials"}>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {testimonials.map((testimonial, index) => (
@@ -53,7 +51,6 @@ export function Testimonials({ mode }: TestimonialsProps) {
                     : 'bg-slate-800/50 border-blue-500/20 hover:border-blue-500/40'
                 }`}
               >
-                {/* Rating */}
                 <div className="flex gap-1 mb-4 sm:mb-6">
                   {[...Array(testimonial.rating)].map((_, i) => (
                     <Star
@@ -65,12 +62,10 @@ export function Testimonials({ mode }: TestimonialsProps) {
                   ))}
                 </div>
 
-                {/* Testimonial Text */}
                 <p className="text-sm sm:text-base md:text-lg text-gray-300 mb-6 sm:mb-8 leading-relaxed">
                   "{testimonial.text}"
                 </p>
 
-                {/* Author */}
                 <div className="flex items-center gap-3 sm:gap-4">
                   <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br flex-shrink-0 transition-colors duration-300 ${
                     mode === 'design'

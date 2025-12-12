@@ -14,7 +14,6 @@ import {
 
 export function HubSidebar() {
   const pathname = usePathname();
-  // Dil kodunu alıyoruz (tr, en vs.)
   const { language } = useLanguage();
   const langPrefix = `/${language.toLowerCase()}`;
 
@@ -35,7 +34,6 @@ export function HubSidebar() {
   return (
     <aside className="hidden lg:flex flex-col w-64 shrink-0 h-[calc(100vh-64px)] sticky top-16 border-r border-white/5 bg-slate-950/50">
       
-      {/* ANA MENÜ */}
       <div className="p-4 space-y-1">
         <div className="text-xs font-semibold text-gray-500 mb-2 px-3 tracking-wider">KEŞFET</div>
         {menuItems.map((item) => {
@@ -57,7 +55,6 @@ export function HubSidebar() {
         })}
       </div>
 
-      {/* POPÜLER ETİKETLER */}
       <div className="p-4 mt-4 border-t border-white/5">
         <div className="flex items-center gap-2 text-xs font-semibold text-gray-500 mb-3 px-3 tracking-wider">
           <Flame className="w-3 h-3 text-orange-500" /> POPÜLER
@@ -72,7 +69,6 @@ export function HubSidebar() {
         </div>
       </div>
 
-      {/* ALT KISIM */}
       <div className="mt-auto p-4 border-t border-white/5">
         <div className="p-4 rounded-xl bg-gradient-to-br from-purple-900/20 to-blue-900/20 border border-white/5">
           <h4 className="text-sm font-medium text-white mb-1">Bülten</h4>

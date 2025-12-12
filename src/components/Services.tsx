@@ -16,18 +16,14 @@ export function Services({ mode }: ServicesProps) {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
   const [showAll, setShowAll] = useState(false);
 
-  // İkonları burada tanımlıyoruz (Sırası locale dosyasındaki ile AYNI olmalı)
   const designIcons = [Palette, Layers, TrendingUp, Map, Users];
   const codeIcons = [Database, Globe, Code, Layers, TrendingUp];
 
-  // Aktif verileri hazırlıyoruz
   const servicesList = mode === 'design' ? t.services.designServices : t.services.codeServices;
   const iconsList = mode === 'design' ? designIcons : codeIcons;
 
-  // Görüntülenecek servisleri filtrele
   const displayedServices = showAll ? servicesList : servicesList.slice(0, 4);
 
-  // Kart Render Fonksiyonu (Kod tekrarını önlemek için)
   const renderServiceCard = (service: any, index: number) => {
     const Icon = iconsList[index];
     const isExpanded = expandedIndex === index;
@@ -45,7 +41,6 @@ export function Services({ mode }: ServicesProps) {
               : 'bg-blue-500/5 border-blue-500/20 hover:bg-blue-500/10 hover:border-blue-500/30'
         }`}
       >
-        {/* Accordion Header */}
         <button
           onClick={() => setExpandedIndex(isExpanded ? null : index)}
           className="w-full p-3 sm:p-4 lg:p-5 flex items-center gap-3 sm:gap-4 text-left"
@@ -78,7 +73,6 @@ export function Services({ mode }: ServicesProps) {
           />
         </button>
         
-        {/* Accordion Content */}
         <div 
           className={`transition-all duration-300 ease-in-out ${
             isExpanded ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
@@ -96,7 +90,6 @@ export function Services({ mode }: ServicesProps) {
 
   return (
     <section id="services" className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 md:px-8 bg-slate-900 relative overflow-hidden">
-      {/* Background gradient */}
       <div className={`absolute inset-0 opacity-10 transition-colors duration-1000 ${
         mode === 'design' 
           ? 'bg-gradient-to-b from-purple-500/20 to-transparent' 
@@ -105,7 +98,6 @@ export function Services({ mode }: ServicesProps) {
 
       <div className="max-w-7xl mx-auto relative z-10">
         
-        {/* Section Header - Animasyonlu */}
         <TransitionWrapper modeKey={mode} className="text-center mb-12 sm:mb-16">
           <div className={`inline-block px-4 sm:px-6 py-2 rounded-full text-xs sm:text-sm mb-4 transition-colors duration-500 ${
             mode === 'design'
@@ -126,19 +118,14 @@ export function Services({ mode }: ServicesProps) {
           </p>
         </TransitionWrapper>
 
-        {/* Services Accordion Grid - Animasyonlu */}
         <TransitionWrapper modeKey={mode + "-services"}>
           
-          {/* MOBİL GÖRÜNÜM (Tek Sütun) */}
           <div className="flex flex-col gap-3 md:hidden">
             {displayedServices.map((service, index) => renderServiceCard(service, index))}
           </div>
 
-          {/* MASAÜSTÜ GÖRÜNÜM (İki Bağımsız Sütun - Masonry Etkisi) */}
-          {/* items-start: Sütunların içeriğe göre uzamasını sağlar, birbirini etkilemez */}
           <div className="hidden md:grid grid-cols-2 gap-4 items-start max-w-6xl mx-auto">
             
-            {/* Sol Sütun (Çift Sayılar: 0, 2, 4...) */}
             <div className="flex flex-col gap-4">
               {displayedServices.map((service, index) => {
                 if (index % 2 !== 0) return null; // Sadece çiftleri al
@@ -146,7 +133,6 @@ export function Services({ mode }: ServicesProps) {
               })}
             </div>
 
-            {/* Sağ Sütun (Tek Sayılar: 1, 3, 5...) */}
             <div className="flex flex-col gap-4">
               {displayedServices.map((service, index) => {
                 if (index % 2 === 0) return null; // Sadece tekleri al
@@ -158,7 +144,6 @@ export function Services({ mode }: ServicesProps) {
 
         </TransitionWrapper>
 
-        {/* Load More Button */}
         {servicesList.length > 4 && (
           <div className="flex justify-center mt-6 sm:mt-8">
             <button

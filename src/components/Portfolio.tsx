@@ -12,14 +12,12 @@ interface PortfolioProps {
 export function Portfolio({ mode }: PortfolioProps) {
   const { t } = useLanguage();
 
-  // Aktif modun projelerini seçiyoruz
   const activeProjects = mode === 'design' ? t.portfolio.designProjects : t.portfolio.codeProjects;
 
   return (
     <section id="portfolio" className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 md:px-8 bg-slate-900">
       <div className="max-w-7xl mx-auto">
         
-        {/* Başlık Bölümü - Animasyonlu */}
         <TransitionWrapper modeKey={mode} className="text-center mb-12 sm:mb-16">
           <div className={`inline-block px-4 sm:px-6 py-2 rounded-full text-xs sm:text-sm mb-4 ${
             mode === 'design'
@@ -40,7 +38,6 @@ export function Portfolio({ mode }: PortfolioProps) {
           </p>
         </TransitionWrapper>
 
-        {/* Projeler Grid - Animasyonlu */}
         <TransitionWrapper modeKey={mode + "-grid"}>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
             {activeProjects.map((project, index) => (
@@ -48,7 +45,6 @@ export function Portfolio({ mode }: PortfolioProps) {
                 key={index}
                 className={`group relative overflow-hidden rounded-3xl cursor-pointer h-64 sm:h-72 md:h-96`}
               >
-                {/* Project Image Background */}
                 <div className="absolute inset-0 w-full h-full">
                   <Image
                     src={project.image}
@@ -57,16 +53,13 @@ export function Portfolio({ mode }: PortfolioProps) {
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
-                  {/* Image Overlay for Readability */}
                   <div className={`absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors duration-500 ${
                     mode === 'design' ? 'group-hover:mix-blend-multiply bg-purple-950/20' : 'group-hover:mix-blend-multiply bg-blue-950/20'
                   }`}></div>
                   
-                  {/* Gradient Overlay at Bottom */}
                   <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
                 </div>
                 
-                {/* Content */}
                 <div className="absolute inset-0 p-6 sm:p-8 md:p-10 flex flex-col justify-end z-10">
                   <div className="transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
                     <div className={`inline-block px-3 py-1 rounded-full text-xs font-medium mb-3 backdrop-blur-md border ${
@@ -89,7 +82,6 @@ export function Portfolio({ mode }: PortfolioProps) {
           </div>
         </TransitionWrapper>
 
-        {/* CTA - GÜNCELLENEN KISIM */}
         <div className="text-center mt-8 sm:mt-12">
           <Link 
             href="/hub/projects"

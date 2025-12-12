@@ -6,7 +6,6 @@ import { MDXContent } from '@/src/components/hub/MDXContent';
 import { Badge } from '@/src/components/ui/badge';
 import { Button } from '@/src/components/ui/button';
 
-// --- 1. DİNAMİK METADATA ---
 export async function generateMetadata({ params }: { params: Promise<{ category: string; slug: string; lang: string }> }) {
   const { category, slug, lang } = await params;
   const item = await fetchHubDetail(category as any, lang, slug);
@@ -17,7 +16,6 @@ export async function generateMetadata({ params }: { params: Promise<{ category:
     title: `${item.frontMatter.title} | ACR Tech`,
     description: item.frontMatter.description,
     alternates: {
-      // Canonical URL: Google'a bu sayfanın orijinal adresini bildirir
       canonical: `/${lang}/hub/${category}/${slug}`,
     },
     openGraph: {
@@ -32,23 +30,19 @@ export async function generateMetadata({ params }: { params: Promise<{ category:
 export default async function HubDetailPage({ params }: { params: Promise<{ category: string; slug: string; lang: string }> }) {
   const { category, slug, lang } = await params;
   
-  // Veriyi sunucuda çekiyoruz
   const item = await fetchHubDetail(category as any, lang, slug);
 
   if (!item) {
     return notFound();
   }
 
-  // Site adresini alıyoruz
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://acrtech.com.tr';
 
-  // --- 2. ARTICLE / CREATIVE WORK SCHEMA (İÇERİK TÜRÜ) ---
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': category === 'projects' ? 'CreativeWork' : 'Article',
     headline: item.frontMatter.title,
     description: item.frontMatter.description,
-    // Görsel URL'ini tam yol (https://...) olarak vermek en iyisidir
     image: item.frontMatter.image ? `${baseUrl}${item.frontMatter.image}` : undefined,
     datePublished: item.frontMatter.date,
     author: {
@@ -57,7 +51,6 @@ export default async function HubDetailPage({ params }: { params: Promise<{ cate
     },
   };
 
-  // --- 3. BREADCRUMB SCHEMA (YOL HARİTASI) - YENİ ---
   const breadcrumbJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -77,7 +70,6 @@ export default async function HubDetailPage({ params }: { params: Promise<{ cate
       {
         '@type': 'ListItem',
         position: 3,
-        // Kategori ismini Baş harfi büyük yapıyoruz (projects -> Projects)
         name: category.charAt(0).toUpperCase() + category.slice(1),
         item: `${baseUrl}/${lang}/hub/${category}`
       },
@@ -98,20 +90,17 @@ export default async function HubDetailPage({ params }: { params: Promise<{ cate
 
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Schema 1: İçerik Türü */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       
-      {/* Schema 2: Ekmek Kırıntısı (Yeni) */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
 
       <main className="flex-1 pb-16">
-        {/* Hero Section */}
         <div className="relative pt-8 pb-12 px-4 sm:px-6 md:px-8 border-b border-white/5 bg-slate-900/50">
           <div className="max-w-4xl mx-auto">
             
@@ -149,7 +138,6 @@ export default async function HubDetailPage({ params }: { params: Promise<{ cate
           </div>
         </div>
 
-        {/* Content Section */}
         <div className="max-w-3xl mx-auto px-4 sm:px-6 md:px-8 mt-12">
           <article className={`prose prose-invert prose-lg max-w-none text-gray-300 ${colors.prose}`}>
             <MDXContent source={item.content} />

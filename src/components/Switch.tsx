@@ -5,20 +5,16 @@ interface SwitchProps {
 
 export function Switch({ mode, onToggle }: SwitchProps) {
   return (
-    // dir="ltr" ekleyerek bu bileşeni sayfanın genel yönünden (RTL) koruyoruz.
-    // Böylece Design solda, Code sağda sabit kalıyor ve animasyon şaşmıyor.
     <div 
       dir="ltr" 
       className="relative inline-flex items-center bg-white/10 backdrop-blur-md rounded-full p-1.5 sm:p-2 border border-white/20 shadow-2xl"
     >
-      {/* Background Slider */}
       <div
         className={`absolute top-1.5 sm:top-2 bottom-1.5 sm:bottom-2 w-[calc(50%-3px)] sm:w-[calc(50%-4px)] bg-white rounded-full shadow-lg transition-all duration-500 ease-out ${
           mode === 'design' ? 'left-1.5 sm:left-2' : 'left-[calc(50%+1.5px)] sm:left-[calc(50%+2px)]'
         }`}
       />
       
-      {/* Design Button */}
       <button
         onClick={() => onToggle('design')}
         className={`relative z-10 px-6 sm:px-8 md:px-12 py-3 sm:py-4 md:py-5 rounded-full transition-all duration-300 ${
@@ -45,7 +41,6 @@ export function Switch({ mode, onToggle }: SwitchProps) {
         </span>
       </button>
       
-      {/* Code Button */}
       <button
         onClick={() => onToggle('code')}
         className={`relative z-10 px-6 sm:px-8 md:px-12 py-3 sm:py-4 md:py-5 rounded-full transition-all duration-300 ${

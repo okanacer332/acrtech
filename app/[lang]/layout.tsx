@@ -8,10 +8,8 @@ import { i18n, type Locale } from "@/src/i18n-config";
 import { getDictionary } from "@/src/lib/i18n/get-dictionary";
 import { GoogleAnalytics } from '@next/third-parties/google';
 
-// 1. DÜZELTME: Türkçe karakter desteği için 'latin-ext' eklendi
 const inter = Inter({ subsets: ["latin", "latin-ext"] });
 
-// 2. DÜZELTME: Eksik diller ve hizmet bölgeleri eklendi
 const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
@@ -27,9 +25,7 @@ const jsonLd = {
       '@type': 'ContactPoint',
       telephone: '+90-536-248-7703',
       contactType: 'customer service',
-      // Tüm hedef pazarların ülke kodları (ISO 3166-1 alpha-2)
       areaServed: ['TR', 'US', 'DE', 'GB', 'RU', 'ES', 'FR', 'AE'], 
-      // Destek verdiğimiz tüm diller
       availableLanguage: ['Turkish', 'English', 'German', 'Russian', 'Spanish', 'French', 'Arabic'] 
     }
 };
@@ -63,7 +59,6 @@ export default async function RootLayout({
   return (
     <html lang={lang} className="scroll-smooth" dir={lang === 'ar' ? 'rtl' : 'ltr'}>
       <body className={inter.className}>
-        {/* Schema Markup */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -76,7 +71,6 @@ export default async function RootLayout({
           </LanguageProvider>
         </ModeProvider>
 
-        {/* Google Analytics */}
         <GoogleAnalytics gaId="G-FGVHFN9HHZ" />
       </body>
     </html>

@@ -10,7 +10,6 @@ interface FocusAreasProps {
 export function FocusAreas({ mode }: FocusAreasProps) {
   const { t } = useLanguage();
 
-  // Aktif verilere göre listeyi seç
   const focusAreas = mode === 'design' ? t.focusAreas.designFocus : t.focusAreas.codeFocus;
 
   return (
@@ -21,7 +20,6 @@ export function FocusAreas({ mode }: FocusAreasProps) {
     }`}>
       <div className="max-w-7xl mx-auto relative z-10">
         
-        {/* Section Header - Animasyonlu */}
         <TransitionWrapper modeKey={mode} className="text-center mb-12 sm:mb-16">
           <div className={`inline-block px-4 sm:px-6 py-2 rounded-full text-xs sm:text-sm mb-4 transition-colors duration-500 ${
             mode === 'design'
@@ -39,7 +37,6 @@ export function FocusAreas({ mode }: FocusAreasProps) {
 </h2>
         </TransitionWrapper>
 
-        {/* Focus Areas Grid - Animasyonlu */}
         <TransitionWrapper modeKey={mode + "-focus"}>
           <div className="space-y-6 sm:space-y-8">
             {focusAreas.map((area, index) => (
@@ -89,7 +86,6 @@ export function FocusAreas({ mode }: FocusAreasProps) {
         </TransitionWrapper>
       </div>
 
-      {/* Decorative Elements (Sabit kalması daha iyi performans sağlar) */}
       <div className="absolute top-1/4 right-0 w-96 h-96 bg-gradient-to-l from-purple-500/10 to-transparent rounded-full blur-3xl pointer-events-none"></div>
       <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-gradient-to-r from-blue-500/10 to-transparent rounded-full blur-3xl pointer-events-none"></div>
     </section>

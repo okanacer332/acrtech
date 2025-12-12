@@ -11,20 +11,17 @@ import { cn } from '@/src/components/ui/utils';
 
 interface HubFeedProps {
   initialCategory: 'all' | 'projects' | 'articles' | 'demos';
-  initialItems: ContentItem[]; // ARTIK VERİYİ PROP OLARAK ALIYORUZ
-  lang: string; // Linkler için dil kodu lazım
+  initialItems: ContentItem[];
+  lang: string;
 }
 
 export function HubFeed({ initialCategory, initialItems, lang }: HubFeedProps) {
   const searchParams = useSearchParams();
   
-  // Veriyi state'e atıyoruz ama başlangıç değerimiz zaten dolu! (SSR)
   const [items] = useState<ContentItem[]>(initialItems);
   
-  // URL'den gelen arama terimi
   const searchTerm = searchParams.get('search')?.toLowerCase() || '';
 
-  // FİLTRELEME MANTIĞI (Client-Side devam edebilir)
   const filteredItems = items.filter((item) => {
     if (searchTerm.length < 3) return true;
 
@@ -52,7 +49,6 @@ export function HubFeed({ initialCategory, initialItems, lang }: HubFeedProps) {
         <p className="text-gray-400">Topluluk projeleri, derinlemesine teknik makaleler ve interaktif demolar.</p>
       </div>
 
-      {/* TAB MENÜSÜ */}
       <div className="flex flex-wrap gap-2 mb-8 pb-4 border-b border-white/5">
         {tabs.map((tab) => {
           const isActive = initialCategory === tab.id;
@@ -74,7 +70,6 @@ export function HubFeed({ initialCategory, initialItems, lang }: HubFeedProps) {
         })}
       </div>
 
-      {/* İÇERİK ALANI */}
       <TransitionWrapper modeKey={initialCategory + searchTerm}> 
         {filteredItems.length === 0 ? (
            <div className="flex flex-col items-center justify-center py-20 text-center bg-white/[0.02] rounded-2xl border border-white/5 border-dashed">

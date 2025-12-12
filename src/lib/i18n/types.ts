@@ -38,8 +38,6 @@ export type TestimonialItem = {
   rating: number;
 };
 
-// --- Ana Sözlük Tipi ---
-
 export type Dictionary = {
   header: {
     menu: string;
@@ -101,7 +99,7 @@ export type Dictionary = {
     designFocus: FocusAreaItem[];
     codeFocus: FocusAreaItem[];
   };
-  // YENİ EKLENENLER:
+  
   testimonials: {
     tag: string;
     title: string;

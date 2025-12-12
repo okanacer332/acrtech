@@ -3,8 +3,6 @@
 import { getAllContent, getContentBySlug, ContentType } from './mdx';
 import { Resend } from 'resend';
 
-// --- İÇERİK YÖNETİMİ (MEVCUT KODLAR) ---
-
 function normalizeLang(lang: string) {
   return lang.toLowerCase();
 }
@@ -21,8 +19,6 @@ export async function fetchHubDetail(type: ContentType, lang: string, slug: stri
   return item;
 }
 
-// --- MAIL GÖNDERME İŞLEMİ (RESEND) ---
-
 type ContactFormData = {
   plan: string;
   name: string;
@@ -32,21 +28,14 @@ type ContactFormData = {
   mode: string;
 };
 
-// HATA ÇÖZÜMÜ: Global tanımı kaldırdık.
-// const resend = new Resend(process.env.RESEND_API_KEY); <-- BURADAN SİLDİK
-
 export async function sendEmail(data: ContactFormData) {
   try {
-    // ÇÖZÜM: Resend'i sadece bu fonksiyon çalıştığında, ihtiyaç anında başlatıyoruz.
-    // Bu sayede /hub sayfasına girerken API Key kontrolü yapıp patlamıyor.
     const resend = new Resend(process.env.RESEND_API_KEY);
 
     const { error } = await resend.emails.send({
-      // Domain doğrulaması yapana kadar 'onboarding@resend.dev' kullanmak zorundasın.
-      // Kendi domainini doğruladığında buraya 'info@acrtech.com' yazabilirsin.
       from: 'ACR Tech Form <onboarding@resend.dev>',
       
-      // ALICILAR:
+     
       to: ['acer.okanumut@gmail.com'],
       
       subject: `🚀 Yeni Proje Başvurusu: ${data.name}`,

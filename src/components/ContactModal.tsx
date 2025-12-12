@@ -20,8 +20,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/src/components/ui/select";
-import { toast } from "sonner"; // Bildirim için sonner kullanıyoruz
-import { sendEmail } from "@/src/lib/actions"; // Server action importu
+import { toast } from "sonner";
+import { sendEmail } from "@/src/lib/actions";
 
 interface ContactModalProps {
   isOpen: boolean;
@@ -34,7 +34,6 @@ export function ContactModal({ isOpen, onOpenChange, initialPlan, mode }: Contac
   const [selectedPlan, setSelectedPlan] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Form State
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -42,7 +41,6 @@ export function ContactModal({ isOpen, onOpenChange, initialPlan, mode }: Contac
     message: ""
   });
 
-  // TEMA YAPILANDIRMASI
   const theme = mode === 'design' ? {
     gradientBg: "bg-gradient-to-br from-[#1a0b2e] via-[#2e1065] to-[#1a0b2e]",
     titleGradient: "bg-gradient-to-r from-purple-200 via-fuchsia-300 to-pink-300",
@@ -104,7 +102,6 @@ export function ContactModal({ isOpen, onOpenChange, initialPlan, mode }: Contac
           duration: 5000,
         });
         
-        // Formu temizle ve kapat
         setFormData({ name: "", phone: "", email: "", message: "" });
         onOpenChange(false);
       } else {
@@ -145,7 +142,6 @@ export function ContactModal({ isOpen, onOpenChange, initialPlan, mode }: Contac
 
         <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 md:gap-5">
           
-          {/* 1. PLAN SEÇİMİ */}
           <div className="grid gap-1 md:col-span-2">
             <Label htmlFor="plan" className={`text-xs font-medium ${theme.label}`}>Seçilen Paket</Label>
             <Select value={selectedPlan} onValueChange={setSelectedPlan}>
@@ -168,7 +164,6 @@ export function ContactModal({ isOpen, onOpenChange, initialPlan, mode }: Contac
             </Select>
           </div>
 
-          {/* 2. AD SOYAD */}
           <div className="grid gap-1 md:col-span-1">
             <Label htmlFor="name" className={`text-xs font-medium ${theme.label}`}>Ad Soyad</Label>
             <Input 
@@ -182,7 +177,6 @@ export function ContactModal({ isOpen, onOpenChange, initialPlan, mode }: Contac
             />
           </div>
 
-          {/* 3. TELEFON */}
           <div className="grid gap-1 md:col-span-1">
             <Label htmlFor="phone" className={`text-xs font-medium ${theme.label}`}>Telefon Numarası</Label>
             <div className="relative">
@@ -202,7 +196,6 @@ export function ContactModal({ isOpen, onOpenChange, initialPlan, mode }: Contac
             </div>
           </div>
 
-          {/* 4. E-POSTA */}
           <div className="grid gap-1 md:col-span-2">
             <div className="flex items-center gap-2">
               <Label htmlFor="email" className={`text-xs font-medium ${theme.label}`}>E-Posta</Label>
@@ -218,7 +211,6 @@ export function ContactModal({ isOpen, onOpenChange, initialPlan, mode }: Contac
             />
           </div>
 
-          {/* 5. AÇIKLAMA */}
           <div className="grid gap-1 md:col-span-2">
             <Label htmlFor="message" className={`text-xs font-medium ${theme.label}`}>Projenizden Bahsedin</Label>
             <Textarea 
@@ -232,7 +224,6 @@ export function ContactModal({ isOpen, onOpenChange, initialPlan, mode }: Contac
             />
           </div>
 
-          {/* BUTON */}
           <div className="pt-1 md:col-span-2">
             <Button 
               type="submit" 

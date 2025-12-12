@@ -8,7 +8,6 @@ interface LanguageSelectorProps {
   mode: 'design' | 'code';
 }
 
-// --- ÖZEL SVG BAYRAK İKONLARI (Minimalist & Yuvarlak) ---
 const FlagTR = ({ className }: { className?: string }) => (
   <svg viewBox="0 0 32 32" className={className}>
     <circle cx="16" cy="16" r="16" fill="#E30A17" />
@@ -87,7 +86,6 @@ const FlagAR = ({ className }: { className?: string }) => (
   </svg>
 );
 
-// --- KONFIGÜRASYON ---
 const FlagMap: Record<string, React.ElementType> = {
   TR: FlagTR,
   EN: FlagEN,
@@ -108,13 +106,11 @@ const LanguageNames: Record<string, string> = {
   AR: "العربية",
 };
 
-// --- BİLEŞEN ---
 export function LanguageSelector({ mode }: LanguageSelectorProps) {
   const { language, setLanguage, availableLanguages } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  // Dışarı tıklandığında menüyü kapat
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
@@ -125,7 +121,6 @@ export function LanguageSelector({ mode }: LanguageSelectorProps) {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // Tasarım moduna göre renkler
   const activeColorClass = mode === 'design' 
     ? 'hover:text-purple-300 focus:text-purple-300' 
     : 'hover:text-blue-300 focus:text-blue-300';
@@ -140,7 +135,7 @@ export function LanguageSelector({ mode }: LanguageSelectorProps) {
 
   return (
     <div className="relative" ref={dropdownRef}>
-      {/* TRIGGER BUTONU */}
+      
       <button 
         onClick={() => setIsOpen(!isOpen)}
         className={`flex items-center gap-1 text-sm font-medium text-white/90 transition-colors outline-none group ${activeColorClass}`}
@@ -149,8 +144,6 @@ export function LanguageSelector({ mode }: LanguageSelectorProps) {
         <ChevronDown className={`w-3 h-3 opacity-50 group-hover:opacity-100 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
       </button>
       
-      {/* DROPDOWN MENU - ABSOLUTE POZİSYON */}
-      {/* "absolute right-0 top-full mt-2" sayesinde header'ı itmez, üstte açılır */}
       {isOpen && (
         <div 
           className={`absolute right-0 top-full mt-2 z-50 origin-top-right

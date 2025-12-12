@@ -1,5 +1,3 @@
-// src/components/PricingPlans.tsx
-
 "use client";
 
 import { useState } from 'react';
@@ -70,7 +68,6 @@ export function PricingPlans({ mode }: PricingPlansProps) {
                       : 'bg-slate-800/50 border-blue-500/20 shadow-xl shadow-black/50 hover:shadow-2xl hover:shadow-blue-500/30'
                 }`}
               >
-                {/* Animated Border */}
                 <div className={`absolute inset-0 rounded-xl sm:rounded-2xl lg:rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none ${
                   mode === 'design'
                     ? 'animated-border-purple'
@@ -138,8 +135,6 @@ export function PricingPlans({ mode }: PricingPlansProps) {
                       </li>
                     ))}
                   </ul>
-                  
-                  {/* Link (Learn More) Kısmı Kaldırıldı */}
                   
                 </div>
               </div>

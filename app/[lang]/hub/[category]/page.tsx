@@ -3,7 +3,6 @@ import { notFound } from 'next/navigation';
 import { HubFeed } from '@/src/components/hub/HubFeed';
 import { fetchHubContent } from '@/src/lib/actions';
 
-// Metadata (SEO) Oluşturma
 export async function generateMetadata({ params }: { params: Promise<{ category: string; lang: string }> }) {
   const { category, lang } = await params;
   const titleCategory = category.charAt(0).toUpperCase() + category.slice(1);
@@ -23,10 +22,8 @@ export default async function HubCategoryPage({ params }: { params: Promise<{ ca
     return notFound();
   }
 
-  // Sadece ilgili kategorinin verisini sunucuda çekiyoruz
   const items = await fetchHubContent(category as any, lang);
 
-  // Veriyi sırala
   items.sort((a, b) => 
     new Date(b.frontMatter.date).getTime() - new Date(a.frontMatter.date).getTime()
   );

@@ -16,7 +16,7 @@ export function Footer({ mode }: FooterProps) {
     <footer className="bg-slate-950 border-t border-white/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-12 sm:py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 md:gap-12 mb-8 sm:mb-12">
-          {/* Brand */}
+        
           <div className="sm:col-span-2 lg:col-span-1">
             <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
               <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-gradient-to-br transition-colors duration-700 ${
@@ -31,7 +31,7 @@ export function Footer({ mode }: FooterProps) {
             <p className="text-sm sm:text-base text-gray-400 mb-4 sm:mb-6">
               {mode === 'design' ? t.footer.brandDescDesign : t.footer.brandDescCode}
             </p>
-            {/* Social Links */}
+         
             <div className="flex gap-2 sm:gap-3">
               <a href="#" className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors ${
                 mode === 'design'
@@ -57,7 +57,6 @@ export function Footer({ mode }: FooterProps) {
             </div>
           </div>
 
-          {/* Services */}
           <div>
             <h4 className={`text-sm sm:text-base mb-4 sm:mb-6 font-medium transition-colors duration-500 ${
               mode === 'design' ? 'text-purple-300' : 'text-blue-300'
@@ -75,7 +74,6 @@ export function Footer({ mode }: FooterProps) {
             </ul>
           </div>
 
-          {/* Company */}
           <div>
             <h4 className={`text-sm sm:text-base mb-4 sm:mb-6 font-medium transition-colors duration-500 ${
               mode === 'design' ? 'text-purple-300' : 'text-blue-300'
@@ -93,7 +91,6 @@ export function Footer({ mode }: FooterProps) {
             </ul>
           </div>
 
-          {/* Contact */}
           <div>
             <h4 className={`text-sm sm:text-base mb-4 sm:mb-6 font-medium transition-colors duration-500 ${
               mode === 'design' ? 'text-purple-300' : 'text-blue-300'
@@ -117,7 +114,6 @@ export function Footer({ mode }: FooterProps) {
           </div>
         </div>
 
-        {/* Bottom Bar */}
         <div className="pt-6 sm:pt-8 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center gap-3 sm:gap-4">
           <p className="text-gray-500 text-xs sm:text-sm text-center sm:text-left">
             © 2024 ACRTECH. {t.footer.copyright}

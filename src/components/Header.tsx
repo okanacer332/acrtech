@@ -46,7 +46,6 @@ export function Header({ mode, onToggle, isScrolled }: HeaderProps) {
   return (
     <>
       <header
-        // pr-[var(--removed-body-scroll-bar-size)] -> Modal açıldığında kaymayı önler
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 pr-[var(--removed-body-scroll-bar-size)] ${
           isScrolled
             ? 'bg-slate-900/80 backdrop-blur-md shadow-2xl py-3 border-b border-white/5'
@@ -56,7 +55,6 @@ export function Header({ mode, onToggle, isScrolled }: HeaderProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
           <div className="flex items-center justify-between">
             
-            {/* --- SOL: LOGO --- */}
             <div 
               onClick={scrollToTop}
               className="flex items-center cursor-pointer group"
@@ -72,7 +70,6 @@ export function Header({ mode, onToggle, isScrolled }: HeaderProps) {
               </div>
             </div>
 
-            {/* --- SAĞ: KONTROL BLOĞU --- */}
             <div className="flex items-center gap-3 sm:gap-5">
               
               <div className="hidden sm:block transform scale-100 origin-right">
@@ -142,7 +139,6 @@ export function Header({ mode, onToggle, isScrolled }: HeaderProps) {
         </div>
       </header>
 
-      {/* --- MOBILE BOTTOM FIXED BAR --- */}
       <div className="fixed bottom-0 left-0 right-0 z-50 sm:hidden">
         <div 
           className={`

@@ -30,20 +30,16 @@ export function LanguageProvider({
   const t = initialDictionary;
   const isRTL = language === 'AR';
 
-  // EKLENDİ: Mevcut dilleri 'locales.ts' dosyasındaki objeden anahtarları alarak oluşturuyoruz
   const availableLanguages = Object.keys(dictionaries) as LanguageCode[];
 
   const setLanguage = (newLang: LanguageCode) => {
     const currentPath = window.location.pathname;
     const segments = currentPath.split('/');
-    // segments[0] boş, segments[1] mevcut dil (tr, en vs.)
-    // Eğer root'ta değilsek (örn: /tr/hakkimizda)
     if (segments.length > 1) {
         segments[1] = newLang.toLowerCase();
         const newPath = segments.join('/');
         window.location.href = newPath;
     } else {
-        // Root'ta ise direkt dile git
         window.location.href = `/${newLang.toLowerCase()}`;
     }
   };
@@ -53,7 +49,6 @@ export function LanguageProvider({
     document.documentElement.lang = language.toLowerCase();
   }, [language, isRTL]);
 
-  // 'availableLanguages' değeri Provider'a eklendi
   return (
     <LanguageContext.Provider value={{ language, setLanguage, t, isRTL, availableLanguages }}>
       {children}
