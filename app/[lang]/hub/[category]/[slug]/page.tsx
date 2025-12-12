@@ -2,11 +2,11 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { ArrowLeft, Calendar, Share2 } from 'lucide-react';
 import { fetchHubDetail } from '@/src/lib/actions';
-import { MDXContent } from '@/src/components/hub/MDXContent'; // Yeni oluşturduğumuz bileşen
+import { MDXContent } from '@/src/components/hub/MDXContent';
 import { Badge } from '@/src/components/ui/badge';
 import { Button } from '@/src/components/ui/button';
 
-// --- 1. DİNAMİK METADATA (SEO İÇİN KRİTİK) ---
+// --- 1. DİNAMİK METADATA ---
 export async function generateMetadata({ params }: { params: Promise<{ category: string; slug: string; lang: string }> }) {
   const { category, slug, lang } = await params;
   const item = await fetchHubDetail(category as any, lang, slug);
@@ -17,12 +17,13 @@ export async function generateMetadata({ params }: { params: Promise<{ category:
     title: `${item.frontMatter.title} | ACR Tech`,
     description: item.frontMatter.description,
     alternates: {
-      canonical: `/${lang}/hub/${category}/${slug}`, // Tam ve temiz URL
+      // Canonical URL: Google'a bu sayfanın orijinal adresini bildirir
+      canonical: `/${lang}/hub/${category}/${slug}`,
     },
     openGraph: {
       title: item.frontMatter.title,
       description: item.frontMatter.description,
-      images: [item.frontMatter.image || '/acrtech.png'], // Varsayılan görsel ekledik
+      images: [item.frontMatter.image || '/acrtech.png'],
       type: 'article',
     },
   };
@@ -38,14 +39,17 @@ export default async function HubDetailPage({ params }: { params: Promise<{ cate
     return notFound();
   }
 
-  // --- 2. YAPISAL VERİ (SCHEMA.ORG) ---
-  // Google'ın makaleyi "zengin sonuç" (rich snippet) olarak göstermesi için
+  // Site adresini alıyoruz
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://acrtech.com.tr';
+
+  // --- 2. ARTICLE / CREATIVE WORK SCHEMA (İÇERİK TÜRÜ) ---
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': category === 'projects' ? 'CreativeWork' : 'Article',
     headline: item.frontMatter.title,
     description: item.frontMatter.description,
-    image: item.frontMatter.image,
+    // Görsel URL'ini tam yol (https://...) olarak vermek en iyisidir
+    image: item.frontMatter.image ? `${baseUrl}${item.frontMatter.image}` : undefined,
     datePublished: item.frontMatter.date,
     author: {
       '@type': 'Organization',
@@ -53,9 +57,40 @@ export default async function HubDetailPage({ params }: { params: Promise<{ cate
     },
   };
 
+  // --- 3. BREADCRUMB SCHEMA (YOL HARİTASI) - YENİ ---
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: `${baseUrl}/${lang}`
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Hub',
+        item: `${baseUrl}/${lang}/hub`
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        // Kategori ismini Baş harfi büyük yapıyoruz (projects -> Projects)
+        name: category.charAt(0).toUpperCase() + category.slice(1),
+        item: `${baseUrl}/${lang}/hub/${category}`
+      },
+      {
+        '@type': 'ListItem',
+        position: 4,
+        name: item.frontMatter.title,
+        item: `${baseUrl}/${lang}/hub/${category}/${slug}`
+      }
+    ]
+  };
+
   const colors = {
-    // ModeContext server'da olmadığı için varsayılan bir stil belirliyoruz veya CSS class kullanıyoruz
-    // İleride burayı 'cookies' ile okuyup dinamikleştirebiliriz ama SEO için kritik değil.
     textGradient: 'bg-gradient-to-r from-blue-200 to-cyan-300', 
     backLink: 'text-blue-400 hover:text-blue-300',
     prose: 'prose-headings:text-gray-200 prose-a:text-blue-400 prose-strong:text-gray-200 prose-code:text-blue-300'
@@ -63,10 +98,16 @@ export default async function HubDetailPage({ params }: { params: Promise<{ cate
 
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Schema Verisini Sayfaya Enjekte Et */}
+      {/* Schema 1: İçerik Türü */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      
+      {/* Schema 2: Ekmek Kırıntısı (Yeni) */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
 
       <main className="flex-1 pb-16">
@@ -111,7 +152,6 @@ export default async function HubDetailPage({ params }: { params: Promise<{ cate
         {/* Content Section */}
         <div className="max-w-3xl mx-auto px-4 sm:px-6 md:px-8 mt-12">
           <article className={`prose prose-invert prose-lg max-w-none text-gray-300 ${colors.prose}`}>
-            {/* İçeriği Client Component ile basıyoruz */}
             <MDXContent source={item.content} />
           </article>
 

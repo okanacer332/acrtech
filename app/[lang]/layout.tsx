@@ -8,9 +8,10 @@ import { i18n, type Locale } from "@/src/i18n-config";
 import { getDictionary } from "@/src/lib/i18n/get-dictionary";
 import { GoogleAnalytics } from '@next/third-parties/google';
 
-const inter = Inter({ subsets: ["latin"] });
+// 1. DÜZELTME: Türkçe karakter desteği için 'latin-ext' eklendi
+const inter = Inter({ subsets: ["latin", "latin-ext"] });
 
-// Organizasyon Şeması (Schema.org)
+// 2. DÜZELTME: Eksik diller ve hizmet bölgeleri eklendi
 const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
@@ -26,8 +27,10 @@ const jsonLd = {
       '@type': 'ContactPoint',
       telephone: '+90-536-248-7703',
       contactType: 'customer service',
-      areaServed: ['TR', 'US', 'DE', 'GB'],
-      availableLanguage: ['Turkish', 'English', 'German']
+      // Tüm hedef pazarların ülke kodları (ISO 3166-1 alpha-2)
+      areaServed: ['TR', 'US', 'DE', 'GB', 'RU', 'ES', 'FR', 'AE'], 
+      // Destek verdiğimiz tüm diller
+      availableLanguage: ['Turkish', 'English', 'German', 'Russian', 'Spanish', 'French', 'Arabic'] 
     }
 };
 
@@ -52,31 +55,28 @@ export default async function RootLayout({
   params,
 }: {
   children: React.ReactNode;
-  // 🛠️ DÜZELTME BURADA: 'Locale' yerine 'string' yaptık.
-  // Next.js build süreci bunu bekliyor.
-  params: Promise<{ lang: string }>; 
+  params: Promise<{ lang: Locale }>;
 }) {
   const { lang } = await params;
-  
-  // İçeride kullanırken 'as Locale' diyerek kendi tipimize çeviriyoruz.
-  const dictionary = await getDictionary(lang as Locale);
+  const dictionary = await getDictionary(lang);
 
   return (
     <html lang={lang} className="scroll-smooth" dir={lang === 'ar' ? 'rtl' : 'ltr'}>
       <body className={inter.className}>
+        {/* Schema Markup */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         
         <ModeProvider>
-          {/* LanguageProvider'a da cast ederek gönderiyoruz */}
           <LanguageProvider initialLanguage={lang.toUpperCase() as any} initialDictionary={dictionary}>
             {children}
             <Toaster position="top-center" richColors />
           </LanguageProvider>
         </ModeProvider>
 
+        {/* Google Analytics */}
         <GoogleAnalytics gaId="G-FGVHFN9HHZ" />
       </body>
     </html>

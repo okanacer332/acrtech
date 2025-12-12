@@ -47,7 +47,7 @@ export async function sendEmail(data: ContactFormData) {
       from: 'ACR Tech Form <onboarding@resend.dev>',
       
       // ALICILAR:
-      to: ['acer.okanumut@gmail.com', 'meltemgoren94@gmail.com'],
+      to: ['acer.okanumut@gmail.com'],
       
       subject: `🚀 Yeni Proje Başvurusu: ${data.name}`,
       html: `
