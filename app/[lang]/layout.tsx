@@ -51,10 +51,15 @@ export default async function RootLayout({
   params,
 }: {
   children: React.ReactNode;
-  params: Promise<{ lang: Locale }>;
+  params: Promise<{ lang: string }>;
 }) {
   const { lang } = await params;
-  const dictionary = await getDictionary(lang);
+   
+  const validatedLang = i18n.locales.includes(lang as any)
+    ? (lang as Locale)
+    : i18n.defaultLocale;
+
+  const dictionary = await getDictionary(validatedLang);
 
   return (
     <html lang={lang} className="scroll-smooth" dir={lang === 'ar' ? 'rtl' : 'ltr'}>

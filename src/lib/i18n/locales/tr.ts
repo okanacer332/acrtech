@@ -1,5 +1,3 @@
-// src/lib/i18n/locales/tr.ts
-
 import { Dictionary } from '../types';
 
 export const tr: Dictionary = {
