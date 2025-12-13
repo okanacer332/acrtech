@@ -5,6 +5,7 @@ export type ProjectItem = {
   category: string;
   description: string;
   image: string;
+  link?: string;
 };
 
 export type PricingPlan = {

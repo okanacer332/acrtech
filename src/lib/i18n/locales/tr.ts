@@ -28,57 +28,66 @@ export const tr: Dictionary = {
     title: "Seçilmiş Başarı Hikayeleri",
     description: "Tasarım odaklı düşünce yapımızla, iş hedeflerini kullanıcı ihtiyaçlarıyla buluşturduğumuz projeler.",
     descriptionCode: "Farklı sektörlerin en karmaşık problemlerine getirdiğimiz, ölçeklenebilir mühendislik çözümleri.",
-    viewAll: "Tüm İşleri Gör",
+    viewAll: "Tümünü Gör",
     designProjects: [
       {
         title: 'Geri Dönüşüm Operasyon Paneli',
         category: 'Tekstil Geri Dönüşüm ERP Yazılımı',
         description: 'Operasyonel verimliliği artıran, iş zekasını yükselten, uçtan uca platform kurulumu',
-        image: '/portfolio/22.png'
+        image: '/portfolio/22.png',
+        link: '/hub/demos/aj-international-erp'
       },
       {
         title: 'Online Eğitim Platformu',
         category: 'B2C Kullanıcı Yolculuğu',
         description: 'Kullanıcı tutundurma (retention) odaklı, oyunlaştırılmış servis tasarımı.',
-        image: '/portfolio/17.png'
+        image: '/portfolio/17.png',
+        link: '/hub/projects/b2c-online-egitim' // YENİ EKLENDİ
       },
       {
         title: 'Bulut Tabanlı SaaS',
         category: 'Dell Cloud Service',
         description: 'Hızlı geliştirme sağlayan, ölçeklenebilir ve tutarlı atomik tasarım sistemi.',
-        image: '/portfolio/18.png'
+        image: '/portfolio/18.png',
+        link: '/hub/projects/dell-cloud-service' // YENİ EKLENDİ
       },
       {
         title: 'Global B2C Pazaryeri',
         category: '2. El Bilet Alım Satım',
         description: 'Satın alma hunisindeki terk oranlarını düşüren, akıcı rezervasyon deneyimi.',
-        image: '/portfolio/20.png'
+        image: '/portfolio/20.png',
+        link: '/hub/projects/2.el-bilet-alim-satim' // YENİ EKLENDİ
       }
     ],
+
     codeProjects: [
       {
         title: 'Geri Dönüşüm Operasyon Paneli',
         category: 'Tekstil Geri Dönüşüm ERP Yazılımı',
         description: 'Operasyonel verimliliği artıran, iş zekasını yükselten, uçtan uca platform kurulumu',
-        image: '/portfolio/22.png'
+        image: '/portfolio/22.png',
+        link: '/hub/demos/aj-international-erp'
       },
       {
         title: 'Online Eğitim Platformu',
         category: 'B2C Kullanıcı Yolculuğu',
         description: 'Kullanıcı tutundurma (retention) odaklı, oyunlaştırılmış servis tasarımı.',
-        image: '/portfolio/17.png'
+        image: '/portfolio/17.png',
+        link: '/hub/projects/b2c-online-egitim' // YENİ EKLENDİ
       },
       {
         title: 'Bulut Tabanlı SaaS',
         category: 'Dell Cloud Service',
         description: 'Hızlı geliştirme sağlayan, ölçeklenebilir ve tutarlı atomik tasarım sistemi.',
-        image: '/portfolio/18.png'
+        image: '/portfolio/18.png',
+        link: '/hub/projects/dell-cloud-service' // YENİ EKLENDİ
       },
       {
         title: 'Global B2C Pazaryeri',
         category: '2. El Bilet Alım Satım',
         description: 'Satın alma hunisindeki terk oranlarını düşüren, akıcı rezervasyon deneyimi.',
-        image: '/portfolio/20.png'
+        image: '/portfolio/20.png',
+        link: '/hub/projects/2.el-bilet-alim-satim' // YENİ EKLENDİ
       }
     ]
   },

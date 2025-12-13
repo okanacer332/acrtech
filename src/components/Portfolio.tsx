@@ -10,7 +10,7 @@ interface PortfolioProps {
 }
 
 export function Portfolio({ mode }: PortfolioProps) {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   const activeProjects = mode === 'design' ? t.portfolio.designProjects : t.portfolio.codeProjects;
 
@@ -40,52 +40,75 @@ export function Portfolio({ mode }: PortfolioProps) {
 
         <TransitionWrapper modeKey={mode + "-grid"}>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
-            {activeProjects.map((project, index) => (
-              <div
-                key={index}
-                className={`group relative overflow-hidden rounded-3xl cursor-pointer h-64 sm:h-72 md:h-96`}
-              >
-                <div className="absolute inset-0 w-full h-full">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-110"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  />
-                  <div className={`absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors duration-500 ${
-                    mode === 'design' ? 'group-hover:mix-blend-multiply bg-purple-950/20' : 'group-hover:mix-blend-multiply bg-blue-950/20'
-                  }`}></div>
-                  
-                  <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
-                </div>
-                
-                <div className="absolute inset-0 p-6 sm:p-8 md:p-10 flex flex-col justify-end z-10">
-                  <div className="transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
-                    <div className={`inline-block px-3 py-1 rounded-full text-xs font-medium mb-3 backdrop-blur-md border ${
-                      mode === 'design' 
-                        ? 'bg-purple-500/20 border-purple-500/30 text-purple-100' 
-                        : 'bg-blue-500/20 border-blue-500/30 text-blue-100'
-                    }`}>
-                      {project.category}
-                    </div>
-                    <h3 className="text-white text-xl sm:text-2xl md:text-3xl font-bold mb-2 sm:mb-3 drop-shadow-md">
-                      {project.title}
-                    </h3>
-                    <p className="text-sm sm:text-base text-gray-200 line-clamp-2 opacity-90 group-hover:opacity-100 transition-opacity">
-                      {project.description}
-                    </p>
+            {activeProjects.map((project, index) => {
+              // Kartın iç görsel ve metin yapısı
+              const CardContent = (
+                <>
+                  <div className="absolute inset-0 w-full h-full">
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-110"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    />
+                    <div className={`absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors duration-500 ${
+                      mode === 'design' ? 'group-hover:mix-blend-multiply bg-purple-950/20' : 'group-hover:mix-blend-multiply bg-blue-950/20'
+                    }`}></div>
+                    
+                    <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
                   </div>
+                  
+                  <div className="absolute inset-0 p-6 sm:p-8 md:p-10 flex flex-col justify-end z-10">
+                    <div className="transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+                      <div className={`inline-block px-3 py-1 rounded-full text-xs font-medium mb-3 backdrop-blur-md border ${
+                        mode === 'design' 
+                          ? 'bg-purple-500/20 border-purple-500/30 text-purple-100' 
+                          : 'bg-blue-500/20 border-blue-500/30 text-blue-100'
+                      }`}>
+                        {project.category}
+                      </div>
+                      <h3 className="text-white text-xl sm:text-2xl md:text-3xl font-bold mb-2 sm:mb-3 drop-shadow-md">
+                        {project.title}
+                      </h3>
+                      <p className="text-sm sm:text-base text-gray-200 line-clamp-2 opacity-90 group-hover:opacity-100 transition-opacity">
+                        {project.description}
+                      </p>
+                    </div>
+                  </div>
+                </>
+              );
+
+              // Ortak stil sınıfları
+              const cardClasses = `group relative overflow-hidden rounded-3xl cursor-pointer h-64 sm:h-72 md:h-96 block`;
+
+              // Link varsa Link bileşeni (yeni sekme ile), yoksa div
+              if (project.link) {
+                return (
+                  <Link 
+                    key={index}
+                    href={`/${language.toLowerCase()}${project.link}`}
+                    className={cardClasses}
+                    target="_blank" // YENİ: Kartı yeni sekmede açar
+                  >
+                    {CardContent}
+                  </Link>
+                );
+              }
+
+              return (
+                <div key={index} className={cardClasses}>
+                  {CardContent}
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </TransitionWrapper>
 
         <div className="text-center mt-8 sm:mt-12">
           <Link 
-            href="/hub/projects"
-            target="_blank"
+            href={`/${language.toLowerCase()}/hub`} // YENİ: Direkt /hub'a gidiyor
+            target="_blank" // YENİ: Butonu yeni sekmede açar
             className={`inline-block text-center px-6 sm:px-8 py-3 sm:py-4 rounded-full text-white transition-all shadow-lg hover:shadow-xl transform hover:scale-105 w-full sm:w-auto cursor-pointer ${
             mode === 'design'
               ? 'bg-gradient-to-r from-purple-500 to-fuchsia-500 hover:from-purple-600 hover:to-fuchsia-600'
