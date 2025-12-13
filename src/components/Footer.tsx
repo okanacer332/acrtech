@@ -1,5 +1,6 @@
 "use client";
 
+import Link from 'next/link';
 import { Mail, Phone, MapPin, Linkedin, Twitter, Github, Instagram } from 'lucide-react';
 import { useLanguage } from '@/src/lib/i18n/LanguageContext';
 
@@ -8,13 +9,27 @@ interface FooterProps {
 }
 
 export function Footer({ mode }: FooterProps) {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const langPrefix = `/${language.toLowerCase()}`;
 
   const servicesLinks = mode === 'design' ? t.footer.designServices : t.footer.codeServices;
+
+  // Yeni yasal linkler haritası (Slug'lar MDX dosya adlarıyla eşleşmeli)
+  const legalLinks = [
+    { label: t.footer.legal.copyright, slug: 'copyright' },
+    { label: t.footer.legal.terms, slug: 'terms-of-use' },
+    { label: t.footer.legal.privacy, slug: 'privacy-policy' },
+    { label: t.footer.legal.kvkk, slug: 'kvkk' },
+    { label: t.footer.legal.cookiePolicy, slug: 'cookie-policy' },
+    { label: t.footer.legal.emailLegal, slug: 'email-legal' },
+    { label: t.footer.legal.cookieSettings, slug: 'cookie-settings' },
+  ];
 
   return (
     <footer className="bg-slate-950 border-t border-white/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-12 sm:py-16">
+        
+        {/* Üst Kısım (Mevcut Grid) */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 md:gap-12 mb-8 sm:mb-12">
         
           <div className="sm:col-span-2 lg:col-span-1">
@@ -114,20 +129,27 @@ export function Footer({ mode }: FooterProps) {
           </div>
         </div>
 
-        <div className="pt-6 sm:pt-8 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center gap-3 sm:gap-4">
-          <p className="text-gray-500 text-xs sm:text-sm text-center sm:text-left">
-            © 2024 ACRTECH. {t.footer.copyright}
-          </p>
-          <div className="flex flex-wrap justify-center gap-4 sm:gap-6 text-xs sm:text-sm">
-            <a href="#" className="text-gray-500 hover:text-white transition-colors">
-              {t.footer.privacy}
-            </a>
-            <a href="#" className="text-gray-500 hover:text-white transition-colors">
-              {t.footer.terms}
-            </a>
-            <a href="#" className="text-gray-500 hover:text-white transition-colors">
-              {t.footer.cookie}
-            </a>
+        <div className="pt-6 sm:pt-8 border-t border-white/5 flex flex-col items-center gap-6">
+    
+          <div className="w-full border-t border-white/5 pt-6">
+            <div className="flex flex-wrap justify-center sm:justify-start gap-x-6 gap-y-3 text-xs sm:text-sm">
+              {legalLinks.map((link, index) => (
+                <Link 
+                  key={index}
+                  href={`${langPrefix}/legal/${link.slug}`}
+                  className="text-gray-500 hover:text-white transition-colors relative group"
+                >
+                  {link.label}
+                  <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-white transition-all duration-300 group-hover:w-full"></span>
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          <div className="flex flex-col sm:flex-row justify-between items-center w-full gap-4">
+             <p className="text-gray-500 text-xs sm:text-sm text-center sm:text-left">
+              © 2024 ACRTECH. {t.footer.copyright}
+            </p>
           </div>
         </div>
       </div>

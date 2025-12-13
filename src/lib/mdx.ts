@@ -3,7 +3,8 @@ import path from 'path';
 import matter from 'gray-matter';
 import { serialize } from 'next-mdx-remote/serialize';
 
-export type ContentType = 'projects' | 'articles' | 'demos';
+// 'legal' tipini ekledik
+export type ContentType = 'projects' | 'articles' | 'demos' | 'legal';
 
 export interface ContentItem {
   slug: string;
@@ -11,10 +12,10 @@ export interface ContentItem {
   lang: string;
   frontMatter: {
     title: string;
-    category: string;
-    description: string;
-    date: string;
-    image: string;
+    category?: string; // Legal sayfalar için opsiyonel olabilir
+    description?: string;
+    date?: string;
+    image?: string;
     [key: string]: any;
   };
   content: any;
@@ -26,6 +27,8 @@ export async function getAllContent(type: ContentType, lang: string): Promise<Co
   const contentPath = path.join(root, 'src', 'content', type, lang);
 
   if (!fs.existsSync(contentPath)) {
+    // Legal klasörü henüz yoksa boş dön, hata verme
+    if (type === 'legal') return [];
     console.warn(`Klasör bulunamadı: ${contentPath}`);
     return [];
   }
@@ -45,13 +48,16 @@ export async function getAllContent(type: ContentType, lang: string): Promise<Co
           type,
           lang,
           frontMatter: data as ContentItem['frontMatter'],
-          content: null,
+          content: null, // Listeleme yaparken içeriği çekmeyiz
         };
       })
   );
 
+  // Legal sayfalarda tarih zorunluluğu yok, varsa tarihe göre sırala yoksa olduğu gibi bırak
+  if (type === 'legal') return items;
+
   return items.sort((a, b) => (
-    new Date(b.frontMatter.date).getTime() - new Date(a.frontMatter.date).getTime()
+    new Date(b.frontMatter.date!).getTime() - new Date(a.frontMatter.date!).getTime()
   ));
 }
 

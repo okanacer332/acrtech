@@ -359,9 +359,15 @@ export const tr: Dictionary = {
     codeServices: ['Özel ERP Yazılımı', 'B2B Portal', 'SaaS Geliştirme', 'Mobil Uygulama', 'Sistem Entegrasyonu'],
     companyLinks: ['Hakkımızda', 'Çalışma Metodumuz', 'Başarı Hikayeleri', 'Kariyer', 'Blog'],
     copyright: "Tüm hakları saklıdır.",
-    privacy: "Gizlilik ve Güvenlik",
-    terms: "Kullanım Koşulları",
-    cookie: "Çerez Yönetimi"
+    legal: {
+      copyright: "Telif Hakkı",
+      terms: "Kullanım Koşulları",
+      privacy: "Gizlilik Politikaları",
+      kvkk: "Kişisel Veriler Aydınlatma Metni",
+      cookiePolicy: "Çerez Politikası",
+      emailLegal: "E-posta Hukuki Hüküm ve Şartlar",
+      cookieSettings: "Çerez Ayarları"
+    }
   },
   notFound: {
     title: "Ooops! Sayfa Bulunamadı",

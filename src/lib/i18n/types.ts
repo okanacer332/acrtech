@@ -131,9 +131,15 @@ export type Dictionary = {
     codeServices: string[];
     companyLinks: string[];
     copyright: string;
-    privacy: string;
-    terms: string;
-    cookie: string;
+    legal: {
+      copyright: string;
+      terms: string;
+      privacy: string;
+      kvkk: string;
+      cookiePolicy: string;
+      emailLegal: string;
+      cookieSettings: string;
+    };
   };
   notFound: {
     title: string;
