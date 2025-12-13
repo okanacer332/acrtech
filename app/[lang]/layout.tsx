@@ -34,11 +34,9 @@ export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://acrtech.com.tr'),
   title: "ACR Tech - Design & Code Agency",
   description: "Modern Design and Code Agency Portfolio",
-  // YENİ EKLENEN KISIM: FAVICON
+  // YENİ GÜNCELLEME: Statik .ico dosyasını işaret ediyoruz
   icons: {
-    icon: [
-      { url: '/favicon.svg', type: 'image/svg+xml' },
-    ],
+    icon: '/favicon.ico',
   },
   alternates: {
     canonical: './',

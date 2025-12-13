@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react'; // useEffect eklendi
 import Image from 'next/image';
 import { Switch } from './Switch';
 import { LanguageSelector } from './LanguageSelector';
@@ -22,6 +22,13 @@ interface HeaderProps {
 
 export function Header({ mode, onToggle, isScrolled }: HeaderProps) {
   const [isOpen, setIsOpen] = useState(false);
+  
+  // YENİ: Hidrasyon hatasını önlemek için mounted kontrolü
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   const { t } = useLanguage();
 
   const menuItems = [
@@ -42,6 +49,14 @@ export function Header({ mode, onToggle, isScrolled }: HeaderProps) {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
+  // Eğer bileşen henüz istemci tarafında mount olmadıysa null dön
+  // Bu sayede sunucu ile istemci arasındaki HTML farkı oluşmaz
+  if (!mounted) {
+    return null; 
+    // Veya basit bir placeholder dönebilirsiniz:
+    // return <header className="fixed top-0 left-0 right-0 z-50 h-20 bg-transparent"></header>;
+  }
 
   return (
     <>
@@ -84,7 +99,7 @@ export function Header({ mode, onToggle, isScrolled }: HeaderProps) {
 
               <Sheet open={isOpen} onOpenChange={setIsOpen}>
                 <SheetTrigger asChild>
-                  <button className={`p-2 rounded-full transition-colors ${hoverBg} group`}>
+                  <button className={`p-2 rounded-full transition-colors ${hoverBg} group`} aria-label="Menu">
                     <Menu className="w-6 h-6 text-white group-hover:scale-110 transition-transform" />
                   </button>
                 </SheetTrigger>

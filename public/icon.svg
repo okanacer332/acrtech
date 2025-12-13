@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <filter id="soft-shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#000000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+  
+  <text x="50%" y="58%" dominant-baseline="middle" text-anchor="middle" 
+        fill="#FFFFFF" 
+        filter="url(#soft-shadow)"
+        font-family="sans-serif" 
+        font-weight="900" 
+        font-size="68px" 
+        letter-spacing="-3px">a</text>
+</svg>
