@@ -359,9 +359,15 @@ export const en: Dictionary = {
     codeServices: ['Custom ERP Software', 'B2B Portal', 'SaaS Development', 'Mobile App', 'System Integration'],
     companyLinks: ['About Us', 'Our Methodology', 'Case Studies', 'Career', 'Blog'],
     copyright: "All rights reserved.",
-    privacy: "Privacy & Security",
-    terms: "Terms of Use",
-    cookie: "Cookie Settings"
+    legal: {
+      copyright: "Copyright",
+      terms: "Terms of Use",
+      privacy: "Privacy Policy",
+      kvkk: "Personal Data Protection Notice",
+      cookiePolicy: "Cookie Policy",
+      emailLegal: "Email Legal Disclaimer",
+      cookieSettings: "Cookie Settings"
+    }
   },
   notFound: {
     title: "Oops! Page Not Found",

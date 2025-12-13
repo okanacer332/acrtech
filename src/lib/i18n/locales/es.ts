@@ -359,9 +359,15 @@ export const es: Dictionary = {
     codeServices: ['ERP Personalizado', 'Portal B2B', 'Desarrollo SaaS', 'App Móvil', 'Integración de Sistemas'],
     companyLinks: ['Quiénes Somos', 'Nuestra Metodología', 'Casos de Éxito', 'Carrera', 'Blog'],
     copyright: "Todos los derechos reservados.",
-    privacy: "Privacidad & Seguridad",
-    terms: "Términos de Uso",
-    cookie: "Gestión de Cookies"
+    legal: {
+      copyright: "Derechos de Autor",
+      terms: "Términos de Uso",
+      privacy: "Política de Privacidad",
+      kvkk: "Aviso de Protección de Datos",
+      cookiePolicy: "Política de Cookies",
+      emailLegal: "Aviso Legal por Correo",
+      cookieSettings: "Configuración de Cookies"
+    }
   },
   notFound: {
     title: "Oops! Página no encontrada",

@@ -359,9 +359,15 @@ export const de: Dictionary = {
     codeServices: ['Individuelle ERP Software', 'B2B Portal', 'SaaS Entwicklung', 'Mobile App', 'Systemintegration'],
     companyLinks: ['Über uns', 'Arbeitsmethodik', 'Erfolgsgeschichten', 'Karriere', 'Blog'],
     copyright: "Alle Rechte vorbehalten.",
-    privacy: "Datenschutz & Sicherheit",
-    terms: "Nutzungsbedingungen",
-    cookie: "Cookie-Einstellungen"
+    legal: {
+      copyright: "Urheberrecht",
+      terms: "Nutzungsbedingungen",
+      privacy: "Datenschutzerklärung",
+      kvkk: "Datenschutzaufklärung",
+      cookiePolicy: "Cookie-Richtlinie",
+      emailLegal: "E-Mail Rechtliche Hinweise",
+      cookieSettings: "Cookie-Einstellungen"
+    }
   },
   notFound: {
     title: "Ups! Seite nicht gefunden",

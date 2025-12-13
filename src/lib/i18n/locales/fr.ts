@@ -359,9 +359,15 @@ export const fr: Dictionary = {
     codeServices: ['ERP sur mesure', 'Portail B2B', 'Développement SaaS', 'Application mobile', 'Intégration systèmes'],
     companyLinks: ['À propos', 'Méthodologie', 'Études de cas', 'Carrière', 'Blog'],
     copyright: "Tous droits réservés.",
-    privacy: "Confidentialité & Sécurité",
-    terms: "Conditions d’utilisation",
-    cookie: "Paramètres cookies"
+    legal: {
+      copyright: "Droits d'auteur",
+      terms: "Conditions d'utilisation",
+      privacy: "Politique de confidentialité",
+      kvkk: "Notice de protection des données",
+      cookiePolicy: "Politique relative aux cookies",
+      emailLegal: "Mentions légales e-mail",
+      cookieSettings: "Paramètres des cookies"
+    }
   },
   notFound: {
     title: "Oups ! Page introuvable",
