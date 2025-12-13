@@ -3,7 +3,6 @@ import path from 'path';
 import matter from 'gray-matter';
 import { serialize } from 'next-mdx-remote/serialize';
 
-// 'legal' tipini ekledik
 export type ContentType = 'projects' | 'articles' | 'demos' | 'legal';
 
 export interface ContentItem {
@@ -12,9 +11,9 @@ export interface ContentItem {
   lang: string;
   frontMatter: {
     title: string;
-    category?: string; // Legal sayfalar için opsiyonel olabilir
+    category?: string;
     description?: string;
-    date?: string;
+    date?: string; // İsteğe bağlı
     image?: string;
     [key: string]: any;
   };
@@ -27,7 +26,6 @@ export async function getAllContent(type: ContentType, lang: string): Promise<Co
   const contentPath = path.join(root, 'src', 'content', type, lang);
 
   if (!fs.existsSync(contentPath)) {
-    // Legal klasörü henüz yoksa boş dön, hata verme
     if (type === 'legal') return [];
     console.warn(`Klasör bulunamadı: ${contentPath}`);
     return [];
@@ -48,17 +46,18 @@ export async function getAllContent(type: ContentType, lang: string): Promise<Co
           type,
           lang,
           frontMatter: data as ContentItem['frontMatter'],
-          content: null, // Listeleme yaparken içeriği çekmeyiz
+          content: null,
         };
       })
   );
 
-  // Legal sayfalarda tarih zorunluluğu yok, varsa tarihe göre sırala yoksa olduğu gibi bırak
-  if (type === 'legal') return items;
-
-  return items.sort((a, b) => (
-    new Date(b.frontMatter.date!).getTime() - new Date(a.frontMatter.date!).getTime()
-  ));
+  // GÜNCELLENEN KISIM: Güvenli Sıralama
+  return items.sort((a, b) => {
+    // Tarih yoksa 0 kabul et (en sona atar), varsa timestamp'e çevir
+    const dateA = a.frontMatter.date ? new Date(a.frontMatter.date).getTime() : 0;
+    const dateB = b.frontMatter.date ? new Date(b.frontMatter.date).getTime() : 0;
+    return dateB - dateA;
+  });
 }
 
 export async function getContentBySlug(type: ContentType, lang: string, slug: string): Promise<ContentItem | null> {

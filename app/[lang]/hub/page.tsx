@@ -14,9 +14,12 @@ export default async function HubPage({ params }: { params: Promise<{ lang: stri
     fetchHubContent('demos', lang)
   ]);
 
-  const allItems: ContentItem[] = [...projects, ...articles, ...demos].sort((a, b) => 
-    new Date(b.frontMatter.date).getTime() - new Date(a.frontMatter.date).getTime()
-  );
+  // GÜNCELLENEN KISIM: Güvenli Sıralama
+  const allItems: ContentItem[] = [...projects, ...articles, ...demos].sort((a, b) => {
+    const dateA = a.frontMatter.date ? new Date(a.frontMatter.date).getTime() : 0;
+    const dateB = b.frontMatter.date ? new Date(b.frontMatter.date).getTime() : 0;
+    return dateB - dateA;
+  });
 
   return (
     <Suspense fallback={

@@ -24,9 +24,12 @@ export default async function HubCategoryPage({ params }: { params: Promise<{ ca
 
   const items = await fetchHubContent(category as any, lang);
 
-  items.sort((a, b) => 
-    new Date(b.frontMatter.date).getTime() - new Date(a.frontMatter.date).getTime()
-  );
+  // GÜNCELLENEN KISIM: Güvenli Sıralama
+  items.sort((a, b) => {
+    const dateA = a.frontMatter.date ? new Date(a.frontMatter.date).getTime() : 0;
+    const dateB = b.frontMatter.date ? new Date(b.frontMatter.date).getTime() : 0;
+    return dateB - dateA;
+  });
 
   return (
     <Suspense fallback={<div className="p-10 text-center text-gray-500">Yükleniyor...</div>}>

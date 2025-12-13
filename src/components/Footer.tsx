@@ -114,15 +114,15 @@ export function Footer({ mode }: FooterProps) {
             <ul className="space-y-3 sm:space-y-4">
               <li className="flex items-start gap-2 sm:gap-3 text-sm sm:text-base text-gray-400">
                 <Mail className="w-4 h-4 sm:w-5 sm:h-5 mt-0.5 flex-shrink-0" />
-                <span>hello@acrtech.com</span>
+                <span>info@acrtech.com</span>
               </li>
               <li className="flex items-start gap-2 sm:gap-3 text-sm sm:text-base text-gray-400">
                 <Phone className="w-4 h-4 sm:w-5 sm:h-5 mt-0.5 flex-shrink-0" />
-                <span>+90 (555) 123-4567</span>
+                <span>+90 (536) 248-7703</span>
               </li>
               <li className="flex items-start gap-2 sm:gap-3 text-sm sm:text-base text-gray-400">
                 <MapPin className="w-4 h-4 sm:w-5 sm:h-5 mt-0.5 flex-shrink-0" />
-                <span>Teknopark, İstanbul<br />Türkiye</span>
+                <span>Teknopark, Mersin<br />Türkiye</span>
               </li>
             </ul>
           </div>
