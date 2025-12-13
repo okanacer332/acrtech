@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import { serialize } from 'next-mdx-remote/serialize';
+// import { serialize } from 'next-mdx-remote/serialize'; // <- BU SATIRI KALDIRIN
 
 export type ContentType = 'projects' | 'articles' | 'demos' | 'legal';
 
@@ -13,15 +13,16 @@ export interface ContentItem {
     title: string;
     category?: string;
     description?: string;
-    date?: string; // İsteğe bağlı
+    date?: string;
     image?: string;
     [key: string]: any;
   };
-  content: any;
+  content: string; // <- any yerine string yapın
 }
 
 const root = process.cwd();
 
+// getAllContent fonksiyonu aynı kalabilir...
 export async function getAllContent(type: ContentType, lang: string): Promise<ContentItem[]> {
   const contentPath = path.join(root, 'src', 'content', type, lang);
 
@@ -46,20 +47,19 @@ export async function getAllContent(type: ContentType, lang: string): Promise<Co
           type,
           lang,
           frontMatter: data as ContentItem['frontMatter'],
-          content: null,
+          content: '', // Listeleme sayfalarında content gerekmiyorsa boş bırakın performans artar
         };
       })
   );
 
-  // GÜNCELLENEN KISIM: Güvenli Sıralama
   return items.sort((a, b) => {
-    // Tarih yoksa 0 kabul et (en sona atar), varsa timestamp'e çevir
     const dateA = a.frontMatter.date ? new Date(a.frontMatter.date).getTime() : 0;
     const dateB = b.frontMatter.date ? new Date(b.frontMatter.date).getTime() : 0;
     return dateB - dateA;
   });
 }
 
+// KRİTİK DEĞİŞİKLİK BURADA:
 export async function getContentBySlug(type: ContentType, lang: string, slug: string): Promise<ContentItem | null> {
   const filePath = path.join(root, 'src', 'content', type, lang, `${slug}.md`);
 
@@ -70,13 +70,14 @@ export async function getContentBySlug(type: ContentType, lang: string, slug: st
   const source = fs.readFileSync(filePath, 'utf8');
   const { data, content } = matter(source);
   
-  const mdxSource = await serialize(content);
+  // serialize işlemini KALDIRIYORUZ.
+  // const mdxSource = await serialize(content); 
 
   return {
     slug,
     type,
     lang,
     frontMatter: data as ContentItem['frontMatter'],
-    content: mdxSource,
+    content: content, // Ham string içeriği dönüyoruz
   };
 }

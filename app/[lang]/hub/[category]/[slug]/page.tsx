@@ -2,9 +2,16 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { ArrowLeft, Calendar, Share2 } from 'lucide-react';
 import { fetchHubDetail } from '@/src/lib/actions';
-import { MDXContent } from '@/src/components/hub/MDXContent';
+// ESKİ: import { MDXContent } from '@/src/components/hub/MDXContent'; -> Bunu kaldırdık
+import { MDXRemote } from 'next-mdx-remote/rsc'; // YENİ: Doğrudan sunucu tarafı render için
 import { Badge } from '@/src/components/ui/badge';
 import { Button } from '@/src/components/ui/button';
+
+// MDX içinde kullanılabilecek bileşenleri tanımlıyoruz
+const components = {
+  Badge,
+  Button,
+};
 
 export async function generateMetadata({ params }: { params: Promise<{ category: string; slug: string; lang: string }> }) {
   const { category, slug, lang } = await params;
@@ -140,7 +147,8 @@ export default async function HubDetailPage({ params }: { params: Promise<{ cate
 
         <div className="max-w-3xl mx-auto px-4 sm:px-6 md:px-8 mt-12">
           <article className={`prose prose-invert prose-lg max-w-none text-gray-300 ${colors.prose}`}>
-            <MDXContent source={item.content} />
+            {/* GÜNCELLENEN KISIM: MDXContent yerine MDXRemote kullanıyoruz */}
+            <MDXRemote source={item.content} components={components} />
           </article>
 
           <div className="mt-16 pt-8 border-t border-white/10 flex justify-between items-center">
