@@ -22,7 +22,6 @@ export function Footer({ mode }: FooterProps) {
     { label: t.footer.legal.kvkk, slug: 'kvkk' },
     { label: t.footer.legal.cookiePolicy, slug: 'cookie-policy' },
     { label: t.footer.legal.emailLegal, slug: 'email-legal' },
-    { label: t.footer.legal.cookieSettings, slug: 'cookie-settings' },
   ];
 
   return (

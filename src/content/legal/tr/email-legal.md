@@ -1,23 +1,20 @@
 ---
-title: "E-posta Hukuki Hüküm ve Şartlar"
+title: "E-Posta Yasal Uyarısı (Disclaimer)"
 date: "2024-12-13"
 ---
 
-## Gizlilik Bildirimi
+## Gizlilik ve Kişiye Özel Nitelik
 
-ACR Tech alan adından (@acrtech.com.tr) gönderilen bu e-posta ve ekleri, yalnızca gönderilen kişiye veya kuruma özeldir ve gizli bilgiler içerebilir.
+**Acrtech Bilişim Ltd. Şti.**’ye (“Acrtech”) ait bir e-posta uzantısı ile tarafınıza iletilmiş olan bu e-postada yer alan bilgiler, beraberinde iletilen tüm bilgi, onay ve her türlü formattaki dosyalar gizlidir ve kişiye özel olabilir. Bu içerik sadece gönderildiği kişi ya da kuruma ya da bu bilgileri kullanmaya veya almaya yetkili diğer kişilere özeldir.
 
-## Yanlış Alıcı
+## Yanlış Alıcı Uyarısı
 
-Eğer bu e-postanın yetkili alıcısı değilseniz:
-1.  İçeriği kopyalamamanız, dağıtmamanız veya açıklamamanız gerekmektedir.
-2.  Lütfen göndericiyi derhal uyarınız.
-3.  E-postayı ve eklerini sisteminizden kalıcı olarak siliniz.
+Eğer bu e-postanın doğru alıcısı değilseniz; bu e-postayı açıklamanız, kopyalamanız, dağıtmanız ya da içeriğine istinaden işlem yapmanız yasaktır ve bu eylemler kanuna aykırı olabilir.
 
-## Virüs Güvenliği
+Bu nedenle bu e-postayı yanlışlıkla aldıysanız, bu durumu derhal gönderene haber veriniz ve e-postayı sisteminizden siliniz. Bu e-postanın tarafınıza yanlışlıkla iletilmiş olması, e-postanın gizli ve kişiye özel niteliğini ortadan kaldırmaz.
 
-Şirketimiz, e-postaların virüs veya zararlı yazılım içermemesi için gerekli tüm önlemleri almaktadır. Ancak, e-postanın iletimi sırasında oluşabilecek teknik sorunlardan veya verilerin bozulmasından dolayı sorumluluk kabul edilmemektedir. Alıcının kendi virüs taramasını yapması önerilir.
+## Sorumluluk Reddi ve Güvenlik
 
-## Hukuki Bağlayıcılık
+Acrtech Bilişim Ltd. Şti., bu e-postada yer alan bilgilerin ya da e-postanın kendisinin usulüne göre ve/veya tam iletiminden ya da e-postanın alınmasında yaşanan herhangi bir gecikmeden sorumlu değildir.
 
-Aksi yazılı olarak belirtilmedikçe, bu e-posta içeriği ACR Tech için hukuki bağlayıcılık taşımaz ve bir teklif veya sözleşme niteliğinde değildir.
+Acrtech, bu e-postanın içeriği ile ilgili olarak hiçbir hukuki sorumluluğu kabul etmemektedir. Acrtech, e-postanın virüs içermediğine dair herhangi bir garanti vermemektedir; güvenlik taraması yapmak alıcının sorumluluğundadır.
