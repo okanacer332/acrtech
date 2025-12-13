@@ -47,13 +47,16 @@ export default async function LegalPage({ params }: { params: Promise<{ slug: st
           </h1>
 
           <article className="prose prose-invert prose-lg max-w-none 
-            prose-headings:text-gray-200 
-            prose-p:text-gray-400 
-            prose-li:text-gray-400
-            prose-strong:text-white
-            prose-a:text-blue-400 hover:prose-a:text-blue-300">
-            <MDXContent source={item.content} />
-          </article>
+    prose-headings:text-gray-100 prose-headings:font-bold
+    prose-p:text-gray-300 prose-p:leading-relaxed
+    prose-li:text-gray-300
+    prose-strong:text-white prose-strong:font-semibold
+    prose-a:text-blue-400 hover:prose-a:text-blue-300 prose-a:no-underline
+    prose-hr:border-white/10
+    prose-blockquote:border-l-blue-500 prose-blockquote:bg-white/5 prose-blockquote:py-2 prose-blockquote:px-4 prose-blockquote:not-italic prose-blockquote:text-gray-400
+    ">
+    <MDXContent source={item.content} />
+  </article>
           
           <div className="mt-12 pt-6 border-t border-white/5 text-sm text-gray-500">
             Son Güncelleme: {item.frontMatter.date}
