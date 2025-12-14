@@ -2,10 +2,10 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { ArrowLeft, Calendar, Share2 } from 'lucide-react';
 import { fetchHubDetail } from '@/src/lib/actions';
-// ESKİ: import { MDXContent } from '@/src/components/hub/MDXContent'; -> Bunu kaldırdık
-import { MDXRemote } from 'next-mdx-remote/rsc'; // YENİ: Doğrudan sunucu tarafı render için
+import { MDXRemote } from 'next-mdx-remote/rsc';
 import { Badge } from '@/src/components/ui/badge';
 import { Button } from '@/src/components/ui/button';
+import { getDictionary } from '@/src/lib/i18n/get-dictionary'; // EKLENDİ
 
 // MDX içinde kullanılabilecek bileşenleri tanımlıyoruz
 const components = {
@@ -37,6 +37,9 @@ export async function generateMetadata({ params }: { params: Promise<{ category:
 export default async function HubDetailPage({ params }: { params: Promise<{ category: string; slug: string; lang: string }> }) {
   const { category, slug, lang } = await params;
   
+  // Sözlüğü çekiyoruz
+  const t = await getDictionary(lang as any); // EKLENDİ
+
   const item = await fetchHubDetail(category as any, lang, slug);
 
   if (!item) {
@@ -95,6 +98,9 @@ export default async function HubDetailPage({ params }: { params: Promise<{ cate
     prose: 'prose-headings:text-gray-200 prose-a:text-blue-400 prose-strong:text-gray-200 prose-code:text-blue-300'
   };
 
+  // Kategori adını dil desteğine göre formatla
+  const categoryLabel = t.hub.tabs[category as keyof typeof t.hub.tabs] || category.charAt(0).toUpperCase() + category.slice(1);
+
   return (
     <div className="flex flex-col min-h-screen">
       <script
@@ -116,7 +122,7 @@ export default async function HubDetailPage({ params }: { params: Promise<{ cate
               className={`inline-flex items-center gap-2 mb-8 text-sm font-medium transition-colors ${colors.backLink}`}
             >
               <ArrowLeft className="w-4 h-4" />
-              {category.charAt(0).toUpperCase() + category.slice(1)} Listesine Dön
+              {t.hub.detail.backTo} {/* GÜNCELLENDİ */}
             </Link>
 
             <div className="flex flex-wrap items-center gap-4 mb-6">
@@ -147,12 +153,11 @@ export default async function HubDetailPage({ params }: { params: Promise<{ cate
 
         <div className="max-w-3xl mx-auto px-4 sm:px-6 md:px-8 mt-12">
           <article className={`prose prose-invert prose-lg max-w-none text-gray-300 ${colors.prose}`}>
-            {/* GÜNCELLENEN KISIM: MDXContent yerine MDXRemote kullanıyoruz */}
             <MDXRemote source={item.content} components={components} />
           </article>
 
           <div className="mt-16 pt-8 border-t border-white/10 flex justify-between items-center">
-            <span className="text-gray-500 text-sm">Paylaş:</span>
+            <span className="text-gray-500 text-sm">{t.hub.detail.share}</span> {/* GÜNCELLENDİ */}
             <div className="flex gap-2">
               <Button variant="outline" size="icon" className="rounded-full bg-white/5 border-white/10 hover:bg-white/10">
                 <Share2 className="w-4 h-4 text-gray-300" />

@@ -375,4 +375,40 @@ export const de: Dictionary = {
     homeBtn: "Startseite",
     hubBtn: "Blog ansehen"
   },
+  hub: {
+    title: "Entdecken & Lernen",
+    subtitle: "Community-Projekte, ausführliche technische Artikel und interaktive Demos.",
+    searchPlaceholder: "Artikel, Projekte oder Demos suchen...",
+    tabs: {
+      all: "Alle",
+      projects: "Projekte",
+      articles: "Artikel",
+      demos: "Demos"
+    },
+    sidebar: {
+      overview: "Übersicht",
+      projects: "Projekte",
+      articles: "Artikel",
+      demos: "Demos",
+      popular: "BELIEBT",
+      newsletter: {
+        title: "Newsletter",
+        desc: "Bleiben Sie auf dem Laufenden.",
+        btn: "Abonnieren"
+      }
+    },
+    feed: {
+      notFound: {
+        title: "Keine Ergebnisse gefunden",
+        desc: "Wir konnten keinen Inhalt für \"{term}\" finden. Bitte versuchen Sie es mit anderen Schlüsselwörtern."
+      },
+      examine: "Untersuchen"
+    },
+    detail: {
+      backTo: "Zurück zur Liste",
+      share: "Teilen:",
+      lastUpdate: "Letzte Aktualisierung:"
+    },
+    loading: "Inhalte werden geladen..."
+  }
 };

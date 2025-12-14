@@ -375,4 +375,40 @@ export const en: Dictionary = {
     homeBtn: "Home",
     hubBtn: "Visit Blog"
   },
+  hub: {
+    title: "Discover & Learn",
+    subtitle: "Community projects, in-depth technical articles, and interactive demos.",
+    searchPlaceholder: "Search articles, projects, or demos...",
+    tabs: {
+      all: "All",
+      projects: "Projects",
+      articles: "Articles",
+      demos: "Demos"
+    },
+    sidebar: {
+      overview: "Overview",
+      projects: "Projects",
+      articles: "Articles",
+      demos: "Demos",
+      popular: "POPULAR",
+      newsletter: {
+        title: "Newsletter",
+        desc: "Stay updated with the latest news.",
+        btn: "Subscribe"
+      }
+    },
+    feed: {
+      notFound: {
+        title: "No Results Found",
+        desc: "We couldn't find any content for \"{term}\". Please try different keywords."
+      },
+      examine: "Examine"
+    },
+    detail: {
+      backTo: "Back to List",
+      share: "Share:",
+      lastUpdate: "Last Update:"
+    },
+    loading: "Loading content..."
+  }
 };

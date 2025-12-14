@@ -1,45 +1,4 @@
-// --- Alt Tipler ---
-
-export type ProjectItem = {
-  title: string;
-  category: string;
-  description: string;
-  image: string;
-  link?: string;
-};
-
-export type PricingPlan = {
-  name: string;
-  price: string;
-  period: string;
-  label?: string;
-  description: string;
-  features: string[];
-  cta: string;
-  link: string;
-  highlighted: boolean;
-};
-
-export type ServiceItem = {
-  title: string;
-  description: string;
-};
-
-export type FocusAreaItem = {
-  title: string;
-  description: string;
-  highlights: string[];
-};
-
-export type TestimonialItem = {
-  name: string;
-  role: string;
-  company: string;
-  text: string;
-  rating: number;
-};
-
-export type Dictionary = {
+export interface Dictionary {
   header: {
     menu: string;
     portfolio: string;
@@ -79,8 +38,8 @@ export type Dictionary = {
     customSolution: string;
     contactUs: string;
     forQuote: string;
-    designPlans: PricingPlan[];
-    codePlans: PricingPlan[];
+    designPlans: PlanItem[];
+    codePlans: PlanItem[];
   };
   services: {
     tag: string;
@@ -100,7 +59,6 @@ export type Dictionary = {
     designFocus: FocusAreaItem[];
     codeFocus: FocusAreaItem[];
   };
-  
   testimonials: {
     tag: string;
     title: string;
@@ -148,4 +106,80 @@ export type Dictionary = {
     homeBtn: string;
     hubBtn: string;
   };
-};
+  // YENİ EKLENEN HUB BÖLÜMÜ
+  hub: {
+    title: string;
+    subtitle: string;
+    searchPlaceholder: string;
+    tabs: {
+      all: string;
+      projects: string;
+      articles: string;
+      demos: string;
+    };
+    sidebar: {
+      overview: string;
+      projects: string;
+      articles: string;
+      demos: string;
+      popular: string;
+      newsletter: {
+        title: string;
+        desc: string;
+        btn: string;
+      };
+    };
+    feed: {
+      notFound: {
+        title: string;
+        desc: string;
+      };
+      examine: string;
+    };
+    detail: {
+      backTo: string;
+      share: string;
+      lastUpdate: string;
+    };
+    loading: string;
+  };
+}
+
+export interface ProjectItem {
+  title: string;
+  category: string;
+  description: string;
+  image: string;
+  link?: string;
+}
+
+export interface PlanItem {
+  name: string;
+  price: string;
+  period: string;
+  label?: string;
+  description: string;
+  features: string[];
+  cta: string;
+  link: string;
+  highlighted: boolean;
+}
+
+export interface ServiceItem {
+  title: string;
+  description: string;
+}
+
+export interface FocusAreaItem {
+  title: string;
+  description: string;
+  highlights: string[];
+}
+
+export interface TestimonialItem {
+  name: string;
+  role: string;
+  company: string;
+  text: string;
+  rating: number;
+}

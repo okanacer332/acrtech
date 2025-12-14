@@ -384,4 +384,40 @@ export const tr: Dictionary = {
     homeBtn: "Ana Sayfa",
     hubBtn: "Blog'a Göz At"
   },
+  hub: {
+    title: "Keşfet & Öğren",
+    subtitle: "Topluluk projeleri, derinlemesine teknik makaleler ve interaktif demolar.",
+    searchPlaceholder: "Makale, proje veya demo ara...",
+    tabs: {
+      all: "Tümü",
+      projects: "Projeler",
+      articles: "Makaleler",
+      demos: "Demolar"
+    },
+    sidebar: {
+      overview: "Genel Bakış",
+      projects: "Projeler",
+      articles: "Makaleler",
+      demos: "Demolar",
+      popular: "POPÜLER",
+      newsletter: {
+        title: "Bülten",
+        desc: "En son güncellemelerden haberdar olun.",
+        btn: "Abone Ol"
+      }
+    },
+    feed: {
+      notFound: {
+        title: "Sonuç Bulunamadı",
+        desc: "\"{term}\" ile ilgili bir içerik bulamadık. Lütfen farklı anahtar kelimeler deneyin."
+      },
+      examine: "İncele"
+    },
+    detail: {
+      backTo: "Listesine Dön",
+      share: "Paylaş:",
+      lastUpdate: "Son Güncelleme:"
+    },
+    loading: "İçerikler yükleniyor..."
+  }
 };

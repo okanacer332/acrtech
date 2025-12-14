@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from 'react'; // useEffect'i kaldırdık
+import { useState } from 'react';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { ArrowUpRight, Layers, Box, PenTool, Code2, SearchX } from 'lucide-react';
@@ -8,6 +8,7 @@ import { TransitionWrapper } from '@/src/components/TransitionWrapper';
 import { Badge } from '@/src/components/ui/badge';
 import type { ContentItem } from '@/src/lib/mdx';
 import { cn } from '@/src/components/ui/utils';
+import { useLanguage } from '@/src/lib/i18n/LanguageContext'; // EKLENDİ
 
 interface HubFeedProps {
   initialCategory: 'all' | 'projects' | 'articles' | 'demos';
@@ -17,6 +18,7 @@ interface HubFeedProps {
 
 export function HubFeed({ initialCategory, initialItems, lang }: HubFeedProps) {
   const searchParams = useSearchParams();
+  const { t } = useLanguage(); // EKLENDİ
   
   const [items] = useState<ContentItem[]>(initialItems);
   
@@ -34,19 +36,20 @@ export function HubFeed({ initialCategory, initialItems, lang }: HubFeedProps) {
 
   const langPrefix = `/${lang}`;
 
+  // GÜNCELLENDİ: Etiketler dinamik
   const tabs = [
-    { id: 'all', label: 'Tümü', icon: Layers, href: `${langPrefix}/hub` },
-    { id: 'projects', label: 'Projeler', icon: Box, href: `${langPrefix}/hub/projects` },
-    { id: 'articles', label: 'Makaleler', icon: PenTool, href: `${langPrefix}/hub/articles` },
-    { id: 'demos', label: 'Demolar', icon: Code2, href: `${langPrefix}/hub/demos` },
+    { id: 'all', label: t.hub.tabs.all, icon: Layers, href: `${langPrefix}/hub` },
+    { id: 'projects', label: t.hub.tabs.projects, icon: Box, href: `${langPrefix}/hub/projects` },
+    { id: 'articles', label: t.hub.tabs.articles, icon: PenTool, href: `${langPrefix}/hub/articles` },
+    { id: 'demos', label: t.hub.tabs.demos, icon: Code2, href: `${langPrefix}/hub/demos` },
   ];
 
   return (
     <div className="p-4 sm:p-6 md:p-8 max-w-5xl mx-auto min-h-screen">
       
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-white mb-2 tracking-tight">Keşfet & Öğren</h1>
-        <p className="text-gray-400">Topluluk projeleri, derinlemesine teknik makaleler ve interaktif demolar.</p>
+        <h1 className="text-3xl font-bold text-white mb-2 tracking-tight">{t.hub.title}</h1> {/* GÜNCELLENDİ */}
+        <p className="text-gray-400">{t.hub.subtitle}</p> {/* GÜNCELLENDİ */}
       </div>
 
       <div className="flex flex-wrap gap-2 mb-8 pb-4 border-b border-white/5">
@@ -76,9 +79,10 @@ export function HubFeed({ initialCategory, initialItems, lang }: HubFeedProps) {
              <div className="w-16 h-16 bg-white/5 rounded-full flex items-center justify-center mb-4">
                 <SearchX className="w-8 h-8 text-gray-500" />
              </div>
-             <h3 className="text-lg font-medium text-gray-300 mb-1">Sonuç Bulunamadı</h3>
+             <h3 className="text-lg font-medium text-gray-300 mb-1">{t.hub.feed.notFound.title}</h3> {/* GÜNCELLENDİ */}
              <p className="text-gray-500 text-sm max-w-xs">
-               "{searchTerm}" ile ilgili bir içerik bulamadık. Lütfen farklı anahtar kelimeler deneyin.
+               {/* String interpolation for search term */}
+               {t.hub.feed.notFound.desc.replace('{term}', searchTerm)} 
              </p>
            </div>
         ) : (
@@ -124,7 +128,7 @@ export function HubFeed({ initialCategory, initialItems, lang }: HubFeedProps) {
                     </div>
                     
                     <div className="flex items-center gap-1 text-xs font-medium text-gray-500 group-hover:text-white transition-colors">
-                      İncele <ArrowUpRight className="w-3 h-3 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                      {t.hub.feed.examine} <ArrowUpRight className="w-3 h-3 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" /> {/* GÜNCELLENDİ */}
                     </div>
                   </div>
                 </article>

@@ -6,11 +6,13 @@ import { Search } from "lucide-react";
 import { Input } from "@/src/components/ui/input";
 import { LanguageSelector } from "@/src/components/LanguageSelector";
 import { useSearchParams, usePathname, useRouter } from "next/navigation";
+import { useLanguage } from "@/src/lib/i18n/LanguageContext"; // EKLENDİ
 
 export function HubHeader() {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { replace } = useRouter();
+  const { t } = useLanguage(); // EKLENDİ
 
   const handleSearch = (term: string) => {
     const params = new URLSearchParams(searchParams);
@@ -43,7 +45,7 @@ export function HubHeader() {
           <div className="relative group">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500 group-focus-within:text-blue-400 transition-colors" />
             <Input 
-              placeholder="Makale, proje veya demo ara..." 
+              placeholder={t.hub.searchPlaceholder} // GÜNCELLENDİ
               className="pl-10 bg-white/5 border-white/5 text-sm text-gray-300 focus:bg-white/10 focus:border-blue-500/50 rounded-full transition-all"
               onChange={(e) => handleSearch(e.target.value)}
               defaultValue={searchParams.get('search')?.toString()}

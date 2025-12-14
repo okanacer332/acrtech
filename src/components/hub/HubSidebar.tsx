@@ -14,14 +14,15 @@ import {
 
 export function HubSidebar() {
   const pathname = usePathname();
-  const { language } = useLanguage();
+  const { language, t } = useLanguage(); // GÜNCELLENDİ
   const langPrefix = `/${language.toLowerCase()}`;
 
+  // GÜNCELLENDİ: Etiketler dinamik t.hub yapısından geliyor
   const menuItems = [
-    { label: "Genel Bakış", icon: LayoutGrid, href: `${langPrefix}/hub`, exact: true },
-    { label: "Projeler", icon: Box, href: `${langPrefix}/hub/projects` },
-    { label: "Makaleler", icon: PenTool, href: `${langPrefix}/hub/articles` },
-    { label: "Demolar", icon: Code2, href: `${langPrefix}/hub/demos` },
+    { label: t.hub.sidebar.overview, icon: LayoutGrid, href: `${langPrefix}/hub`, exact: true },
+    { label: t.hub.sidebar.projects, icon: Box, href: `${langPrefix}/hub/projects` },
+    { label: t.hub.sidebar.articles, icon: PenTool, href: `${langPrefix}/hub/articles` },
+    { label: t.hub.sidebar.demos, icon: Code2, href: `${langPrefix}/hub/demos` },
   ];
 
   const tags = ["#React", "#NextJS", "#Tailwind", "#UI/UX", "#ThreeJS"];
@@ -57,7 +58,7 @@ export function HubSidebar() {
 
       <div className="p-4 mt-4 border-t border-white/5">
         <div className="flex items-center gap-2 text-xs font-semibold text-gray-500 mb-3 px-3 tracking-wider">
-          <Flame className="w-3 h-3 text-orange-500" /> POPÜLER
+          <Flame className="w-3 h-3 text-orange-500" /> {t.hub.sidebar.popular} {/* GÜNCELLENDİ */}
         </div>
         <div className="space-y-1">
           {tags.map((tag) => (
@@ -71,10 +72,10 @@ export function HubSidebar() {
 
       <div className="mt-auto p-4 border-t border-white/5">
         <div className="p-4 rounded-xl bg-gradient-to-br from-purple-900/20 to-blue-900/20 border border-white/5">
-          <h4 className="text-sm font-medium text-white mb-1">Bülten</h4>
-          <p className="text-xs text-gray-400 mb-3">En son güncellemelerden haberdar olun.</p>
+          <h4 className="text-sm font-medium text-white mb-1">{t.hub.sidebar.newsletter.title}</h4> {/* GÜNCELLENDİ */}
+          <p className="text-xs text-gray-400 mb-3">{t.hub.sidebar.newsletter.desc}</p> {/* GÜNCELLENDİ */}
           <button className="w-full py-1.5 text-xs bg-white/10 hover:bg-white/20 text-white rounded-md transition-colors border border-white/10">
-            Abone Ol
+            {t.hub.sidebar.newsletter.btn} {/* GÜNCELLENDİ */}
           </button>
         </div>
       </div>

@@ -375,4 +375,40 @@ export const ar: Dictionary = {
     homeBtn: "الرئيسية",
     hubBtn: "تصفح المدونة"
   },
+  hub: {
+    title: "اكتشف وتعلم",
+    subtitle: "مشاريع مجتمعية، مقالات تقنية متعمقة، وعروض توضيحية تفاعلية.",
+    searchPlaceholder: "ابحث عن مقالات، مشاريع، أو عروض توضيحية...",
+    tabs: {
+      all: "الكل",
+      projects: "مشاريع",
+      articles: "مقالات",
+      demos: "عروض"
+    },
+    sidebar: {
+      overview: "نظرة عامة",
+      projects: "مشاريع",
+      articles: "مقالات",
+      demos: "عروض",
+      popular: "شائعة",
+      newsletter: {
+        title: "النشرة البريدية",
+        desc: "ابق على اطلاع بآخر المستجدات.",
+        btn: "اشتراك"
+      }
+    },
+    feed: {
+      notFound: {
+        title: "لم يتم العثور على نتائج",
+        desc: "لم نتمكن من العثور على أي محتوى لـ \"{term}\". يرجى تجربة كلمات رئيسية مختلفة."
+      },
+      examine: "فحص"
+    },
+    detail: {
+      backTo: "العودة إلى القائمة",
+      share: "مشاركة:",
+      lastUpdate: "آخر تحديث:"
+    },
+    loading: "جاري تحميل المحتوى..."
+  }
 };
