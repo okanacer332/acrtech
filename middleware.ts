@@ -1,21 +1,25 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
-import { i18n } from '@/src/i18n-config';
+import { i18n } from '@/src/i18n-config'; // Yolunu dosya konumuna göre ayarla
 import { match as matchLocale } from '@formatjs/intl-localematcher';
 import Negotiator from 'negotiator';
 
 function getLocale(request: NextRequest): string | undefined {
-  // 1. Tarayıcının gönderdiği dilleri al
+  // Negotiator headers objesi bekler
   const negotiatorHeaders: Record<string, string> = {};
   request.headers.forEach((value, key) => (negotiatorHeaders[key] = value));
 
-  // 2. Desteklediğimiz dillerle eşleştir
-  // @ts-ignore locales are readonly
-  const languages = new Negotiator({ headers: negotiatorHeaders }).languages();
-  
+  // @ts-ignore locales readonly hatası için
+  const locales: string[] = i18n.locales;
+
+  // Tarayıcının dillerini al
+  let languages = new Negotiator({ headers: negotiatorHeaders }).languages();
+
   try {
-    return matchLocale(languages, i18n.locales, i18n.defaultLocale);
+    // Eşleştirme yap (Örn: Kullanıcı 'en-US' istiyor, bizde 'en' var -> Eşleşir)
+    return matchLocale(languages, locales, i18n.defaultLocale);
   } catch (e) {
+    // Herhangi bir hatada varsayılan dile dön
     return i18n.defaultLocale;
   }
 }
@@ -23,35 +27,32 @@ function getLocale(request: NextRequest): string | undefined {
 export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
 
-  // Dosya isteklerini (resimler, svg, favicon vb.) yoksay
+  // 1. Statik dosyaları ve API route'larını kontrol etme
   if (
     [
       '/manifest.json',
       '/favicon.ico',
-      '/acrtech.png', // Logo vb. public dosyaların
-      '/file.svg',
-      '/globe.svg',
-      '/next.svg',
-      '/vercel.svg',
-      '/window.svg',
+      '/acrtech.png', // Logo vb. dosyalar
+      '/robots.txt',
+      '/sitemap.xml',
     ].includes(pathname) ||
-    pathname.startsWith('/portfolio/') || // Public altındaki klasörler
-    pathname.startsWith('/_next/') ||
-    pathname.startsWith('/api/') // API rotaları varsa
+    pathname.startsWith('/_next') ||
+    pathname.startsWith('/api') ||
+    pathname.match(/\.(png|jpg|jpeg|svg|webp|css|js)$/) // Görseller ve assetler
   ) {
     return;
   }
 
-  // URL'de zaten dil kodu var mı kontrol et (örn: /tr/about)
+  // 2. URL'de dil kodu var mı kontrol et
   const pathnameIsMissingLocale = i18n.locales.every(
     (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
   );
 
-  // Dil kodu yoksa yönlendir
+  // 3. Eğer dil kodu yoksa (örn: "acrtech.com/hub" veya "acrtech.com/")
   if (pathnameIsMissingLocale) {
     const locale = getLocale(request);
-    
-    // Yeni URL oluştur (örn: acrtech.com -> acrtech.com/tr)
+
+    // Yeni URL'yi oluştur: /en/hub veya /tr
     return NextResponse.redirect(
       new URL(
         `/${locale}${pathname.startsWith('/') ? '' : '/'}${pathname}`,
@@ -62,6 +63,6 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  // Matcher: Middleware'in çalışacağı yollar
+  // Matcher: Middleware'in hangi yollarda çalışacağını belirler
   matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)'],
 };
