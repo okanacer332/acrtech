@@ -22,19 +22,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const projects = await getAllContent('projects', lang);
     const articles = await getAllContent('articles', lang);
     const demos = await getAllContent('demos', lang);
-    // YENİ: Legal içerikleri de çekiyoruz
     const legals = await getAllContent('legal', lang);
 
-    // 1. Hub İçerikleri (Projeler, Makaleler, Demolar)
     const hubItems = [...projects, ...articles, ...demos].map((item) => ({
       url: `${baseUrl}/${lang}/hub/${item.type}/${item.slug}`,
-      // FIX: Date yoksa şu anki zamanı kullan (Build hatasını çözer)
       lastModified: new Date(item.frontMatter.date || new Date().toISOString()),
-      changeFrequency: 'weekly' as const,
-      priority: 0.7,
+      changeFrequency: 'daily' as const,
+      priority: 1.0, 
     }));
 
-    // 2. Legal İçerikleri (URL yapısı farklı: /legal/slug)
     const legalItems = legals.map((item) => ({
       url: `${baseUrl}/${lang}/legal/${item.slug}`,
       lastModified: new Date(item.frontMatter.date || new Date().toISOString()),

@@ -18,17 +18,43 @@ export async function generateMetadata({ params }: { params: Promise<{ category:
 
   if (!item) return { title: 'Not Found' };
 
+  // DİĞER DİLLER İÇİN LİNKLERİ OLUŞTUR
+  const languages = ['tr', 'en', 'de', 'es', 'ru', 'fr', 'ar'];
+  const alternates = languages.reduce((acc, l) => {
+    acc[l] = `https://acrtech.com.tr/${l}/hub/${category}/${slug}`;
+    return acc;
+  }, {} as Record<string, string>);
+
   return {
-    title: `${item.frontMatter.title} | ACR Tech`,
+    title: `${item.frontMatter.title} | ACR Tech Trend`,
     description: item.frontMatter.description,
+    keywords: `${item.frontMatter.category}, yazılım, tasarım, ${category}, teknoloji trendleri`, // Anahtar kelimeler eklendi
     alternates: {
-      canonical: `/${lang}/hub/${category}/${slug}`,
+      canonical: `https://acrtech.com.tr/${lang}/hub/${category}/${slug}`,
+      languages: alternates, // Google buna bayılır!
     },
     openGraph: {
       title: item.frontMatter.title,
       description: item.frontMatter.description,
-      images: [item.frontMatter.image || '/acrtech.png'],
+      url: `https://acrtech.com.tr/${lang}/hub/${category}/${slug}`,
+      siteName: 'ACR Tech',
+      images: [
+        {
+          url: item.frontMatter.image || '/acrtech.png',
+          width: 1200,
+          height: 630,
+          alt: item.frontMatter.title,
+        },
+      ],
       type: 'article',
+      publishedTime: item.frontMatter.date,
+      authors: ['ACR Tech Team'],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: item.frontMatter.title,
+      description: item.frontMatter.description,
+      images: [item.frontMatter.image || '/acrtech.png'],
     },
   };
 }
