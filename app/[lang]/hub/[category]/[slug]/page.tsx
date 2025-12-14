@@ -5,9 +5,8 @@ import { fetchHubDetail } from '@/src/lib/actions';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import { Badge } from '@/src/components/ui/badge';
 import { Button } from '@/src/components/ui/button';
-import { getDictionary } from '@/src/lib/i18n/get-dictionary'; // EKLENDİ
+import { getDictionary } from '@/src/lib/i18n/get-dictionary';
 
-// MDX içinde kullanılabilecek bileşenleri tanımlıyoruz
 const components = {
   Badge,
   Button,
@@ -37,9 +36,7 @@ export async function generateMetadata({ params }: { params: Promise<{ category:
 export default async function HubDetailPage({ params }: { params: Promise<{ category: string; slug: string; lang: string }> }) {
   const { category, slug, lang } = await params;
   
-  // Sözlüğü çekiyoruz
-  const t = await getDictionary(lang as any); // EKLENDİ
-
+  const t = await getDictionary(lang as any);
   const item = await fetchHubDetail(category as any, lang, slug);
 
   if (!item) {
@@ -48,49 +45,9 @@ export default async function HubDetailPage({ params }: { params: Promise<{ cate
 
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://acrtech.com.tr';
 
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': category === 'projects' ? 'CreativeWork' : 'Article',
-    headline: item.frontMatter.title,
-    description: item.frontMatter.description,
-    image: item.frontMatter.image ? `${baseUrl}${item.frontMatter.image}` : undefined,
-    datePublished: item.frontMatter.date,
-    author: {
-      '@type': 'Organization',
-      name: 'ACR Tech Team',
-    },
-  };
-
-  const breadcrumbJsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      {
-        '@type': 'ListItem',
-        position: 1,
-        name: 'Home',
-        item: `${baseUrl}/${lang}`
-      },
-      {
-        '@type': 'ListItem',
-        position: 2,
-        name: 'Hub',
-        item: `${baseUrl}/${lang}/hub`
-      },
-      {
-        '@type': 'ListItem',
-        position: 3,
-        name: category.charAt(0).toUpperCase() + category.slice(1),
-        item: `${baseUrl}/${lang}/hub/${category}`
-      },
-      {
-        '@type': 'ListItem',
-        position: 4,
-        name: item.frontMatter.title,
-        item: `${baseUrl}/${lang}/hub/${category}/${slug}`
-      }
-    ]
-  };
+  // Kategori ismini dil dosyasından çekiyoruz (Projeler, Makaleler, Demolar)
+  // Eğer sözlükte bulamazsa kategorinin kendi adını baş harfi büyük şekilde gösterir.
+  const categoryLabel = t.hub.tabs[category as keyof typeof t.hub.tabs] || category.charAt(0).toUpperCase() + category.slice(1);
 
   const colors = {
     textGradient: 'bg-gradient-to-r from-blue-200 to-cyan-300', 
@@ -98,32 +55,22 @@ export default async function HubDetailPage({ params }: { params: Promise<{ cate
     prose: 'prose-headings:text-gray-200 prose-a:text-blue-400 prose-strong:text-gray-200 prose-code:text-blue-300'
   };
 
-  // Kategori adını dil desteğine göre formatla
-  const categoryLabel = t.hub.tabs[category as keyof typeof t.hub.tabs] || category.charAt(0).toUpperCase() + category.slice(1);
-
   return (
     <div className="flex flex-col min-h-screen">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-      
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
-      />
-
       <main className="flex-1 pb-16">
         <div className="relative pt-8 pb-12 px-4 sm:px-6 md:px-8 border-b border-white/5 bg-slate-900/50">
           <div className="max-w-4xl mx-auto">
             
+            {/* GÜNCELLENEN KISIM BAŞLANGIÇ */}
             <Link 
               href={`/${lang}/hub/${category}`} 
               className={`inline-flex items-center gap-2 mb-8 text-sm font-medium transition-colors ${colors.backLink}`}
             >
               <ArrowLeft className="w-4 h-4" />
-              {t.hub.detail.backTo} {/* GÜNCELLENDİ */}
+              {/* Artık 'Listesine Dön' değil, dinamik kategori adı yazıyor */}
+              {categoryLabel}
             </Link>
+            {/* GÜNCELLENEN KISIM BİTİŞ */}
 
             <div className="flex flex-wrap items-center gap-4 mb-6">
               <Badge variant="outline" className="px-3 py-1 bg-blue-500/10 text-blue-300 border-blue-500/20">
@@ -157,7 +104,7 @@ export default async function HubDetailPage({ params }: { params: Promise<{ cate
           </article>
 
           <div className="mt-16 pt-8 border-t border-white/10 flex justify-between items-center">
-            <span className="text-gray-500 text-sm">{t.hub.detail.share}</span> {/* GÜNCELLENDİ */}
+            <span className="text-gray-500 text-sm">{t.hub.detail.share}</span>
             <div className="flex gap-2">
               <Button variant="outline" size="icon" className="rounded-full bg-white/5 border-white/10 hover:bg-white/10">
                 <Share2 className="w-4 h-4 text-gray-300" />
