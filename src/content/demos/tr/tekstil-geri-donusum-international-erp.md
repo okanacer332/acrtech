@@ -1,5 +1,5 @@
 ---
-title: "AJ International ERP: Multi-Tenant & RBAC Mimarisi"
+title: "Tekstil Geri Dönüşüm - International ERP: Multi-Tenant & RBAC Mimarisi"
 category: "SaaS Architecture"
 description: "Küresel tekstil operasyonları için Next.js ve Spring Boot ile geliştirilen çoklu kiracı ve rol tabanlı yönetim sisteminin teknik incelemesi. Erişim bilgileri aşağıdadır."
 date: "2025-12-12"
