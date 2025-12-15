@@ -73,38 +73,7 @@ export function CTA({ mode }: CTAProps) {
                   </svg>
                 </a>
               </div>
-
-              
-              <div className="grid grid-cols-3 gap-4 sm:gap-6 md:gap-8 mt-12 sm:mt-16 pt-12 sm:pt-16 border-t border-white/10">
-                <div>
-                  <p className={`text-2xl sm:text-3xl md:text-4xl mb-1 sm:mb-2 transition-colors duration-500 ${
-                    mode === 'design' ? 'text-purple-300' : 'text-blue-300'
-                  }`}>
-                    500+
-                  </p>
-                  <p className="text-xs sm:text-sm md:text-base text-gray-400">
-                    {mode === 'design' ? t.cta.statProjects : t.cta.statSystems}
-                  </p>
-                </div>
-                <div>
-                  <p className={`text-2xl sm:text-3xl md:text-4xl mb-1 sm:mb-2 transition-colors duration-500 ${
-                    mode === 'design' ? 'text-purple-300' : 'text-blue-300'
-                  }`}>
-                    100%
-                  </p>
-                  <p className="text-xs sm:text-sm md:text-base text-gray-400">{t.cta.statSuccess}</p>
-                </div>
-                <div>
-                  <p className={`text-2xl sm:text-3xl md:text-4xl mb-1 sm:mb-2 transition-colors duration-500 ${
-                    mode === 'design' ? 'text-purple-300' : 'text-blue-300'
-                  }`}>
-                    24/7
-                  </p>
-                  <p className="text-xs sm:text-sm md:text-base text-gray-400">
-                    {mode === 'design' ? t.cta.statSupportDesign : t.cta.statSupportCode}
-                  </p>
-                </div>
-              </div>
+ 
             </div>
           </div>
         </TransitionWrapper>
