@@ -32,7 +32,7 @@ const jsonLd = {
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://acrtech.com.tr'),
-  title: "İşinizi Büyüten Size Özel Yazılım Çözümleri & B2B Uygulamalar | ACRTECH",
+  title: "ACRTECH | İşinizi Büyüten Size Özel Yazılım Çözümleri & B2B Uygulamalar",
   description: "Sektörünüze özel web yazılımları ve yönetim panelleri ile dijital dönüşümü başlatın. Yeni müşteriler kazandıran, stratejik B2B ve web çözümlerimizle tanışın. Teklif alın.",
   // YENİ GÜNCELLEME: Statik .ico dosyasını işaret ediyoruz
   icons: {
