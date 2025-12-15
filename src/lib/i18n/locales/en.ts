@@ -34,25 +34,29 @@ export const en: Dictionary = {
         title: 'Recycling Operations Panel',
         category: 'Textile Recycling ERP Software',
         description: 'End-to-end platform setup improving operational efficiency and business intelligence.',
-        image: '/portfolio/22.png'
+        image: '/portfolio/22.png',
+        link: '/hub/demos/textile-recycling-international-erp'
       },
       {
         title: 'Online Education Platform',
         category: 'B2C User Journey',
         description: 'Gamified, retention-focused service design.',
-        image: '/portfolio/17.png'
+        image: '/portfolio/17.png',
+        link: '/hub/projects/b2c-online-education-user-journey-gamification'
       },
       {
         title: 'Cloud-Based SaaS',
         category: 'Dell Cloud Service',
         description: 'Scalable and consistent atomic design system enabling rapid development.',
-        image: '/portfolio/18.png'
+        image: '/portfolio/18.png',
+        link: '/hub/projects/dell-cloud-service-atomic-design-system'
       },
       {
         title: 'Global B2C Marketplace',
         category: 'Second-Hand Ticket Sales',
         description: 'Seamless reservation experience reducing checkout abandonment rates.',
-        image: '/portfolio/20.png'
+        image: '/portfolio/20.png',
+        link: '/hub/projects/second-hand-ticket-trading-global-b2c'
       }
     ],
     codeProjects: [
@@ -60,25 +64,29 @@ export const en: Dictionary = {
         title: 'Recycling Operations Panel',
         category: 'Textile Recycling ERP Software',
         description: 'End-to-end platform setup improving operational efficiency and business intelligence.',
-        image: '/portfolio/22.png'
+        image: '/portfolio/22.png',
+        link: '/hub/demos/textile-recycling-international-erp'
       },
       {
         title: 'Online Education Platform',
         category: 'B2C User Journey',
         description: 'Gamified, retention-focused service design.',
-        image: '/portfolio/17.png'
+        image: '/portfolio/17.png',
+        link: '/hub/projects/b2c-online-education-user-journey-gamification'
       },
       {
         title: 'Cloud-Based SaaS',
         category: 'Dell Cloud Service',
         description: 'Scalable and consistent atomic design system enabling rapid development.',
-        image: '/portfolio/18.png'
+        image: '/portfolio/18.png',
+        link: '/hub/projects/dell-cloud-service-atomic-design-system'
       },
       {
         title: 'Global B2C Marketplace',
         category: 'Second-Hand Ticket Sales',
         description: 'Seamless reservation experience reducing checkout abandonment rates.',
-        image: '/portfolio/20.png'
+        image: '/portfolio/20.png',
+        link: '/hub/projects/second-hand-ticket-trading-global-b2c'
       }
     ]
   },

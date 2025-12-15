@@ -34,25 +34,29 @@ export const ru: Dictionary = {
         title: 'Панель управления переработкой',
         category: 'ERP для текстильной переработки',
         description: 'Платформа, повышающая эффективность и уровень бизнес-аналитики.',
-        image: '/portfolio/22.png'
+        image: '/portfolio/22.png',
+        link: '/hub/demos/tekstilnaya-pererabotka-mezhdunarodnaya-erp'
       },
       {
         title: 'Онлайн-образовательная платформа',
         category: 'B2C путь пользователя',
         description: 'Геймифицированный сервис, ориентированный на удержание пользователей.',
-        image: '/portfolio/17.png'
+        image: '/portfolio/17.png',
+        link: '/hub/projects/b2c-onlayn-obrazovanie-polzovatelskiy-put-igrofikaciya'
       },
       {
         title: 'Облачное SaaS-решение',
         category: 'Dell Cloud Service',
         description: 'Масштабируемая атомарная дизайн-система для ускоренной разработки.',
-        image: '/portfolio/18.png'
+        image: '/portfolio/18.png',
+        link: '/hub/projects/dell-cloud-service-atomnaya-sistema-dizayna'
       },
       {
         title: 'Глобальный B2C маркетплейс',
         category: 'Продажа билетов',
         description: 'Плавный процесс бронирования, снижающий уровень отказов.',
-        image: '/portfolio/20.png'
+        image: '/portfolio/20.png',
+        link: '/hub/projects/vtorichnaya-prodazha-biletov-global-b2c'
       }
     ],
     codeProjects: [
@@ -60,25 +64,29 @@ export const ru: Dictionary = {
         title: 'Панель управления переработкой',
         category: 'ERP для текстильной переработки',
         description: 'Платформа, повышающая эффективность и уровень бизнес-аналитики.',
-        image: '/portfolio/22.png'
+        image: '/portfolio/22.png',
+        link: '/hub/demos/tekstilnaya-pererabotka-mezhdunarodnaya-erp'
       },
       {
         title: 'Онлайн-образовательная платформа',
         category: 'B2C путь пользователя',
         description: 'Геймифицированный сервис, ориентированный на удержание пользователей.',
-        image: '/portfolio/17.png'
+        image: '/portfolio/17.png',
+        link: '/hub/projects/b2c-onlayn-obrazovanie-polzovatelskiy-put-igrofikaciya'
       },
       {
         title: 'Облачное SaaS-решение',
         category: 'Dell Cloud Service',
         description: 'Масштабируемая атомарная дизайн-система для ускоренной разработки.',
-        image: '/portfolio/18.png'
+        image: '/portfolio/18.png',
+        link: '/hub/projects/dell-cloud-service-atomnaya-sistema-dizayna'
       },
       {
         title: 'Глобальный B2C маркетплейс',
         category: 'Продажа билетов',
         description: 'Плавный процесс бронирования, снижающий уровень отказов.',
-        image: '/portfolio/20.png'
+        image: '/portfolio/20.png',
+        link: '/hub/projects/vtorichnaya-prodazha-biletov-global-b2c'
       }
     ]
   },

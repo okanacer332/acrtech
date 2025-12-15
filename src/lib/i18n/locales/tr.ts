@@ -35,7 +35,7 @@ export const tr: Dictionary = {
         category: 'Tekstil Geri Dönüşüm ERP Yazılımı',
         description: 'Operasyonel verimliliği artıran, iş zekasını yükselten, uçtan uca platform kurulumu',
         image: '/portfolio/22.png',
-        link: '/hub/demos/aj-international-erp'
+        link: '/hub/demos/tekstil-geri-donusum-international-erp'
       },
       {
         title: 'Online Eğitim Platformu',
@@ -66,7 +66,7 @@ export const tr: Dictionary = {
         category: 'Tekstil Geri Dönüşüm ERP Yazılımı',
         description: 'Operasyonel verimliliği artıran, iş zekasını yükselten, uçtan uca platform kurulumu',
         image: '/portfolio/22.png',
-        link: '/hub/demos/aj-international-erp'
+        link: '/hub/demos/tekstil-geri-donusum-international-erp'
       },
       {
         title: 'Online Eğitim Platformu',

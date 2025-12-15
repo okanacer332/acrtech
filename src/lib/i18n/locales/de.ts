@@ -34,25 +34,29 @@ export const de: Dictionary = {
         title: 'Recycling-Operationspanel',
         category: 'Textil-Recycling-ERP-Software',
         description: 'End-to-End-Plattform zur Steigerung der operativen Effizienz und Business Intelligence.',
-        image: '/portfolio/22.png'
+        image: '/portfolio/22.png',
+        link: '/hub/demos/textil-recycling-international-erp'
       },
       {
         title: 'Online-Lernplattform',
         category: 'B2C Nutzerreise',
         description: 'Gamifiziertes, auf Nutzerbindung ausgerichtetes Servicedesign.',
-        image: '/portfolio/17.png'
+        image: '/portfolio/17.png',
+        link: '/hub/projects/b2c-online-bildung-benutzerreise-gamification'
       },
       {
         title: 'Cloudbasiertes SaaS',
         category: 'Dell Cloud Service',
         description: 'Skalierbares, konsistentes Atomic Design System für schnelle Entwicklung.',
-        image: '/portfolio/18.png'
+        image: '/portfolio/18.png',
+        link: '/hub/projects/dell-cloud-service-atomares-designsystem'
       },
       {
         title: 'Globaler B2C-Marktplatz',
         category: 'Second-Hand-Tickethandel',
         description: 'Reibungslose Buchungserfahrung zur Reduzierung von Kaufabbrüchen.',
-        image: '/portfolio/20.png'
+        image: '/portfolio/20.png',
+        link: '/hub/projects/second-hand-ticket-handel-globale-b2c'
       }
     ],
     codeProjects: [
@@ -60,25 +64,29 @@ export const de: Dictionary = {
         title: 'Recycling-Operationspanel',
         category: 'Textil-Recycling-ERP-Software',
         description: 'End-to-End-Plattform zur Steigerung der operativen Effizienz und Business Intelligence.',
-        image: '/portfolio/22.png'
+        image: '/portfolio/22.png',
+        link: '/hub/demos/textil-recycling-international-erp'
       },
       {
         title: 'Online-Lernplattform',
         category: 'B2C Nutzerreise',
         description: 'Gamifiziertes, auf Nutzerbindung ausgerichtetes Servicedesign.',
-        image: '/portfolio/17.png'
+        image: '/portfolio/17.png',
+        link: '/hub/projects/b2c-online-bildung-benutzerreise-gamification'
       },
       {
         title: 'Cloudbasiertes SaaS',
         category: 'Dell Cloud Service',
         description: 'Skalierbares, konsistentes Atomic Design System für schnelle Entwicklung.',
-        image: '/portfolio/18.png'
+        image: '/portfolio/18.png',
+        link: '/hub/projects/dell-cloud-service-atomares-designsystem'
       },
       {
         title: 'Globaler B2C-Marktplatz',
         category: 'Second-Hand-Tickethandel',
         description: 'Reibungslose Buchungserfahrung zur Reduzierung von Kaufabbrüchen.',
-        image: '/portfolio/20.png'
+        image: '/portfolio/20.png',
+        link: '/hub/projects/second-hand-ticket-handel-globale-b2c'
       }
     ]
   },

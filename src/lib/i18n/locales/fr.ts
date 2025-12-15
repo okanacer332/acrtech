@@ -34,25 +34,29 @@ export const fr: Dictionary = {
         title: 'Panneau de gestion du recyclage',
         category: 'ERP de recyclage textile',
         description: 'Plateforme end-to-end améliorant l’efficacité opérationnelle et la Business Intelligence.',
-        image: '/portfolio/22.png'
+        image: '/portfolio/22.png',
+        link: '/hub/demos/recyclage-textile-erp-international'
       },
       {
         title: 'Plateforme d’apprentissage en ligne',
         category: 'Parcours utilisateur B2C',
         description: 'Service gamifié conçu pour maximiser l’engagement.',
-        image: '/portfolio/17.png'
+        image: '/portfolio/17.png',
+        link: '/hub/projects/achat-vente-billets-seconde-main-b2c-mondial'
       },
       {
         title: 'SaaS basé sur le cloud',
         category: 'Dell Cloud Service',
         description: 'Design system atomique et évolutif pour accélérer le développement.',
-        image: '/portfolio/18.png'
+        image: '/portfolio/18.png',
+        link: '/hub/projects/dell-cloud-service-systeme-de-conception-atomique'
       },
       {
         title: 'Marketplace B2C mondiale',
         category: 'Revente de billets',
         description: 'Expérience de réservation fluide réduisant les abandons.',
-        image: '/portfolio/20.png'
+        image: '/portfolio/20.png',
+        link: '/hub/projects/education-en-ligne-b2c-parcours-utilisateur-gamification'
       }
     ],
     codeProjects: [
@@ -60,25 +64,29 @@ export const fr: Dictionary = {
         title: 'Panneau de gestion du recyclage',
         category: 'ERP de recyclage textile',
         description: 'Plateforme end-to-end améliorant l’efficacité opérationnelle et la Business Intelligence.',
-        image: '/portfolio/22.png'
+        image: '/portfolio/22.png',
+        link: '/hub/demos/recyclage-textile-erp-international'
       },
       {
         title: 'Plateforme d’apprentissage en ligne',
         category: 'Parcours utilisateur B2C',
         description: 'Service gamifié conçu pour maximiser l’engagement.',
-        image: '/portfolio/17.png'
+        image: '/portfolio/17.png',
+        link: '/hub/projects/achat-vente-billets-seconde-main-b2c-mondial'
       },
       {
         title: 'SaaS basé sur le cloud',
         category: 'Dell Cloud Service',
         description: 'Design system atomique et évolutif pour accélérer le développement.',
-        image: '/portfolio/18.png'
+        image: '/portfolio/18.png',
+        link: '/hub/projects/dell-cloud-service-systeme-de-conception-atomique'
       },
       {
         title: 'Marketplace B2C mondiale',
         category: 'Revente de billets',
         description: 'Expérience de réservation fluide réduisant les abandons.',
-        image: '/portfolio/20.png'
+        image: '/portfolio/20.png',
+        link: '/hub/projects/education-en-ligne-b2c-parcours-utilisateur-gamification'
       }
     ]
   },

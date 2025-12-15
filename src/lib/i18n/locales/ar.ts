@@ -34,25 +34,29 @@ export const ar: Dictionary = {
         title: 'لوحة إدارة إعادة التدوير',
         category: 'نظام ERP لإعادة التدوير في النسيج',
         description: 'منصة شاملة تعزز الكفاءة التشغيلية والتحليل الذكي.',
-        image: '/portfolio/22.png'
+        image: '/portfolio/22.png',
+        link: '/hub/demos/iadat-tadwir-al-mansujat-erp-dawli'
       },
       {
         title: 'منصة تعليمية عبر الإنترنت',
         category: 'رحلة المستخدم B2C',
         description: 'خدمة مُلعبة تركز على زيادة الاحتفاظ.',
-        image: '/portfolio/17.png'
+        image: '/portfolio/17.png',
+        link: '/hub/projects/b2c-talim-online-rihlat-mustakhdim-gamification'
       },
       {
         title: 'نظام SaaS سحابي',
         category: 'خدمة سحابة Dell',
         description: 'نظام تصميم ذري قابل للتوسع لتسريع التطوير.',
-        image: '/portfolio/18.png'
+        image: '/portfolio/18.png',
+        link: '/hub/projects/dell-cloud-service-nizam-al-tasmin-al-dharri'
       },
       {
         title: 'منصة تجارة عالمية B2C',
         category: 'بيع وشراء التذاكر',
         description: 'تجربة حجز سلسة تقلل من عمليات التراجع.',
-        image: '/portfolio/20.png'
+        image: '/portfolio/20.png',
+        link: '/hub/projects/tijarat-tathakir-mustamala-aswaq-b2c-alamiya'
       }
     ],
     codeProjects: [
@@ -60,25 +64,29 @@ export const ar: Dictionary = {
         title: 'لوحة إدارة إعادة التدوير',
         category: 'نظام ERP لإعادة التدوير في النسيج',
         description: 'منصة شاملة تعزز الكفاءة التشغيلية والتحليل الذكي.',
-        image: '/portfolio/22.png'
+        image: '/portfolio/22.png',
+        link: '/hub/demos/iadat-tadwir-al-mansujat-erp-dawli'
       },
       {
         title: 'منصة تعليمية عبر الإنترنت',
         category: 'رحلة المستخدم B2C',
         description: 'خدمة مُلعبة تركز على زيادة الاحتفاظ.',
-        image: '/portfolio/17.png'
+        image: '/portfolio/17.png',
+        link: '/hub/projects/b2c-talim-online-rihlat-mustakhdim-gamification'
       },
       {
         title: 'نظام SaaS سحابي',
         category: 'خدمة سحابة Dell',
         description: 'نظام تصميم ذري قابل للتوسع لتسريع التطوير.',
-        image: '/portfolio/18.png'
+        image: '/portfolio/18.png',
+        link: '/hub/projects/dell-cloud-service-nizam-al-tasmin-al-dharri'
       },
       {
         title: 'منصة تجارة عالمية B2C',
         category: 'بيع وشراء التذاكر',
         description: 'تجربة حجز سلسة تقلل من عمليات التراجع.',
-        image: '/portfolio/20.png'
+        image: '/portfolio/20.png',
+        link: '/hub/projects/tijarat-tathakir-mustamala-aswaq-b2c-alamiya'
       }
     ]
   },
