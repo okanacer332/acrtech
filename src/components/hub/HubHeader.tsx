@@ -36,6 +36,7 @@ export function HubHeader() {
                 src="/acrtech.png"
                 alt="ACRTECH"
                 fill
+                sizes="(max-width: 768px) 100vw, 33vw" // Mobilde tam, masaüstünde 1/3 genişlik
                 className="object-contain object-left" 
              />
           </Link>

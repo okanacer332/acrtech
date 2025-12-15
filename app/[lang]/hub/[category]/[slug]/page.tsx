@@ -6,6 +6,7 @@ import { MDXRemote } from 'next-mdx-remote/rsc';
 import { Badge } from '@/src/components/ui/badge';
 import { Button } from '@/src/components/ui/button';
 import { getDictionary } from '@/src/lib/i18n/get-dictionary';
+import VoiceReader from '@/src/components/hub/VoiceReader'; // EKLENDİ
 
 const components = {
   Badge,
@@ -28,10 +29,10 @@ export async function generateMetadata({ params }: { params: Promise<{ category:
   return {
     title: `${item.frontMatter.title} | ACR Tech Trend`,
     description: item.frontMatter.description,
-    keywords: `${item.frontMatter.category}, yazılım, tasarım, ${category}, teknoloji trendleri`, // Anahtar kelimeler eklendi
+    keywords: `${item.frontMatter.category}, yazılım, tasarım, ${category}, teknoloji trendleri`, 
     alternates: {
       canonical: `https://acrtech.com.tr/${lang}/hub/${category}/${slug}`,
-      languages: alternates, // Google buna bayılır!
+      languages: alternates,
     },
     openGraph: {
       title: item.frontMatter.title,
@@ -69,10 +70,7 @@ export default async function HubDetailPage({ params }: { params: Promise<{ cate
     return notFound();
   }
 
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://acrtech.com.tr';
-
-  // Kategori ismini dil dosyasından çekiyoruz (Projeler, Makaleler, Demolar)
-  // Eğer sözlükte bulamazsa kategorinin kendi adını baş harfi büyük şekilde gösterir.
+  // Kategori ismini dil dosyasından çekiyoruz
   const categoryLabel = t.hub.tabs[category as keyof typeof t.hub.tabs] || category.charAt(0).toUpperCase() + category.slice(1);
 
   const colors = {
@@ -87,16 +85,13 @@ export default async function HubDetailPage({ params }: { params: Promise<{ cate
         <div className="relative pt-8 pb-12 px-4 sm:px-6 md:px-8 border-b border-white/5 bg-slate-900/50">
           <div className="max-w-4xl mx-auto">
             
-            {/* GÜNCELLENEN KISIM BAŞLANGIÇ */}
             <Link 
               href={`/${lang}/hub/${category}`} 
               className={`inline-flex items-center gap-2 mb-8 text-sm font-medium transition-colors ${colors.backLink}`}
             >
               <ArrowLeft className="w-4 h-4" />
-              {/* Artık 'Listesine Dön' değil, dinamik kategori adı yazıyor */}
               {categoryLabel}
             </Link>
-            {/* GÜNCELLENEN KISIM BİTİŞ */}
 
             <div className="flex flex-wrap items-center gap-4 mb-6">
               <Badge variant="outline" className="px-3 py-1 bg-blue-500/10 text-blue-300 border-blue-500/20">
@@ -125,6 +120,13 @@ export default async function HubDetailPage({ params }: { params: Promise<{ cate
         </div>
 
         <div className="max-w-3xl mx-auto px-4 sm:px-6 md:px-8 mt-12">
+          
+          {/* --- SESLİ OKUMA BİLEŞENİ --- */}
+          <div className="mb-8">
+            <VoiceReader content={item.content} lang={lang} />
+          </div>
+          {/* --------------------------- */}
+
           <article className={`prose prose-invert prose-lg max-w-none text-gray-300 ${colors.prose}`}>
             <MDXRemote source={item.content} components={components} />
           </article>
