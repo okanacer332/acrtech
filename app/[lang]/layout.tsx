@@ -6,14 +6,16 @@ import { LanguageProvider } from '@/src/lib/i18n/LanguageContext';
 import { Toaster } from "@/src/components/ui/sonner";
 import { i18n, type Locale } from "@/src/i18n-config";
 import { getDictionary } from "@/src/lib/i18n/get-dictionary";
-import { GoogleAnalytics } from '@next/third-parties/google';
+import { ServiceWorkerRegistration } from "@/src/components/ServiceWorkerRegistration";
+import { LazyAnalytics } from "@/src/components/LazyAnalytics";
 
 const inter = Inter({
-  subsets: ["latin", "latin-ext"],
-  display: 'swap',
-  preload: true,
-  fallback: ['system-ui', 'arial'],
+  subsets: ["latin"],  // Removed latin-ext to save ~20KB
+  display: 'optional', // Reduces CLS compared to 'swap'
+  preload: false,      // Let browser decide when to load
+  fallback: ['system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
   adjustFontFallback: true,
+  variable: '--font-inter',
 });
 
 const jsonLd = {
@@ -90,7 +92,8 @@ export default async function RootLayout({
           </LanguageProvider>
         </ModeProvider>
 
-        <GoogleAnalytics gaId="G-FGVHFN9HHZ" />
+        <LazyAnalytics gaId="G-FGVHFN9HHZ" />
+        <ServiceWorkerRegistration />
       </body>
     </html>
   );
