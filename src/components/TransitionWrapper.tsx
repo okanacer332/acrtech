@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { ReactNode } from "react";
+import { ReactNode, useMemo } from "react";
 
 interface TransitionWrapperProps {
   children: ReactNode;
@@ -10,14 +10,24 @@ interface TransitionWrapperProps {
 }
 
 export function TransitionWrapper({ children, modeKey, className }: TransitionWrapperProps) {
+  // Reduce motion for better performance
+  const shouldReduceMotion = useMemo(() => {
+    if (typeof window === 'undefined') return false;
+    return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  }, []);
+
+  if (shouldReduceMotion) {
+    return <div className={className}>{children}</div>;
+  }
+
   return (
     <AnimatePresence mode="wait">
       <motion.div
         key={modeKey}
-        initial={{ opacity: 0, y: 10, filter: "blur(5px)" }}
-        animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-        exit={{ opacity: 0, y: -10, filter: "blur(5px)" }}
-        transition={{ duration: 0.4, ease: "easeInOut" }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.2, ease: "easeOut" }}
         className={className}
       >
         {children}

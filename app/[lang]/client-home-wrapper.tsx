@@ -1,15 +1,41 @@
 "use client";
 
 import { useState, useEffect } from 'react';
+import dynamic from 'next/dynamic';
 import { useMode } from '@/src/lib/context/ModeContext';
 import { Header } from '@/src/components/Header';
 import { Hero } from '@/src/components/Hero';
-import { Portfolio } from '@/src/components/Portfolio';
-import { PricingPlans } from '@/src/components/PricingPlans';
-import { Services } from '@/src/components/Services';
-import { FocusAreas } from '@/src/components/FocusAreas';
-import { CTA } from '@/src/components/CTA';
-import { Footer } from '@/src/components/Footer';
+
+// Lazy load below-the-fold components
+const Portfolio = dynamic(() => import('@/src/components/Portfolio').then(mod => ({ default: mod.Portfolio })), {
+  loading: () => <div className="h-96 bg-slate-900 animate-pulse" />,
+  ssr: false,
+});
+
+const PricingPlans = dynamic(() => import('@/src/components/PricingPlans').then(mod => ({ default: mod.PricingPlans })), {
+  loading: () => <div className="h-96 bg-slate-900 animate-pulse" />,
+  ssr: false,
+});
+
+const Services = dynamic(() => import('@/src/components/Services').then(mod => ({ default: mod.Services })), {
+  loading: () => <div className="h-96 bg-slate-900 animate-pulse" />,
+  ssr: false,
+});
+
+const FocusAreas = dynamic(() => import('@/src/components/FocusAreas').then(mod => ({ default: mod.FocusAreas })), {
+  loading: () => <div className="h-96 bg-slate-900 animate-pulse" />,
+  ssr: false,
+});
+
+const CTA = dynamic(() => import('@/src/components/CTA').then(mod => ({ default: mod.CTA })), {
+  loading: () => <div className="h-64 bg-slate-900 animate-pulse" />,
+  ssr: false,
+});
+
+const Footer = dynamic(() => import('@/src/components/Footer').then(mod => ({ default: mod.Footer })), {
+  loading: () => <div className="h-32 bg-slate-950 animate-pulse" />,
+  ssr: false,
+});
 
 export function ClientHomeWrapper() {
   const { mode, toggleMode } = useMode();
@@ -20,7 +46,7 @@ export function ClientHomeWrapper() {
       setIsScrolled(window.scrollY > 50);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 

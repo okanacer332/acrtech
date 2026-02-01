@@ -64,5 +64,9 @@ export function middleware(request: NextRequest) {
 
 export const config = {
   // Matcher: Middleware'in hangi yollarda çalışacağını belirler
-  matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)'],
+  // Daha agresif filtreleme ile performans artışı
+  matcher: [
+    '/((?!api|_next/static|_next/image|favicon.ico|.*\\.).*)',
+    '/(tr|en|de|es|ru|fr|ar)/:path*',
+  ],
 };

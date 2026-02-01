@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import React, { createContext, useContext, useState, useEffect, ReactNode, useCallback } from 'react';
 
 type Mode = 'design' | 'code';
 
@@ -13,35 +13,44 @@ const ModeContext = createContext<ModeContextType | undefined>(undefined);
 
 export function ModeProvider({ children }: { children: ReactNode }) {
   const [mode, setMode] = useState<Mode>('design');
+  const [isInitialized, setIsInitialized] = useState(false);
+
+  // Initialize from localStorage only once
   useEffect(() => {
     const savedMode = localStorage.getItem('acr-mode') as Mode;
-    if (savedMode) {
+    if (savedMode && (savedMode === 'design' || savedMode === 'code')) {
       setMode(savedMode);
     }
+    setIsInitialized(true);
   }, []);
 
+  // Auto-switch animation only on first visit (no saved mode)
   useEffect(() => {
-  
+    if (!isInitialized) return;
+    
+    const savedMode = localStorage.getItem('acr-mode');
+    if (savedMode) return; // Skip animation if user has a preference
+
+    // Faster animation sequence
     const timer1 = setTimeout(() => {
       setMode('code');
-    }, 1000);
+    }, 800);
 
     const timer2 = setTimeout(() => {
       setMode('design');
-      
       localStorage.setItem('acr-mode', 'design');
-    }, 3000); // 1000ms (başlangıç) + 2000ms (bekleme) = 3000ms
+    }, 2000);
 
     return () => {
       clearTimeout(timer1);
       clearTimeout(timer2);
     };
-  }, []);
+  }, [isInitialized]);
 
-  const toggleMode = (selectedMode: Mode) => {
+  const toggleMode = useCallback((selectedMode: Mode) => {
     setMode(selectedMode);
     localStorage.setItem('acr-mode', selectedMode);
-  };
+  }, []);
 
   return (
     <ModeContext.Provider value={{ mode, toggleMode }}>

@@ -8,7 +8,12 @@ import { i18n, type Locale } from "@/src/i18n-config";
 import { getDictionary } from "@/src/lib/i18n/get-dictionary";
 import { GoogleAnalytics } from '@next/third-parties/google';
 
-const inter = Inter({ subsets: ["latin", "latin-ext"] });
+const inter = Inter({
+  subsets: ["latin", "latin-ext"],
+  display: 'swap',
+  preload: true,
+  fallback: ['system-ui', 'arial'],
+});
 
 const jsonLd = {
     '@context': 'https://schema.org',

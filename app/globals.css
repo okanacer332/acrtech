@@ -49,11 +49,11 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
   
-  /* Animations */
+  /* Animations - Optimized for performance */
   --animate-accordion-down: accordion-down 0.2s ease-out;
   --animate-accordion-up: accordion-up 0.2s ease-out;
   --animate-caret-blink: caret-blink 1.25s ease-out infinite;
-  --animate-fadeIn: fadeIn 0.6s ease-out;
+  --animate-fadeIn: fadeIn 0.3s ease-out;
   
   @keyframes accordion-down {
     from { height: 0 }
@@ -70,7 +70,7 @@
   @keyframes fadeIn {
     from {
       opacity: 0;
-      transform: translateY(20px);
+      transform: translateY(10px);
     }
     to {
       opacity: 1;

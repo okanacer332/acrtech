@@ -79,8 +79,10 @@ export function Header({ mode, onToggle, isScrolled }: HeaderProps) {
                   src="/acrtech.png"
                   alt="ACRTECH Logo"
                   fill
-                  className="object-contain" 
+                  className="object-contain"
                   priority
+                  sizes="(max-width: 640px) 128px, 160px"
+                  quality={90}
                 />
               </div>
             </div>
