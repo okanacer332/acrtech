@@ -1,3 +1,6 @@
+export const runtime = 'edge';
+export const preferredRegion = 'fra1';
+
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';

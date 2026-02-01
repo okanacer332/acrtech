@@ -1,3 +1,5 @@
+export const runtime = 'edge';
+
 import { MetadataRoute } from 'next';
 import { i18n } from '@/src/i18n-config';
 import { getAllContent } from '@/src/lib/mdx';

@@ -27,7 +27,6 @@ const nextConfig: NextConfig = {
       'framer-motion',
       'lucide-react',
       '@radix-ui/react-icons',
-      'recharts',
       'embla-carousel-react',
     ],
     
@@ -98,4 +97,9 @@ const nextConfig: NextConfig = {
   
 };
 
-export default nextConfig;
+// Bundle Analyzer
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+});
+
+module.exports = withBundleAnalyzer(nextConfig);
