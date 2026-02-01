@@ -1,5 +1,6 @@
 "use client";
 
+import { Suspense } from 'react';
 import Link from "next/link";
 import Image from "next/image";
 import { Search } from "lucide-react";
@@ -8,7 +9,8 @@ import { LanguageSelector } from "@/src/components/LanguageSelector";
 import { useSearchParams, usePathname, useRouter } from "next/navigation";
 import { useLanguage } from "@/src/lib/i18n/LanguageContext"; // EKLENDİ
 
-export function HubHeader() {
+// useSearchParams kullanan iç component
+function HubHeaderContent() {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { replace } = useRouter();
@@ -59,5 +61,25 @@ export function HubHeader() {
         </div>
       </div>
     </header>
+  );
+}
+
+// Ana export - Suspense ile sarmalanmış
+export function HubHeader() {
+  return (
+    <Suspense fallback={
+      <header className="sticky top-0 z-40 w-full border-b border-white/5 bg-slate-950/80 backdrop-blur-xl">
+        <div className="flex h-16 items-center px-4 sm:px-6 md:px-8">
+          <div className="flex items-center gap-2 md:gap-4 mr-4 md:mr-8">
+            <div className="relative w-28 h-8 bg-white/10 animate-pulse rounded" />
+          </div>
+          <div className="flex-1 max-w-xl mx-auto">
+            <div className="h-10 bg-white/10 animate-pulse rounded-full" />
+          </div>
+        </div>
+      </header>
+    }>
+      <HubHeaderContent />
+    </Suspense>
   );
 }

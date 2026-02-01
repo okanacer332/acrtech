@@ -1,6 +1,3 @@
-export const runtime = 'edge';
-export const preferredRegion = 'fra1';
-
 import { Suspense } from 'react';
 import { notFound } from 'next/navigation';
 import { HubFeed } from '@/src/components/hub/HubFeed';

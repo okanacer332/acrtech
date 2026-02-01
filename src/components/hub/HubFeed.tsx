@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, Suspense } from 'react';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { ArrowUpRight, Layers, Box, PenTool, Code2, SearchX } from 'lucide-react';
@@ -16,7 +16,8 @@ interface HubFeedProps {
   lang: string;
 }
 
-export function HubFeed({ initialCategory, initialItems, lang }: HubFeedProps) {
+// useSearchParams kullanan client component
+function HubFeedContent({ initialCategory, initialItems, lang }: HubFeedProps) {
   const searchParams = useSearchParams();
   const { t } = useLanguage(); // EKLENDİ
   
@@ -138,5 +139,18 @@ export function HubFeed({ initialCategory, initialItems, lang }: HubFeedProps) {
         )}
       </TransitionWrapper>
     </div>
+  );
+}
+
+// Ana export - Suspense ile sarmalanmış
+export function HubFeed(props: HubFeedProps) {
+  return (
+    <Suspense fallback={
+      <div className="flex items-center justify-center min-h-[50vh]">
+        <div className="text-gray-500 animate-pulse">Loading...</div>
+      </div>
+    }>
+      <HubFeedContent {...props} />
+    </Suspense>
   );
 }

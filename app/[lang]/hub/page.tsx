@@ -4,9 +4,6 @@ import { fetchHubContent } from '@/src/lib/actions';
 import type { ContentItem } from '@/src/lib/mdx';
 import { getDictionary } from '@/src/lib/i18n/get-dictionary'; // EKLENDİ
 
-export const runtime = 'edge';
-export const preferredRegion = 'fra1';
-
 export default async function HubPage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;
   const t = await getDictionary(lang as any); // EKLENDİ
