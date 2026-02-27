@@ -3,7 +3,7 @@ import './Footer.css';
 
 const Footer = () => {
     const { t } = useTranslation();
-    const year = new Date().getFullYear();
+    const year = 2025;
 
     return (
         <footer className="footer" role="contentinfo">
