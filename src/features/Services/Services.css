@@ -1,0 +1,148 @@
+/* ==============================
+   Services — Engineering Solutions (Theme-Aware)
+   ============================== */
+.section-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    background: var(--color-primary-light);
+    color: var(--color-primary);
+    border: 1px solid rgba(11, 0, 207, 0.15);
+    border-radius: var(--radius-full);
+    padding: 0.3rem 1rem;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.services {
+    background: var(--bg);
+}
+
+.services__container {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: var(--space-20);
+    align-items: center;
+}
+
+.services__left {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+}
+
+.services__label {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    color: var(--color-primary);
+    border: 1px solid rgba(11, 0, 207, 0.2);
+    border-radius: var(--radius-full);
+    padding: 0.3rem 1rem;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    width: fit-content;
+}
+
+.services__title {
+    font-size: clamp(2rem, 4vw, 3.25rem);
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: var(--text);
+}
+
+.services__title .text-primary {
+    color: var(--color-primary);
+}
+
+.services__desc {
+    font-size: var(--font-size-base);
+    color: var(--text-muted);
+    line-height: 1.75;
+}
+
+/* 2×2 dark cards — adapt to theme */
+.services__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+}
+
+.service-card {
+    background: var(--bg-secondary);
+    border-radius: var(--radius-xl);
+    padding: var(--space-7);
+    border: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    transition:
+        border-color var(--transition-base),
+        box-shadow var(--transition-base),
+        transform var(--transition-base);
+}
+
+.service-card:hover {
+    border-color: rgba(11, 0, 207, 0.4);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-3px);
+}
+
+.service-card__icon {
+    width: 40px;
+    height: 40px;
+    color: var(--color-primary);
+}
+
+.service-card__icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.service-card__title {
+    font-size: var(--font-size-base);
+    font-weight: 700;
+    color: var(--text);
+}
+
+.service-card__desc {
+    font-size: var(--font-size-sm);
+    color: var(--text-muted);
+    line-height: 1.65;
+}
+
+@media (max-width: 1024px) {
+    .services__container {
+        grid-template-columns: 1fr;
+        gap: var(--space-10);
+    }
+}
+
+@media (max-width: 480px) {
+    .services__grid {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: var(--space-4);
+        padding-bottom: var(--space-4);
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    .services__grid::-webkit-scrollbar {
+        display: none;
+    }
+
+    .service-card {
+        flex: 0 0 85%;
+        scroll-snap-align: center;
+    }
+}

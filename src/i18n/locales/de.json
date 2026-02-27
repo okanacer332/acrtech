@@ -1,0 +1,160 @@
+{
+    "nav": {
+        "home": "Startseite",
+        "services": "Leistungen",
+        "products": "Produkte",
+        "about": "Über uns",
+        "process": "Prozess",
+        "contact": "Kontakt",
+        "getQuote": "Angebot anfragen"
+    },
+    "hero": {
+        "badge": "Innovative Software-Agentur",
+        "title": "Ideen werden zu",
+        "titleAccent": "digitalen Produkten",
+        "titleEnd": "",
+        "subtitle": "Wir bringen Ihr Unternehmen mit Web-, Mobile- und Desktop-Softwarelösungen in die Zukunft.",
+        "ctaPrimary": "Projekt starten",
+        "ctaSecondary": "DOMİZAN entdecken",
+        "scrollDown": "Nach unten scrollen",
+        "stats": {
+            "projects": "Erfolgreiche Projekte",
+            "clients": "Zufriedene Kunden",
+            "years": "Jahre Erfahrung",
+            "support": "Support"
+        }
+    },
+    "services": {
+        "badge": "Unsere Leistungen",
+        "title": "Maßgeschneiderte",
+        "titleAccent": "Softwarelösungen",
+        "subtitle": "Wir beschleunigen die digitale Transformation Ihres Unternehmens mit modernen Technologien.",
+        "items": {
+            "web": {
+                "title": "Webanwendungen",
+                "description": "Schnelle, skalierbare und SEO-freundliche Web-Apps mit React und Next.js."
+            },
+            "mobile": {
+                "title": "Mobile Apps",
+                "description": "Plattformübergreifende Apps für iOS und Android mit React Native."
+            },
+            "desktop": {
+                "title": "Desktop-Software",
+                "description": "Electron-basierte Desktop-Apps für Windows und macOS."
+            },
+            "ai": {
+                "title": "KI & Automatisierung",
+                "description": "KI-Integrationen, Machine-Learning-Modelle und Prozessautomatisierung."
+            },
+            "uiux": {
+                "title": "UI/UX Design",
+                "description": "Nutzerzentrierte, moderne Benutzeroberflächen, optimiert für Konversionen."
+            },
+            "cloud": {
+                "title": "Cloud & DevOps",
+                "description": "Skalierbare Infrastruktur auf AWS, Azure und GCP mit DevOps-Beratung."
+            }
+        }
+    },
+    "products": {
+        "badge": "Unser eigenes Produkt",
+        "title": "Entdecken Sie DOMİZAN",
+        "subtitle": "Die intelligente Buchhaltungs- und Unternehmensmanagement-Plattform für Ihre Branche.",
+        "description": "DOMİZAN ist eine KI-gestützte Desktop-Anwendung für kleine und mittlere Unternehmen.",
+        "features": {
+            "accounting": "Intelligente Buchhaltung",
+            "reporting": "Detaillierte Berichte",
+            "crm": "Kundenverwaltung",
+            "ai": "KI-gestützte Einblicke"
+        },
+        "ctaPrimary": "Kostenlos testen",
+        "ctaSecondary": "Mehr erfahren"
+    },
+    "whyUs": {
+        "badge": "Warum ACRTECH?",
+        "title": "Unser Unterschied",
+        "titleAccent": "liegt in den Ergebnissen",
+        "subtitle": "Wir schreiben nicht nur Code — wir verstehen Ihr Geschäftsproblem.",
+        "items": {
+            "speed": {
+                "title": "Schnelle Lieferung",
+                "description": "Sprint-basierte Entwicklung mit Agile-Methodik. Erste Iteration in 2 Wochen."
+            },
+            "quality": {
+                "title": "Qualitätsorientiert",
+                "description": "Hohe Codequalität durch Reviews, automatisierte Tests und CI/CD."
+            },
+            "communication": {
+                "title": "Transparente Kommunikation",
+                "description": "Wöchentliche Meetings, Echtzeit-Projekttracking und 24/7-Support."
+            },
+            "scalable": {
+                "title": "Skalierbar",
+                "description": "Architekturen, die mit Ihnen wachsen – vom Start-up bis zur Skalierung."
+            }
+        }
+    },
+    "testimonials": {
+        "badge": "Kundenerfahrungen",
+        "title": "Wir waren Teil",
+        "titleAccent": "ihres Erfolgs",
+        "subtitle": "Wir waren der vertrauenswürdige Partner Hunderter Unternehmen auf ihrer digitalen Reise."
+    },
+    "process": {
+        "badge": "Wie wir arbeiten",
+        "title": "4 Schritte zum",
+        "titleAccent": "Erfolg",
+        "steps": {
+            "discovery": {
+                "title": "Entdeckung & Analyse",
+                "description": "Wir verstehen Ihre Ziele, Einschränkungen und Nutzerbedürfnisse tiefgreifend."
+            },
+            "design": {
+                "title": "Design & Prototyp",
+                "description": "Vom User Flow zum klickbaren Prototypen – der gesamte Prozess."
+            },
+            "develop": {
+                "title": "Entwicklung",
+                "description": "Skalierbarer, sicherer und getesteter Code mit modernem Tech-Stack."
+            },
+            "launch": {
+                "title": "Launch & Support",
+                "description": "Nahtloses Deployment und fortlaufender technischer Support."
+            }
+        }
+    },
+    "cta": {
+        "title": "Lassen Sie uns Ihr Projekt",
+        "titleAccent": "zum Leben erwecken",
+        "subtitle": "Kontaktieren Sie uns für eine kostenlose Beratung. Wir antworten innerhalb von 24 Stunden.",
+        "primary": "Kostenlose Beratung",
+        "secondary": "Portfolio ansehen"
+    },
+    "footer": {
+        "description": "Wir bauen die digitale Zukunft von Unternehmen mit innovativen Softwarelösungen.",
+        "services": "Leistungen",
+        "company": "Unternehmen",
+        "legal": "Rechtliches",
+        "about": "Über uns",
+        "blog": "Blog",
+        "careers": "Karriere",
+        "privacy": "Datenschutz",
+        "terms": "Nutzungsbedingungen",
+        "copyright": "© 2025 ACRTECH. Alle Rechte vorbehalten.",
+        "madeWith": "gemacht mit"
+    },
+    "contact": {
+        "name": "Ihr Name",
+        "email": "E-Mail",
+        "company": "Firmenname",
+        "message": "Projektdetails",
+        "submit": "Senden",
+        "successTitle": "Toll!",
+        "success": "Ihre Nachricht wurde erfolgreich empfangen. Wir werden uns so schnell wie möglich bei Ihnen melden.",
+        "availability": "Wir nehmen derzeit neue Projekte an",
+        "phone": "Telefon",
+        "location": "Standort",
+        "languages": "Sprachen"
+    },
+    "languageName": "Deutsch"
+}

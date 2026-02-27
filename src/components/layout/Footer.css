@@ -1,0 +1,75 @@
+/* Footer — Compact, Minimal */
+.footer {
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border);
+}
+
+.footer__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-6) 0;
+}
+
+.footer__made {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: var(--font-size-sm);
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.footer__heart {
+    display: inline-flex;
+    color: #FF2D2B;
+    animation: heartbeat 1.8s ease infinite;
+}
+
+@keyframes heartbeat {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    14% {
+        transform: scale(1.2);
+    }
+
+    28% {
+        transform: scale(1);
+    }
+
+    42% {
+        transform: scale(1.2);
+    }
+
+    56% {
+        transform: scale(1);
+    }
+}
+
+.footer__brand-link {
+    color: var(--text);
+    font-weight: 700;
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.footer__brand-link:hover {
+    color: var(--color-primary);
+}
+
+.footer__copyright {
+    font-size: var(--font-size-xs);
+    color: var(--text-light);
+}
+
+@media (max-width: 640px) {
+    .footer__inner {
+        flex-direction: column;
+        gap: var(--space-3);
+        text-align: center;
+    }
+}

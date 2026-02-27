@@ -1,0 +1,116 @@
+{
+    "nav": {
+        "home": "Anasayfa",
+        "services": "Hizmetler",
+        "products": "Ürünler",
+        "projects": "Projeler",
+        "about": "Hakkımızda",
+        "process": "Süreç",
+        "pricing": "Fiyatlandırma",
+        "blog": "Blog",
+        "contact": "İletişim",
+        "getQuote": "Teklif Al"
+    },
+    "hero": {
+        "badge": "Yenilikçi Yazılım Ajansı",
+        "title": "Geleceğe Hazır,",
+        "titleAccent": "Yüksek Performanslı",
+        "titleEnd": "Yazılımlar",
+        "subtitle": "Web, mobil ve masaüstü yazılım çözümleriyle işinizi bir adım öteye taşıyın. İhtiyaçlarınıza özel, değer katan dijital altyapılar inşa ediyoruz.",
+        "ctaPrimary": "Projenizi Başlatın",
+        "ctaSecondary": "Ürünlerimizi Keşfedin",
+        "scrollDown": "Aşağı Kaydır",
+        "stats": {
+            "projects": "Başarılı Proje",
+            "clients": "Mutlu Müşteri",
+            "years": "Yıllık Deneyim",
+            "support": "Destek",
+            "satisfaction": "Memnuniyet"
+        }
+    },
+    "services": {
+        "badge": "Hizmetlerimiz",
+        "title": "Mühendislik",
+        "titleAccent": "Çözümleri",
+        "subtitle": "Modern teknolojiler ve kanıtlanmış yöntemlerle işletmenizin dijital dönüşümünü hızlandırıyoruz.",
+        "learnMore": "Daha Fazla Bilgi",
+        "items": {
+            "web": {
+                "title": "Web Uygulamaları",
+                "description": "React, Next.js ve modern web teknolojileriyle geliştirilmiş hızlı, ölçeklenebilir ve SEO dostu web uygulamaları."
+            },
+            "mobile": {
+                "title": "Mobil Uygulamalar",
+                "description": "iOS ve Android için React Native ile mobil uygulamalar. Tek kod tabanı, iki platform."
+            },
+            "desktop": {
+                "title": "Masaüstü Yazılımlar",
+                "description": "Windows ve macOS için Electron tabanlı masaüstü uygulamalar. Güçlü, hızlı ve kullanıcı dostu."
+            },
+            "ai": {
+                "title": "Yapay Zeka & Otomasyon",
+                "description": "Yapay zeka entegrasyonları, makine öğrenmesi modelleri ve iş süreçleri otomasyonuyla verimliliğinizi artırın."
+            },
+            "uiux": {
+                "title": "UI/UX Tasarım",
+                "description": "Kullanıcı odaklı, modern ve dönüşüm optimize edilmiş arayüzler. Figma'dan koda mükemmel geçiş."
+            },
+            "cloud": {
+                "title": "Bulut & DevOps",
+                "description": "AWS, Azure ve GCP üzerinde ölçeklenebilir altyapı kurulumu, CI/CD pipeline ve DevOps danışmanlığı."
+            }
+        }
+    },
+    "products": {
+        "badge": "Ürünlerimiz",
+        "title": "Ürünlerimizi",
+        "titleAccent": "Keşfedin",
+        "subtitle": "İşletmenizi geleceğe taşıyacak yazılım ürünlerimiz."
+    },
+    "whyUs": {
+        "badge": "Teknoloji Yığınımız",
+        "title": "Sektörün En Gelişmiş",
+        "titleAccent": "Teknolojileriyle",
+        "subtitle": "İşletmenizin ihtiyaçlarına en uygun araçları seçerek, büyümenizi destekleyecek uçtan uca test edilmiş, güvenli ve ölçeklenebilir altyapılar inşa ediyoruz."
+    },
+    "cta": {
+        "badge": "İletişim",
+        "title": "İşletmenizi Dijitalde",
+        "titleAccent": "Büyütelim.",
+        "subtitle": "Dünya standartlarında yazılımlarla işletmenizi dönüştürmeye hazır mısınız? Bizimle iletişime geçin.",
+        "primary": "Projenizi Başlatın",
+        "secondary": "Görüşme Ayarlayın",
+        "trust": {
+            "discovery": "Ücretsiz keşif görüşmesi",
+            "response": "24 saat içinde yanıt",
+            "nda": "NDA mevcut"
+        }
+    },
+    "footer": {
+        "description": "Yenilikçi yazılım çözümleriyle işletmelerin dijital geleceğini inşa ediyoruz.",
+        "services": "Hizmetler",
+        "company": "Şirket",
+        "legal": "Yasal",
+        "about": "Hakkımızda",
+        "blog": "Blog",
+        "careers": "Kariyer",
+        "privacy": "Gizlilik",
+        "terms": "Kullanım Şartları",
+        "copyright": "© 2025 ACRTECH. Tüm hakları saklıdır.",
+        "madeWith": "ile yapıldı"
+    },
+    "contact": {
+        "name": "Adınız",
+        "email": "E-posta",
+        "company": "Şirket Adı",
+        "message": "Proje Detayları",
+        "submit": "Gönder",
+        "successTitle": "Harika!",
+        "success": "Mesajınız başarıyla alındı. En kısa sürede sizinle iletişime geçeceğiz.",
+        "availability": "Şu anda yeni projeler kabul ediyoruz",
+        "phone": "Telefon",
+        "location": "Konum",
+        "languages": "Diller"
+    },
+    "languageName": "Türkçe"
+}
