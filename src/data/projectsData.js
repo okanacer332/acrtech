@@ -30,10 +30,22 @@ export function parseFrontmatter(mdContent) {
 // Fixed projects (Domizan & Olric)
 export const FIXED_PROJECTS = [
     {
+        id: 'olric',
+        slug: 'olric',
+        name: 'Olric',
+        nameDisplay: 'Olric',
+        badges: ['GEO', 'AEO', 'Performans Ölçümü'],
+        desc: 'Web sitelerinin yapay zeka arama motorlarındaki görünürlüğünü ve performansını ölçümleyen bir web uygulaması.',
+        link: 'https://olric.app',
+        logo: '/olric-geo-tracker-logo.png',
+        image: '/olric-geo-ss.png',
+        isFixed: true
+    },
+    {
         id: 'domizan',
         slug: 'domizan',
         name: 'Domizan',
-        nameDisplay: null,
+        nameDisplay: 'Domizan',
         badges: ['AI', 'Muhasebe Operasyonları'],
         desc: 'Küçük ve orta ölçekli işletmeler için yapay zeka destekli muhasebe ve iş yönetim yazılımı. Operasyonlarınızı dakikalar içinde dijitalleştirin.',
         link: 'https://www.domizan.com/',
@@ -42,15 +54,15 @@ export const FIXED_PROJECTS = [
         isFixed: true
     },
     {
-        id: 'olric',
-        slug: 'olric',
-        name: 'Olric',
-        nameDisplay: 'olric.',
+        id: 'brainmap',
+        slug: 'brainmap',
+        name: 'Brainmap',
+        nameDisplay: 'brainmap.',
         badges: ['AI', 'e-Learning'],
         desc: 'Yapay zeka destekli e-öğrenme platformu. Eğitim içeriklerinizi kişiselleştirin, öğrenme deneyimini dönüştürün.',
         link: 'https://olric.app',
-        logo: '/olric-logo.png',
-        image: '/olric-preview.webp',
+        logo: '/brainmap-logo.png',
+        image: '/brainmap-preview.webp',
         isFixed: true
     }
 ];

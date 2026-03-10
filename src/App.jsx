@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { ThemeProvider } from './context/ThemeContext.jsx';
 import CustomCursor from './components/cursor/CustomCursor.jsx';
 import Header from './components/layout/Header.jsx';
@@ -16,13 +16,25 @@ function App() {
             <BrowserRouter>
                 <CustomCursor />
                 <Header />
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/projects" element={<ProjectsList />} />
-                    <Route path="/projects/:id" element={<ProjectDetail />} />
-                    <Route path="/blog" element={<BlogList />} />
-                    <Route path="/blog/:slug" element={<BlogDetail />} />
-                </Routes>
+                <main>
+                    <Routes>
+                        <Route path="/" element={<Home />} />
+                        <Route path="/projects" element={<ProjectsList />} />
+                        <Route path="/projects/:id" element={<ProjectDetail />} />
+                        <Route path="/blog" element={<BlogList />} />
+                        <Route path="/blog/:slug" element={<BlogDetail />} />
+
+                        {/* Old /en/ or other language paths will redirect to the home page seamlessly */}
+                        <Route path="/tr/*" element={<Navigate to="/" replace />} />
+                        <Route path="/en/*" element={<Navigate to="/" replace />} />
+                        <Route path="/ar/*" element={<Navigate to="/" replace />} />
+                        <Route path="/ru/*" element={<Navigate to="/" replace />} />
+                        <Route path="/de/*" element={<Navigate to="/" replace />} />
+
+                        {/* Any other unknown paths also redirect to home */}
+                        <Route path="*" element={<Navigate to="/" replace />} />
+                    </Routes>
+                </main>
                 <Footer />
             </BrowserRouter>
         </ThemeProvider>

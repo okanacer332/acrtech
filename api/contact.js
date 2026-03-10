@@ -16,9 +16,9 @@ export default async function handler(req, res) {
         // Initialize Resend with Vercel Environment Variable
         const resend = new Resend(process.env.RESEND_API_KEY);
 
-        const data = await resend.emails.send({
+        const { data, error } = await resend.emails.send({
             from: 'İletişim Formu <onboarding@resend.dev>', // Resend test domain (update when verified)
-            to: ['meltemgoren94@gmail.com'],
+            to: ['info@acrtech.com.tr'],
             subject: `Yeni Proje Talebi: ${name}`,
             text: `Ad: ${name}\nE-posta: ${email}\n\nMesaj:\n${message}`,
             html: `
@@ -30,6 +30,11 @@ export default async function handler(req, res) {
             `,
             reply_to: email,
         });
+
+        if (error) {
+            console.error('Resend API Error:', error);
+            return res.status(400).json({ error: error.message || 'E-posta gönderilemedi.' });
+        }
 
         res.status(200).json({ success: true, data });
     } catch (error) {
