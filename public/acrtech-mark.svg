@@ -1,12 +1,28 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
-  <title id="title">ACRTECH ArT mark</title>
-  <desc id="desc">ArT monogram for ACRTECH, connecting art, reason and technology.</desc>
-  <rect width="512" height="512" fill="#090909"/>
-  <path d="M73 396 178 96h72l105 300h-73l-17-55H163l-17 55H73Zm109-116h65l-32-107-33 107Z" fill="#F2F2ED"/>
-  <path d="M302 142h64c45 0 76 27 76 67 0 25-12 46-34 57l47 130h-66l-39-115h-4v115h-44V142Zm44 48v51h18c20 0 31-10 31-26s-11-25-31-25h-18Z" fill="#D8FF42"/>
-  <path d="M131 111h98v38h-30v247h-38V149h-30v-38Z" fill="#27B9FF"/>
-  <path d="M49 84h96v32H81v280h64v32H49V84Z" fill="#FF3D2E"/>
-  <path d="M463 84v344h-96v-32h64V116h-64V84h96Z" fill="#27B9FF"/>
-  <path d="M72 438h368v25H72v-25Z" fill="#F2F2ED"/>
-  <path d="M116 66h280v18H116V66Z" fill="#D8FF42"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 430 118" role="img" aria-labelledby="title desc">
+  <title id="title">ACRTECH compact ArT logo</title>
+  <desc id="desc">Compact ACRTECH logo: Ac, R and Tech blocks reveal ArT.</desc>
+  <rect width="430" height="118" fill="#090909"/>
+  <path d="M10 12h410v94H10V12Z" fill="#0C0C0B" stroke="#F2F2ED" stroke-width="4"/>
+
+  <g transform="translate(24 26)">
+    <rect width="114" height="56" fill="#11110F" stroke="#FF3D2E" stroke-width="5"/>
+    <text x="15" y="42" fill="#F2F2ED" font-family="Inter, Arial, sans-serif" font-size="45" font-weight="950" letter-spacing="-2.5">A</text>
+    <text x="54" y="42" fill="#E8E8DF" font-family="Inter, Arial, sans-serif" font-size="27" font-weight="900" letter-spacing="-1">c</text>
+  </g>
+
+  <g transform="translate(136 26)">
+    <rect width="82" height="56" fill="#11110F" stroke="#D8FF42" stroke-width="5"/>
+    <text x="23" y="43" fill="#F2F2ED" font-family="Inter, Arial, sans-serif" font-size="46" font-weight="950" letter-spacing="-2">R</text>
+  </g>
+
+  <g transform="translate(216 26)">
+    <rect width="190" height="56" fill="#11110F" stroke="#27B9FF" stroke-width="5"/>
+    <text x="15" y="42" fill="#F2F2ED" font-family="Inter, Arial, sans-serif" font-size="45" font-weight="950" letter-spacing="-2.5">T</text>
+    <text x="52" y="42" fill="#E8E8DF" font-family="Inter, Arial, sans-serif" font-size="27" font-weight="900" letter-spacing="-1">ech</text>
+  </g>
+
+  <path d="M24 92h382" stroke="#F2F2ED" stroke-width="4"/>
+  <path d="M24 92h38" stroke="#FF3D2E" stroke-width="8"/>
+  <path d="M159 92h35" stroke="#D8FF42" stroke-width="8"/>
+  <path d="M234 92h37" stroke="#27B9FF" stroke-width="8"/>
 </svg>

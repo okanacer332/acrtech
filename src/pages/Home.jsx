@@ -94,7 +94,6 @@ const Home = () => {
             <nav className="shock-nav" aria-label="Ana navigasyon">
                 <a className="shock-mark" href="/" aria-label="ACRTECH">
                     <img src="/acrtech-mark.svg" alt="" />
-                    <span>ACRTECH</span>
                 </a>
                 <div className="shock-nav__links" aria-label="Sayfa bölümleri">
                     <a href="#proof">ürünler</a>
