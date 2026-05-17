@@ -81,7 +81,7 @@ const Header = () => {
             <div className="container header__inner">
                 {/* Logo */}
                 <Link to="/" className="header__logo" aria-label="ACRTECH Ana Sayfa">
-                    <img src={theme === 'dark' ? "/acrtech-logo-dark.png" : "/acrtech-logo.png"} alt="ACRTECH" className="header__logo-img" />
+                    <img src="/acrtech-mark.svg" alt="ACRTECH" className="header__logo-img" />
                 </Link>
 
                 {/* Desktop Nav */}

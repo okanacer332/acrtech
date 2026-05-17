@@ -1,0 +1,24 @@
+<svg width="720" height="192" viewBox="0 0 720 192" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g>
+    <rect x="16" y="16" width="160" height="160" rx="36" fill="#0A0A0B"/>
+    <rect x="25" y="25" width="142" height="142" rx="30" fill="url(#paint0_linear)"/>
+    <rect x="25.5" y="25.5" width="141" height="141" rx="29.5" stroke="white" stroke-opacity=".12"/>
+    <path d="M70 48h50l22 22v80H70V48Z" fill="#F5F5F7"/>
+    <path d="M120 48v23h22" fill="#DCEBFF"/>
+    <path d="M120 48v23h22" stroke="#9FCBFF" stroke-width="3" stroke-linejoin="round"/>
+    <rect x="83" y="82" width="40" height="5" rx="2.5" fill="#1D3557" fill-opacity=".76"/>
+    <rect x="83" y="99" width="50" height="5" rx="2.5" fill="#1D3557" fill-opacity=".38"/>
+    <rect x="83" y="116" width="46" height="5" rx="2.5" fill="#1D3557" fill-opacity=".38"/>
+    <path d="M64 108h80" stroke="#2997FF" stroke-width="6" stroke-linecap="round"/>
+    <path d="M75 138l10 10 22-26" stroke="#53D48A" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <text x="216" y="92" fill="#F5F5F7" font-family="Inter, Arial, sans-serif" font-size="48" font-weight="900" letter-spacing="-1">Papirus AI</text>
+  <text x="218" y="130" fill="#9FB3C8" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="650">Akademik değerlendirme çalışma alanı</text>
+  <defs>
+    <linearGradient id="paint0_linear" x1="45" y1="34" x2="145" y2="154" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2997FF"/>
+      <stop offset=".58" stop-color="#5E5CE6"/>
+      <stop offset="1" stop-color="#111827"/>
+    </linearGradient>
+  </defs>
+</svg>

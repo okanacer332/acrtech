@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">ACRTECH ArT mark</title>
+  <desc id="desc">ArT monogram for ACRTECH, connecting art, reason and technology.</desc>
+  <rect width="512" height="512" fill="#090909"/>
+  <path d="M73 396 178 96h72l105 300h-73l-17-55H163l-17 55H73Zm109-116h65l-32-107-33 107Z" fill="#F2F2ED"/>
+  <path d="M302 142h64c45 0 76 27 76 67 0 25-12 46-34 57l47 130h-66l-39-115h-4v115h-44V142Zm44 48v51h18c20 0 31-10 31-26s-11-25-31-25h-18Z" fill="#D8FF42"/>
+  <path d="M131 111h98v38h-30v247h-38V149h-30v-38Z" fill="#27B9FF"/>
+  <path d="M49 84h96v32H81v280h64v32H49V84Z" fill="#FF3D2E"/>
+  <path d="M463 84v344h-96v-32h64V116h-64V84h96Z" fill="#27B9FF"/>
+  <path d="M72 438h368v25H72v-25Z" fill="#F2F2ED"/>
+  <path d="M116 66h280v18H116V66Z" fill="#D8FF42"/>
+</svg>
