@@ -7,7 +7,7 @@ import '../features/Products/Products.css'; // Reusing some base styles
 
 const ProjectDetail = () => {
     const { id } = useParams();
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
     const [project, setProject] = useState(null);
     const [content, setContent] = useState('');
     const [loading, setLoading] = useState(true);
@@ -15,6 +15,7 @@ const ProjectDetail = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
         const mdProject = MD_PROJECTS.find(p => p.slug === id);
+        const language = i18n.language?.startsWith('en') ? 'en' : 'tr';
 
         if (!mdProject) {
             setLoading(false);
@@ -23,7 +24,7 @@ const ProjectDetail = () => {
 
         const fetchProject = async () => {
             try {
-                const res = await fetch(mdProject.mdFile);
+                const res = await fetch(mdProject.mdFile[language]);
                 if (!res.ok) throw new Error('File not found');
                 const text = await res.text();
                 const { data, content: mdBody } = parseFrontmatter(text);
@@ -44,12 +45,12 @@ const ProjectDetail = () => {
         };
 
         fetchProject();
-    }, [id]);
+    }, [id, i18n.language]);
 
     if (loading) {
         return (
             <div style={{ paddingTop: '120px', minHeight: '60vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                <p>Yükleniyor...</p>
+                <p>{t('projects.loading')}</p>
             </div>
         );
     }
@@ -58,9 +59,9 @@ const ProjectDetail = () => {
         return (
             <div style={{ paddingTop: '120px', minHeight: '60vh', textAlign: 'center' }}>
                 <div className="container">
-                    <h2>Proje Bulunamadı</h2>
+                    <h2>{t('projects.notFound')}</h2>
                     <br />
-                    <Link to="/projects" className="btn btn--primary">Projelere Dön</Link>
+                    <Link to="/projects" className="btn btn--primary">{t('projects.back')}</Link>
                 </div>
             </div>
         );
@@ -74,7 +75,7 @@ const ProjectDetail = () => {
                         <line x1="19" y1="12" x2="5" y2="12"></line>
                         <polyline points="12 19 5 12 12 5"></polyline>
                     </svg>
-                    Tüm Projeler
+                    {t('projects.all')}
                 </Link>
 
                 <header style={{ marginBottom: '3rem' }}>

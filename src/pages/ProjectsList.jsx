@@ -5,34 +5,35 @@ import { FIXED_PROJECTS, MD_PROJECTS, parseFrontmatter } from '../data/projectsD
 import '../features/Products/Products.css';
 
 const ProjectsList = () => {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
     const [mdProjectsData, setMdProjectsData] = useState([]);
 
     useEffect(() => {
         window.scrollTo(0, 0);
+        const language = i18n.language?.startsWith('en') ? 'en' : 'tr';
 
         const loadMdProjects = async () => {
             const loaded = await Promise.all(MD_PROJECTS.map(async (project) => {
                 try {
-                    const res = await fetch(project.mdFile);
+                    const res = await fetch(project.mdFile[language]);
                     const text = await res.text();
                     const { data } = parseFrontmatter(text);
                     return {
                         ...project,
-                        title: data.title || 'Project Untitled',
-                        description: data.description || 'No description available.',
-                        badges: data.category ? [data.category] : ['Project']
+                        title: data.title || t('projects.fallbackTitle'),
+                        description: data.description || t('projects.fallbackDescription'),
+                        badges: data.category ? [data.category] : [t('projects.fallbackBadge')]
                     };
                 } catch (e) {
-                    console.error("Failed to load project", project.mdFile);
-                    return { ...project, title: 'Error loading', description: 'Could not load data' };
+                    console.error('Failed to load project', project.mdFile[language]);
+                    return { ...project, title: t('projects.errorTitle'), description: t('projects.errorDescription') };
                 }
             }));
             setMdProjectsData(loaded);
         };
 
         loadMdProjects();
-    }, []);
+    }, [i18n.language, t]);
 
     const CardContent = ({ props }) => (
         <>
@@ -47,15 +48,15 @@ const ProjectsList = () => {
                 </div>
 
                 <div className="product-card__badges">
-                    {props.badges?.map((badge, i) => (
+                    {(props.badges || t(`projects.fixed.${props.i18nKey}.badges`, { returnObjects: true }))?.map((badge, i) => (
                         <span key={i} className="product-card__badge">{badge}</span>
                     ))}
                 </div>
 
-                <p className="product-card__desc">{props.desc || props.description}</p>
+                <p className="product-card__desc">{props.desc || (props.i18nKey ? t(`projects.fixed.${props.i18nKey}.desc`) : props.description)}</p>
 
                 <span className="product-card__cta" style={{ display: 'inline-flex', marginTop: 'auto' }}>
-                    {props.isFixed ? 'Keşfet' : 'Detayı Gör'}
+                    {props.isFixed ? t('projects.fixedCta') : t('projects.detailCta')}
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: '0.5rem' }}>
                         <line x1="5" y1="12" x2="19" y2="12" />
                         <polyline points="12 5 19 12 12 19" />
@@ -90,10 +91,10 @@ const ProjectsList = () => {
                 <div className="container">
                     <div className="section-header">
                         <h2 id="products-title" className="section-title">
-                            {t('nav.projects', 'Projelerimiz')}{' '}
+                            {t('projects.title')}{' '}
                         </h2>
                         <p className="section-subtitle">
-                            İşletmenizi geleceğe taşıyacak yazılım çözümleri ve vaka analizlerimiz.
+                            {t('projects.subtitle')}
                         </p>
                     </div>
 

@@ -4,11 +4,8 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 
 import tr from './locales/tr.json';
 import en from './locales/en.json';
-import ar from './locales/ar.json';
-import ru from './locales/ru.json';
-import de from './locales/de.json';
 
-const RTL_LANGUAGES = ['ar'];
+const SUPPORTED_LANGUAGES = ['tr', 'en'];
 
 i18n
     .use(LanguageDetector)
@@ -17,14 +14,12 @@ i18n
         resources: {
             tr: { translation: tr },
             en: { translation: en },
-            ar: { translation: ar },
-            ru: { translation: ru },
-            de: { translation: de },
         },
         fallbackLng: 'tr',
-        supportedLngs: ['tr', 'en', 'ar', 'ru', 'de'],
+        supportedLngs: SUPPORTED_LANGUAGES,
+        nonExplicitSupportedLngs: true,
         detection: {
-            order: ['localStorage', 'navigator'],
+            order: ['localStorage', 'navigator', 'htmlTag'],
             caches: ['localStorage'],
         },
         interpolation: {
@@ -34,9 +29,9 @@ i18n
 
 // Apply RTL direction on language change
 const applyDirection = (lang) => {
-    const dir = RTL_LANGUAGES.includes(lang) ? 'rtl' : 'ltr';
-    document.documentElement.dir = dir;
-    document.documentElement.lang = lang;
+    const normalized = SUPPORTED_LANGUAGES.includes(lang?.split('-')[0]) ? lang.split('-')[0] : 'tr';
+    document.documentElement.dir = 'ltr';
+    document.documentElement.lang = normalized;
 };
 
 applyDirection(i18n.language);

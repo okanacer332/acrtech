@@ -1,192 +1,198 @@
 {
+  "languageName": "English",
+  "languageSelect": {
+    "label": "Language",
+    "tr": "🇹🇷 Türkçe",
+    "en": "🇬🇧 English"
+  },
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "products": "Products",
+    "projects": "Projects",
+    "about": "About",
+    "process": "Process",
+    "pricing": "Pricing",
+    "blog": "Blog",
+    "contact": "Contact",
+    "getQuote": "Contact"
+  },
+  "accessibility": {
+    "home": "ACRTECH Home",
+    "mainNav": "Main navigation",
+    "menuToggle": "Open or close menu",
+    "mobileMenu": "Mobile menu"
+  },
+  "theme": {
+    "dark": "Switch to dark theme",
+    "light": "Switch to light theme"
+  },
+  "home": {
     "nav": {
-        "home": "Home",
-        "services": "Services",
-        "products": "Products",
-        "projects": "Projects",
-        "about": "About",
-        "process": "Process",
-        "pricing": "Pricing",
-        "contact": "Contact",
-        "getQuote": "Get a Quote"
+      "aria": "Main navigation",
+      "sections": "Page sections",
+      "products": "products",
+      "approach": "approach",
+      "contact": "contact"
     },
     "hero": {
-        "badge": "Innovative Software Agency",
-        "title": "Future-Proof,",
-        "titleAccent": "High-Performance",
-        "titleEnd": "Software",
-        "subtitle": "We bring your business into the future with web, mobile and desktop software solutions. Smart technology, measurable results.",
-        "ctaPrimary": "Start Your Project",
-        "ctaSecondary": "Explore DOMİZAN",
-        "scrollDown": "Scroll Down",
-        "stats": {
-            "projects": "Successful Projects",
-            "clients": "Happy Clients",
-            "years": "Years Experience",
-            "support": "Support",
-            "satisfaction": "Satisfaction"
-        }
+      "kicker": "ACRTECH / Art, Reason, Technology",
+      "title": ["Software", "where", "reason", "meets art."],
+      "lead": "ACRTECH is a studio that turns a product idea from a technical file into a living working order. At its center: clarity, measure, aesthetics, and the reality of operations.",
+      "panelAria": "ACRTECH live signal panel"
     },
-    "services": {
-        "badge": "Our Services",
-        "title": "Engineering",
-        "titleAccent": "Solutions",
-        "subtitle": "We accelerate your business's digital transformation with modern technologies and proven methods.",
-        "learnMore": "Learn More",
-        "items": {
-            "web": {
-                "title": "Web Applications",
-                "description": "Fast, scalable and SEO-friendly web apps built with React, Next.js and modern web technologies."
-            },
-            "mobile": {
-                "title": "Mobile Apps",
-                "description": "Cross-platform mobile apps for iOS and Android with React Native. One codebase, two platforms."
-            },
-            "desktop": {
-                "title": "Desktop Software",
-                "description": "Electron-based desktop apps for Windows and macOS. Powerful, fast and user-friendly."
-            },
-            "ai": {
-                "title": "AI & Automation",
-                "description": "AI integrations, machine learning models and business process automation to boost productivity."
-            },
-            "uiux": {
-                "title": "UI/UX Design",
-                "description": "User-centric, modern and conversion-optimized interfaces. Seamless handoff from Figma to code."
-            },
-            "cloud": {
-                "title": "Cloud & DevOps",
-                "description": "Scalable infrastructure on AWS, Azure and GCP, CI/CD pipelines and DevOps consulting."
-            }
-        }
+    "phrases": [
+      "ArT of technology",
+      "reason and rhythm",
+      "product aesthetics",
+      "field intuition",
+      "ACRTECH"
+    ],
+    "telemetry": [
+      "thought becomes clear",
+      "the field speaks",
+      "AI gets to work",
+      "the interface calms down",
+      "data gains meaning",
+      "the product finds rhythm",
+      "decisions feel lighter",
+      "operations become visible"
+    ],
+    "productsHeading": {
+      "eyebrow": "four products, one design consciousness",
+      "title": "Each product makes a quiet industry problem visible."
     },
-    "products": {
-        "badge": "Our Work",
-        "title": "Selected",
-        "titleAccent": "Case Studies",
-        "subtitle": "Real projects, measurable impact. A selection of software we've built for clients worldwide.",
-        "description": "DOMİZAN is an AI-powered desktop application designed for small and medium-sized businesses. Digitize your business in minutes with industry-specific modules.",
-        "features": {
-            "accounting": "Smart Accounting",
-            "reporting": "Detailed Reporting",
-            "crm": "Customer Management",
-            "ai": "AI-Powered Insights"
-        },
-        "ctaPrimary": "Try for Free",
-        "ctaSecondary": "Learn More"
+    "products": [
+      {
+        "name": "papirus-ai",
+        "signal": "AI-powered exam evaluation",
+        "text": "An exam paper reading and evaluation assistant for academics. AI brings answers, rubrics, confidence scores, and review flow onto the same desk.",
+        "code": "AI / OCR / RUBRIC / REVIEW",
+        "pulse": "01"
+      },
+      {
+        "name": "domizan",
+        "signal": "an office boy for CPA offices",
+        "text": "An AI-supported office boy that works beside CPA offices continuously, 24/7. Documents, transactions, and follow-ups move into a more orderly, more visible office rhythm.",
+        "code": "AI OFFICE / ACCOUNTING / OPS / DESKTOP",
+        "pulse": "02"
+      },
+      {
+        "name": "fidanys",
+        "signal": "field memory and real profitability",
+        "text": "In nursery production, stock, pallets, colors, QR, and field movement meet in a single record. Inflation-adjusted real profit analysis reveals the difference between visible revenue and actual gain.",
+        "code": "FIELD / QR / STOCK / REAL PROFIT",
+        "pulse": "03"
+      },
+      {
+        "name": "olric",
+        "signal": "AI visibility",
+        "text": "A visibility radar that tracks a brand's trace in the age of AI search. Perception, source, answer, and ranking signals become a measurable strategy.",
+        "code": "AEO / GEO / SERP / SIGNAL",
+        "pulse": "04"
+      }
+    ],
+    "papirusVisual": {
+      "aria": "Papirus AI paper scanning and evaluation animation",
+      "score": "confidence score",
+      "matched": "rubric matched"
     },
-    "whyUs": {
-        "badge": "Tech Stack",
-        "title": "Built with the Industry's Most",
-        "titleAccent": "Advanced Technologies",
-        "subtitle": "We choose the right tool for every challenge — end-to-end tested, scalable, and future-proof."
+    "productImageAlt": "{{name}} screen trace",
+    "productLogoAlt": "{{name}} logo",
+    "productLink": "explore product",
+    "approach": {
+      "eyebrow": "approach",
+      "title": "First the rhythm of the work, then the shape of the screen.",
+      "aria": "ACRTECH working rhythm",
+      "steps": [
+        "context is read",
+        "excess is removed",
+        "the decision moment becomes simple",
+        "the product settles into a living order"
+      ]
     },
-    "testimonials": {
-        "badge": "Testimonials",
-        "title": "What Our Clients",
-        "titleAccent": "Say",
-        "subtitle": "We've been the trusted partner of hundreds of businesses on their digital transformation journey.",
-        "quote1": "Working with ACRTECH was incredible. Our software was completed in 3 months and our user base grew by 200%.",
-        "quote2": "Exceptional quality delivered on time. Their AI integration expertise is second to none in the industry.",
-        "quote3": "They customized everything to our clinic's needs. We're now 100% digital and 40% more efficient."
+    "signal": {
+      "kicker": "ACRTECH: Art, Reason, Technology",
+      "title": "Technology is not only a tool; when shaped well, it becomes the form of thought.",
+      "text": "When product, data, and AI meet on the same line, calmer decisions, more visible operations, and stronger business reflexes emerge.",
+      "button": "contact"
+    }
+  },
+  "projects": {
+    "title": "Projects",
+    "subtitle": "Software solutions and case studies that carry businesses into their next stage.",
+    "fixed": {
+      "olric": {
+        "badges": ["GEO", "AEO", "Performance Measurement"],
+        "desc": "A web application that measures how websites appear and perform inside AI-powered search engines."
+      },
+      "domizan": {
+        "badges": ["AI", "Accounting Operations"],
+        "desc": "AI-supported accounting and business management software for small and mid-sized businesses. Digitize your operations in minutes."
+      },
+      "brainmap": {
+        "badges": ["AI", "e-Learning"],
+        "desc": "An AI-supported e-learning platform that personalizes educational content and transforms the learning experience."
+      }
     },
-    "process": {
-        "badge": "Pricing",
-        "title": "Choose the",
-        "titleAccent": "Right Plan",
-        "steps": {
-            "discovery": {
-                "title": "Discovery & Analysis",
-                "description": "We deeply understand your goals, constraints and user needs."
-            },
-            "design": {
-                "title": "Design & Prototype",
-                "description": "Full process from user flows and wireframes to a clickable prototype."
-            },
-            "develop": {
-                "title": "Development",
-                "description": "Scalable, secure and tested code with a modern tech stack."
-            },
-            "launch": {
-                "title": "Launch & Support",
-                "description": "We sustain success with seamless deployment and ongoing technical support."
-            }
-        }
-    },
-    "pricing": {
-        "subtitle": "Transparent pricing. No hidden fees. Scale as you grow.",
-        "mostPopular": "Most Popular",
-        "starter": {
-            "name": "Starter",
-            "desc": "Perfect for small businesses and startups getting digital.",
-            "cta": "Get Started",
-            "f1": "Up to 5 pages / screens",
-            "f2": "Responsive design",
-            "f3": "Basic SEO setup",
-            "f4": "1 month support",
-            "f5": "Source code delivery"
-        },
-        "growth": {
-            "name": "Growth",
-            "desc": "For teams that need custom software and integrations.",
-            "cta": "Get Started",
-            "f1": "Unlimited pages / screens",
-            "f2": "Full-stack development",
-            "f3": "API integrations",
-            "f4": "3 months support",
-            "f5": "CI/CD pipeline setup",
-            "f6": "Performance optimization"
-        },
-        "enterprise": {
-            "name": "Enterprise",
-            "desc": "Dedicated team, complex architectures, long-term partnership.",
-            "cta": "Contact Us",
-            "f1": "Everything in Growth",
-            "f2": "Dedicated dev team",
-            "f3": "SLA guarantee",
-            "f4": "12 months support",
-            "f5": "AI/ML features",
-            "f6": "Custom infrastructure"
-        }
-    },
-    "cta": {
-        "badge": "Contact",
-        "title": "Let's Scale Your Business",
-        "titleAccent": "Digitally.",
-        "subtitle": "Ready to transform your business with world-class software? Let's talk.",
-        "primary": "Start a Project",
-        "secondary": "Book a Call",
-        "trust": {
-            "discovery": "Free discovery call",
-            "response": "Response within 24h",
-            "nda": "NDA available"
-        }
-    },
-    "footer": {
-        "description": "Building the digital future of businesses with innovative software solutions.",
-        "services": "Services",
-        "company": "Company",
-        "legal": "Legal",
-        "about": "About",
-        "blog": "Blog",
-        "careers": "Careers",
-        "privacy": "Privacy",
-        "terms": "Terms of Use",
-        "copyright": "© 2025 ACRTECH. All rights reserved.",
-        "madeWith": "made with"
-    },
-    "contact": {
-        "name": "Your Name",
-        "email": "Email",
-        "company": "Company Name",
-        "message": "Project Details",
-        "submit": "Send",
-        "successTitle": "Great!",
-        "success": "Your message has been successfully received. We will contact you as soon as possible.",
-        "availability": "Currently accepting new projects",
-        "phone": "Phone",
-        "location": "Location",
-        "languages": "Languages"
-    },
-    "languageName": "English"
+    "fallbackTitle": "Untitled Project",
+    "fallbackDescription": "No description available.",
+    "fallbackBadge": "Project",
+    "errorTitle": "Could not load",
+    "errorDescription": "Content could not be loaded.",
+    "fixedCta": "Explore",
+    "detailCta": "View Detail",
+    "loading": "Loading...",
+    "notFound": "Project Not Found",
+    "back": "Back to Projects",
+    "all": "All Projects"
+  },
+  "blog": {
+    "title": "ACRTECH Insights",
+    "subtitle": "The latest signals from software, AI, and digital transformation.",
+    "fallbackTitle": "Untitled Article",
+    "fallbackDescription": "",
+    "fallbackCategory": "Insights",
+    "errorTitle": "Could not load",
+    "errorDescription": "Content could not be loaded.",
+    "readMore": "Read More",
+    "loading": "Loading...",
+    "notFound": "Article Not Found",
+    "back": "Back to Blog",
+    "all": "All Articles",
+    "date": "Date",
+    "author": "Author",
+    "ctaTitle": "ACRTECH beside your digital transformation journey",
+    "ctaText": "Contact us to accelerate your business processes with AI and automation, increase market share, and build a stronger software foundation.",
+    "ctaButton": "Start the Conversation"
+  },
+  "footer": {
+    "madePrefix": "Made with",
+    "madeSuffix": "by",
+    "rights": "All rights reserved."
+  },
+  "contact": {
+    "name": "Your name",
+    "email": "Email",
+    "company": "Company name",
+    "message": "Project details",
+    "submit": "Send",
+    "submitting": "Sending...",
+    "successTitle": "Great!",
+    "success": "Your message has been received. We will get back to you as soon as possible.",
+    "phone": "Phone",
+    "location": "Location",
+    "formTitle": "Contact Us",
+    "errorDefault": "A communication error occurred while sending your message. Please try again later."
+  },
+  "cta": {
+    "title": "Let's Grow Your Business",
+    "titleAccent": "Digitally.",
+    "subtitle": "Ready to transform your business with world-class software? Contact us.",
+    "trust": {
+      "discovery": "Free discovery session",
+      "response": "Response within 24 hours",
+      "nda": "NDA available"
+    }
+  }
 }

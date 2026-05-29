@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import i18n from '../../i18n/index.js';
@@ -8,11 +8,8 @@ import { IconSun, IconMoon, IconGlobe } from '../ui/Icons.jsx';
 import './Header.css';
 
 const LANGUAGES = [
-    { code: 'tr', label: 'TR', name: 'Türkçe' },
-    { code: 'en', label: 'EN', name: 'English' },
-    { code: 'ar', label: 'AR', name: 'العربية' },
-    { code: 'ru', label: 'RU', name: 'Русский' },
-    { code: 'de', label: 'DE', name: 'Deutsch' },
+    { code: 'tr', flag: '🇹🇷', flagSrc: '/flags/tr.svg', name: 'Türkçe' },
+    { code: 'en', flag: '🇬🇧', flagSrc: '/flags/gb.svg', name: 'English' },
 ];
 
 const NAV_LINKS = [
@@ -27,9 +24,7 @@ const Header = () => {
     const { theme, toggleTheme } = useTheme();
     const [scrolled, setScrolled] = useState(false);
     const [mobileOpen, setMobileOpen] = useState(false);
-    const [langOpen, setLangOpen] = useState(false);
-    const langRef = useRef(null);
-    const currentLang = i18n.language?.split('-')[0] || 'tr';
+    const currentLang = i18n.language?.startsWith('en') ? 'en' : 'tr';
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -43,22 +38,8 @@ const Header = () => {
         document.body.style.overflow = mobileOpen ? 'hidden' : '';
     }, [mobileOpen]);
 
-    // Close dropdown when clicking outside
-    useEffect(() => {
-        const handleClickOutside = (e) => {
-            if (langRef.current && !langRef.current.contains(e.target)) {
-                setLangOpen(false);
-            }
-        };
-        if (langOpen) {
-            document.addEventListener('mousedown', handleClickOutside);
-        }
-        return () => document.removeEventListener('mousedown', handleClickOutside);
-    }, [langOpen]);
-
     const changeLanguage = (code) => {
         i18n.changeLanguage(code);
-        setLangOpen(false);
         setMobileOpen(false);
     };
 
@@ -80,12 +61,12 @@ const Header = () => {
         <header className={`header ${scrolled ? 'header--scrolled' : ''}`} role="banner">
             <div className="container header__inner">
                 {/* Logo */}
-                <Link to="/" className="header__logo" aria-label="ACRTECH Ana Sayfa">
+                <Link to="/" className="header__logo" aria-label={t('accessibility.home')}>
                     <img src="/acrtech-mark.svg" alt="ACRTECH" className="header__logo-img" />
                 </Link>
 
                 {/* Desktop Nav */}
-                <nav className="header__nav" aria-label="Ana navigasyon">
+                <nav className="header__nav" aria-label={t('accessibility.mainNav')}>
                     {NAV_LINKS.map(({ key, id, href, path }) =>
                         href ? (
                             <a key={key} className="header__nav-link" href={href} target="_blank" rel="noopener noreferrer">
@@ -109,46 +90,33 @@ const Header = () => {
                     <button
                         className="theme-toggle"
                         onClick={toggleTheme}
-                        aria-label={theme === 'light' ? 'Karanlık temaya geç' : 'Aydınlık temaya geç'}
-                        title={theme === 'light' ? 'Dark mode' : 'Light mode'}
+                        aria-label={theme === 'light' ? t('theme.dark') : t('theme.light')}
+                        title={theme === 'light' ? t('theme.dark') : t('theme.light')}
                     >
                         {theme === 'light' ? <IconMoon size={18} /> : <IconSun size={18} />}
                     </button>
 
-                    {/* Language Switcher — click based, closes on outside click */}
-                    <div className="lang-switcher" ref={langRef}>
-                        <button
-                            className="lang-switcher__trigger"
-                            onClick={() => setLangOpen((prev) => !prev)}
-                            aria-expanded={langOpen}
-                            aria-haspopup="listbox"
-                            aria-label="Dil değiştir"
-                            id="lang-trigger"
+                    <div className="lang-switcher">
+                        <IconGlobe size={14} />
+                        <img
+                            className="lang-switcher__flag"
+                            src={LANGUAGES.find((lang) => lang.code === currentLang)?.flagSrc}
+                            alt=""
+                            aria-hidden="true"
+                        />
+                        <select
+                            className="lang-switcher__select"
+                            value={currentLang}
+                            onChange={(event) => changeLanguage(event.target.value)}
+                            aria-label={t('languageSelect.label')}
                         >
-                            <IconGlobe size={14} />
-                            <span className="lang-switcher__code">{currentLang.toUpperCase()}</span>
-                            <span className={`lang-switcher__chevron ${langOpen ? 'open' : ''}`} aria-hidden="true">▾</span>
-                        </button>
-                        {langOpen && (
-                            <div
-                                className="lang-switcher__dropdown"
-                                role="listbox"
-                                aria-labelledby="lang-trigger"
-                            >
-                                {LANGUAGES.map((lang) => (
-                                    <button
-                                        key={lang.code}
-                                        className={`lang-switcher__option ${lang.code === currentLang ? 'active' : ''}`}
-                                        onClick={() => changeLanguage(lang.code)}
-                                        role="option"
-                                        aria-selected={lang.code === currentLang}
-                                    >
-                                        <span className="lang-switcher__option-code">{lang.label}</span>
-                                        <span className="lang-switcher__option-name">{lang.name}</span>
-                                    </button>
-                                ))}
-                            </div>
-                        )}
+                            {LANGUAGES.map((lang) => (
+                                <option key={lang.code} value={lang.code}>
+                                    {lang.flag} {lang.name}
+                                </option>
+                            ))}
+                        </select>
+                        <span className="lang-switcher__chevron" aria-hidden="true">▾</span>
                     </div>
 
                     <Button variant="primary" size="sm" onClick={() => scrollTo('contact')}>
@@ -159,7 +127,7 @@ const Header = () => {
                     <button
                         className={`hamburger ${mobileOpen ? 'hamburger--open' : ''}`}
                         onClick={() => setMobileOpen(!mobileOpen)}
-                        aria-label="Menüyü aç/kapat"
+                        aria-label={t('accessibility.menuToggle')}
                         aria-expanded={mobileOpen}
                     >
                         <span /><span /><span />
@@ -169,7 +137,7 @@ const Header = () => {
 
             {/* Mobile Menu */}
             {mobileOpen && (
-                <div className="mobile-menu" role="dialog" aria-modal="true" aria-label="Mobil menü">
+                <div className="mobile-menu" role="dialog" aria-modal="true" aria-label={t('accessibility.mobileMenu')}>
                     <div className="mobile-menu__overlay" onClick={() => setMobileOpen(false)} />
                     <nav className="mobile-menu__content">
                         {NAV_LINKS.map(({ key, id, href, path }) =>
@@ -194,7 +162,7 @@ const Header = () => {
                                     className={`mobile-menu__lang ${lang.code === currentLang ? 'active' : ''}`}
                                     onClick={() => changeLanguage(lang.code)}
                                 >
-                                    {lang.label}
+                                    {lang.flag} {lang.name}
                                 </button>
                             ))}
                         </div>

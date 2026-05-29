@@ -1,5 +1,3 @@
-import i18n from '../i18n/index.js';
-
 // Frontmatter parser for blog articles
 export function parseBlogFrontmatter(mdContent) {
     const cleanContent = mdContent.replace(/^\uFEFF/, '').trimStart();
@@ -32,31 +30,49 @@ export const MD_BLOGS = [
     {
         id: '1',
         slug: 'yapay-zeka-danismanligi',
-        mdFile: '/blog/yapay-zeka-danismanligi.md'
+        mdFile: {
+            tr: '/blog/yapay-zeka-danismanligi.md',
+            en: '/blog/en/yapay-zeka-consulting.md'
+        }
     },
     {
         id: '2',
         slug: 'is-sureclerini-otomatize-etme',
-        mdFile: '/blog/is-sureclerini-otomatize-etme.md'
+        mdFile: {
+            tr: '/blog/is-sureclerini-otomatize-etme.md',
+            en: '/blog/en/business-process-automation.md'
+        }
     },
     {
         id: '3',
         slug: 'it-outsource-ve-ekip-genisletme',
-        mdFile: '/blog/it-outsource-ve-ekip-genisletme.md'
+        mdFile: {
+            tr: '/blog/it-outsource-ve-ekip-genisletme.md',
+            en: '/blog/en/it-outsourcing-dedicated-teams.md'
+        }
     },
     {
         id: '4',
         slug: 'stratejik-teknoloji-partnerligi',
-        mdFile: '/blog/stratejik-teknoloji-partnerligi.md'
+        mdFile: {
+            tr: '/blog/stratejik-teknoloji-partnerligi.md',
+            en: '/blog/en/strategic-technology-partnership.md'
+        }
     },
     {
         id: '5',
         slug: 'dijital-donusum-ve-modernizasyon',
-        mdFile: '/blog/dijital-donusum-ve-modernizasyon.md'
+        mdFile: {
+            tr: '/blog/dijital-donusum-ve-modernizasyon.md',
+            en: '/blog/en/digital-transformation-modernization.md'
+        }
     },
     {
         id: '6',
         slug: 'designops-rehberi-2025',
-        mdFile: '/blog/designops-rehberi-2025.md'
+        mdFile: {
+            tr: '/blog/designops-rehberi-2025.md',
+            en: '/blog/en/designops-guide-2025.md'
+        }
     }
 ];

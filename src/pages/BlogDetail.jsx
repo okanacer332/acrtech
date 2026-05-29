@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import ReactMarkdown from 'react-markdown';
 import { MD_BLOGS, parseBlogFrontmatter } from '../data/blogData';
 import '../features/Products/Products.css'; // Reusing some base styles
 
 const BlogDetail = () => {
     const { slug } = useParams();
+    const { t, i18n } = useTranslation();
     const [blog, setBlog] = useState(null);
     const [content, setContent] = useState('');
     const [loading, setLoading] = useState(true);
@@ -13,6 +15,7 @@ const BlogDetail = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
         const mdBlog = MD_BLOGS.find(b => b.slug === slug);
+        const language = i18n.language?.startsWith('en') ? 'en' : 'tr';
 
         if (!mdBlog) {
             setLoading(false);
@@ -21,7 +24,7 @@ const BlogDetail = () => {
 
         const fetchBlog = async () => {
             try {
-                const res = await fetch(mdBlog.mdFile);
+                const res = await fetch(mdBlog.mdFile[language]);
                 if (!res.ok) throw new Error('File not found');
                 const text = await res.text();
                 const { data, content: mdBody } = parseBlogFrontmatter(text);
@@ -43,12 +46,12 @@ const BlogDetail = () => {
         };
 
         fetchBlog();
-    }, [slug]);
+    }, [slug, i18n.language]);
 
     if (loading) {
         return (
             <div style={{ paddingTop: '120px', minHeight: '60vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                <p>Yükleniyor...</p>
+                <p>{t('blog.loading')}</p>
             </div>
         );
     }
@@ -57,9 +60,9 @@ const BlogDetail = () => {
         return (
             <div style={{ paddingTop: '120px', minHeight: '60vh', textAlign: 'center' }}>
                 <div className="container">
-                    <h2>Makale Bulunamadı</h2>
+                    <h2>{t('blog.notFound')}</h2>
                     <br />
-                    <Link to="/blog" className="btn btn--primary">Blog'a Dön</Link>
+                    <Link to="/blog" className="btn btn--primary">{t('blog.back')}</Link>
                 </div>
             </div>
         );
@@ -73,7 +76,7 @@ const BlogDetail = () => {
                         <line x1="19" y1="12" x2="5" y2="12"></line>
                         <polyline points="12 19 5 12 12 5"></polyline>
                     </svg>
-                    Tüm Makaleler
+                    {t('blog.all')}
                 </Link>
 
                 <header style={{ marginBottom: '3rem' }}>
@@ -87,8 +90,8 @@ const BlogDetail = () => {
                     </h1>
 
                     <div style={{ display: 'flex', gap: '1rem', color: 'var(--color-text-light)', fontSize: '0.9rem' }}>
-                        {blog.date && <span>Tarih: {blog.date}</span>}
-                        {blog.author && <span>Yazar: {blog.author}</span>}
+                        {blog.date && <span>{t('blog.date')}: {blog.date}</span>}
+                        {blog.author && <span>{t('blog.author')}: {blog.author}</span>}
                     </div>
                 </header>
 
@@ -114,12 +117,12 @@ const BlogDetail = () => {
 
                 {/* CTA Section for Blog */}
                 <div style={{ marginTop: '4rem', padding: '3rem', background: 'var(--color-surface)', borderRadius: '16px', textAlign: 'center', border: '1px solid var(--color-border)' }}>
-                    <h3 style={{ fontSize: '1.75rem', color: 'var(--color-text)', marginBottom: '1rem' }}>Dijital Dönüşüm Yolculuğunuzda ACRTECH Yanınızda</h3>
+                    <h3 style={{ fontSize: '1.75rem', color: 'var(--color-text)', marginBottom: '1rem' }}>{t('blog.ctaTitle')}</h3>
                     <p style={{ color: 'var(--color-text-muted)', marginBottom: '2rem', maxWidth: '600px', margin: '0 auto 2rem auto', lineHeight: 1.6 }}>
-                        İş süreçlerinizi yapay zeka ve otomasyonla hızlandırmak, pazar payınızı artırmak ve güçlü bir altyapı kurmak için bizimle iletişime geçin.
+                        {t('blog.ctaText')}
                     </p>
                     <a href="/#contact" className="btn btn--primary" style={{ padding: '0.75rem 2rem', fontSize: '1.1rem', borderRadius: '100px', textDecoration: 'none', display: 'inline-block' }}>
-                        Hemen Çalışmaya Başlayın
+                        {t('blog.ctaButton')}
                     </a>
                 </div>
             </div>

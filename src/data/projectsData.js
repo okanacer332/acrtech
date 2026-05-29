@@ -1,5 +1,3 @@
-import i18n from '../i18n/index.js';
-
 // Frontmatter parser
 export function parseFrontmatter(mdContent) {
     const cleanContent = mdContent.replace(/^\uFEFF/, '').trimStart();
@@ -27,15 +25,13 @@ export function parseFrontmatter(mdContent) {
     return { data, content };
 }
 
-// Fixed projects (Domizan & Olric)
 export const FIXED_PROJECTS = [
     {
         id: 'olric',
         slug: 'olric',
         name: 'Olric',
         nameDisplay: 'Olric',
-        badges: ['GEO', 'AEO', 'Performans Ölçümü'],
-        desc: 'Web sitelerinin yapay zeka arama motorlarındaki görünürlüğünü ve performansını ölçümleyen bir web uygulaması.',
+        i18nKey: 'olric',
         link: 'https://olric.app',
         logo: '/olric-geo-tracker-logo.png',
         image: '/olric-geo-ss.png',
@@ -46,8 +42,7 @@ export const FIXED_PROJECTS = [
         slug: 'domizan',
         name: 'Domizan',
         nameDisplay: 'Domizan',
-        badges: ['AI', 'Muhasebe Operasyonları'],
-        desc: 'Küçük ve orta ölçekli işletmeler için yapay zeka destekli muhasebe ve iş yönetim yazılımı. Operasyonlarınızı dakikalar içinde dijitalleştirin.',
+        i18nKey: 'domizan',
         link: 'https://www.domizan.com/',
         logo: '/domizan-logo.png',
         image: '/domizan-preview.webp',
@@ -58,8 +53,7 @@ export const FIXED_PROJECTS = [
         slug: 'brainmap',
         name: 'Brainmap',
         nameDisplay: 'brainmap.',
-        badges: ['AI', 'e-Learning'],
-        desc: 'Yapay zeka destekli e-öğrenme platformu. Eğitim içeriklerinizi kişiselleştirin, öğrenme deneyimini dönüştürün.',
+        i18nKey: 'brainmap',
         link: 'https://olric.app',
         logo: '/brainmap-logo.png',
         image: '/brainmap-preview.webp',
@@ -72,31 +66,46 @@ export const MD_PROJECTS = [
     {
         id: '1',
         slug: '2-el-bilet-alim-satim',
-        mdFile: '/content/context/2.el-bilet-alim-satim.md',
+        mdFile: {
+            tr: '/content/context/2.el-bilet-alim-satim.md',
+            en: '/content/context/en/2.el-bilet-alim-satim.md'
+        },
         image: '/content/img/WhatsApp Image 2026-02-26 at 11.31.24 (2).jpeg'
     },
     {
         id: '2',
         slug: 'b2c-online-egitim',
-        mdFile: '/content/context/b2c-online-egitim.md',
+        mdFile: {
+            tr: '/content/context/b2c-online-egitim.md',
+            en: '/content/context/en/b2c-online-egitim.md'
+        },
         image: '/content/img/WhatsApp Image 2026-02-26 at 11.31.24.jpeg'
     },
     {
         id: '3',
         slug: 'dell-cloud-service',
-        mdFile: '/content/context/dell-cloud-service.md',
+        mdFile: {
+            tr: '/content/context/dell-cloud-service.md',
+            en: '/content/context/en/dell-cloud-service.md'
+        },
         image: '/content/img/WhatsApp Image 2026-02-26 at 11.31.24 (1).jpeg'
     },
     {
         id: '4',
         slug: 'fidanys',
-        mdFile: '/content/context/fidanys.md',
+        mdFile: {
+            tr: '/content/context/fidanys.md',
+            en: '/content/context/en/fidanys.md'
+        },
         image: '/content/img/WhatsApp Image 2026-02-26 at 11.31.24 (4).jpeg'
     },
     {
         id: '5',
         slug: 'tekstil-geri-donusum',
-        mdFile: '/content/context/tekstil-geri-donusum.md',
+        mdFile: {
+            tr: '/content/context/tekstil-geri-donusum.md',
+            en: '/content/context/en/tekstil-geri-donusum.md'
+        },
         image: '/content/img/WhatsApp Image 2026-02-26 at 11.31.24 (3).jpeg'
     }
 ];

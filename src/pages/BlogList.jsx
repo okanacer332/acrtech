@@ -5,35 +5,36 @@ import { MD_BLOGS, parseBlogFrontmatter } from '../data/blogData';
 import '../features/Products/Products.css';
 
 const BlogList = () => {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
     const [blogData, setBlogData] = useState([]);
 
     useEffect(() => {
         window.scrollTo(0, 0);
+        const language = i18n.language?.startsWith('en') ? 'en' : 'tr';
 
         const loadBlogs = async () => {
             const loaded = await Promise.all(MD_BLOGS.map(async (blog) => {
                 try {
-                    const res = await fetch(blog.mdFile);
+                    const res = await fetch(blog.mdFile[language]);
                     const text = await res.text();
                     const { data } = parseBlogFrontmatter(text);
                     return {
                         ...blog,
-                        title: data.title || 'Untitled Article',
-                        description: data.description || '',
-                        category: data.category || 'Insights',
+                        title: data.title || t('blog.fallbackTitle'),
+                        description: data.description || t('blog.fallbackDescription'),
+                        category: data.category || t('blog.fallbackCategory'),
                         image: data.image || '/og-image.png'
                     };
                 } catch (e) {
-                    console.error("Failed to load blog", blog.mdFile);
-                    return { ...blog, title: 'Error loading', description: 'Could not load data' };
+                    console.error('Failed to load blog', blog.mdFile[language]);
+                    return { ...blog, title: t('blog.errorTitle'), description: t('blog.errorDescription') };
                 }
             }));
             setBlogData(loaded);
         };
 
         loadBlogs();
-    }, []);
+    }, [i18n.language, t]);
 
     const renderCard = (props) => (
         <Link key={props.id} to={`/blog/${props.slug}`} className="product-card">
@@ -49,7 +50,7 @@ const BlogList = () => {
                 <p className="product-card__desc">{props.description}</p>
 
                 <span className="product-card__cta" style={{ display: 'inline-flex', marginTop: 'auto', fontWeight: 600, color: 'var(--color-primary)' }}>
-                    Devamını Oku
+                    {t('blog.readMore')}
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: '0.5rem' }}>
                         <line x1="5" y1="12" x2="19" y2="12" />
                         <polyline points="12 5 19 12 12 19" />
@@ -79,10 +80,10 @@ const BlogList = () => {
                 <div className="container">
                     <div className="section-header">
                         <h2 id="blog-title" className="section-title">
-                            ACRTECH Insights
+                            {t('blog.title')}
                         </h2>
                         <p className="section-subtitle">
-                            Yazılım, yapay zeka ve dijital dönüşüm dünyasının en son trendleri.
+                            {t('blog.subtitle')}
                         </p>
                     </div>
 

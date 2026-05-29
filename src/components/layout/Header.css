@@ -102,91 +102,62 @@
 /* Language Switcher */
 .lang-switcher {
     position: relative;
-}
-
-.lang-switcher__trigger {
     display: flex;
     align-items: center;
-    gap: 0.375rem;
-    background: var(--surface);
+    gap: 0.45rem;
+    min-height: 38px;
+    background:
+        linear-gradient(135deg, var(--surface), var(--surface-raised));
     border: 1px solid var(--border);
-    border-radius: var(--radius-full);
-    padding: 0.4rem 0.75rem;
+    border-radius: 10px;
+    padding: 0.42rem 0.68rem;
     font-size: var(--font-size-xs);
     font-weight: 600;
     color: var(--header-text-muted);
     cursor: pointer;
-    transition: border-color var(--transition-fast), color var(--transition-fast), background var(--transition-fast);
+    box-shadow: var(--shadow-sm);
+    transition: border-color var(--transition-fast), color var(--transition-fast), background var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
 }
 
-.lang-switcher__trigger:hover {
+.lang-switcher:hover {
     border-color: var(--color-primary);
     color: var(--color-primary);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-1px);
+}
+
+.lang-switcher__select {
+    appearance: none;
+    background: transparent;
+    border: none;
+    color: inherit;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    outline: 0;
+    min-width: 76px;
+    max-width: 102px;
+    padding-right: 0.2rem;
+}
+
+.lang-switcher__flag {
+    width: 22px;
+    height: 15px;
+    object-fit: cover;
+    border-radius: 2px;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.12);
 }
 
 .lang-switcher__chevron {
-    display: inline-block;
-    transition: transform var(--transition-fast);
-    font-size: 10px;
-}
-
-.lang-switcher__chevron.open {
-    transform: rotate(180deg);
-}
-
-.lang-switcher__dropdown {
-    position: absolute;
-    top: calc(100% + 8px);
-    right: 0;
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-xl);
-    overflow: hidden;
-    min-width: 168px;
-    animation: fadeInUp 0.15s ease;
-    z-index: 200;
-}
-
-[dir="rtl"] .lang-switcher__dropdown {
-    right: auto;
-    left: 0;
-}
-
-.lang-switcher__option {
-    display: flex;
-    align-items: center;
-    gap: var(--space-3);
-    width: 100%;
-    padding: 0.625rem 1rem;
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: var(--font-size-sm);
-    color: var(--text);
-    transition: background var(--transition-fast);
-    text-align: left;
-}
-
-.lang-switcher__option:hover {
-    background: var(--surface-raised);
-}
-
-.lang-switcher__option.active {
-    background: var(--color-primary-light);
     color: var(--color-primary);
-    font-weight: 600;
+    font-size: 0.7rem;
+    line-height: 1;
+    pointer-events: none;
 }
 
-.lang-switcher__option-code {
-    font-weight: 700;
-    font-size: var(--font-size-xs);
-    min-width: 28px;
-}
-
-.lang-switcher__option-name {
-    color: var(--text-muted);
-    font-size: var(--font-size-xs);
+.lang-switcher__select option {
+    color: #11131f;
+    background: #fff;
 }
 
 /* Hamburger */
@@ -364,7 +335,12 @@
 }
 
 @media (max-width: 480px) {
-    .lang-switcher__code {
+    .lang-switcher__select {
         display: none;
+    }
+
+    .lang-switcher {
+        min-height: 36px;
+        padding: 0.42rem 0.54rem;
     }
 }

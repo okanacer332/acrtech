@@ -1,116 +1,198 @@
 {
+  "languageName": "Türkçe",
+  "languageSelect": {
+    "label": "Dil seçimi",
+    "tr": "🇹🇷 Türkçe",
+    "en": "🇬🇧 English"
+  },
+  "nav": {
+    "home": "Anasayfa",
+    "services": "Hizmetler",
+    "products": "Ürünler",
+    "projects": "Projeler",
+    "about": "Hakkımızda",
+    "process": "Süreç",
+    "pricing": "Fiyatlandırma",
+    "blog": "Blog",
+    "contact": "İletişim",
+    "getQuote": "İletişime Geç"
+  },
+  "accessibility": {
+    "home": "ACRTECH Ana Sayfa",
+    "mainNav": "Ana navigasyon",
+    "menuToggle": "Menüyü aç/kapat",
+    "mobileMenu": "Mobil menü"
+  },
+  "theme": {
+    "dark": "Karanlık temaya geç",
+    "light": "Aydınlık temaya geç"
+  },
+  "home": {
     "nav": {
-        "home": "Anasayfa",
-        "services": "Hizmetler",
-        "products": "Ürünler",
-        "projects": "Projeler",
-        "about": "Hakkımızda",
-        "process": "Süreç",
-        "pricing": "Fiyatlandırma",
-        "blog": "Blog",
-        "contact": "İletişim",
-        "getQuote": "Teklif Al"
+      "aria": "Ana navigasyon",
+      "sections": "Sayfa bölümleri",
+      "products": "ürünler",
+      "approach": "yaklaşım",
+      "contact": "iletişim"
     },
     "hero": {
-        "badge": "Yenilikçi Yazılım Ajansı",
-        "title": "Geleceğe Hazır,",
-        "titleAccent": "Yüksek Performanslı",
-        "titleEnd": "Yazılımlar",
-        "subtitle": "Web, mobil ve masaüstü yazılım çözümleriyle işinizi bir adım öteye taşıyın. İhtiyaçlarınıza özel, değer katan dijital altyapılar inşa ediyoruz.",
-        "ctaPrimary": "Projenizi Başlatın",
-        "ctaSecondary": "Ürünlerimizi Keşfedin",
-        "scrollDown": "Aşağı Kaydır",
-        "stats": {
-            "projects": "Başarılı Proje",
-            "clients": "Mutlu Müşteri",
-            "years": "Yıllık Deneyim",
-            "support": "Destek",
-            "satisfaction": "Memnuniyet"
-        }
+      "kicker": "ACRTECH / Art, Reason, Technology",
+      "title": ["Aklın", "sanata", "yaklaştığı", "yazılım."],
+      "lead": "ACRTECH, ürün fikrini teknik bir dosyadan çıkarıp yaşayan bir çalışma düzenine dönüştüren stüdyo. Merkezinde netlik, ölçü, estetik ve operasyon gerçeği var.",
+      "panelAria": "ACRTECH canlı sinyal paneli"
     },
-    "services": {
-        "badge": "Hizmetlerimiz",
-        "title": "Mühendislik",
-        "titleAccent": "Çözümleri",
-        "subtitle": "Modern teknolojiler ve kanıtlanmış yöntemlerle işletmenizin dijital dönüşümünü hızlandırıyoruz.",
-        "learnMore": "Daha Fazla Bilgi",
-        "items": {
-            "web": {
-                "title": "Web Uygulamaları",
-                "description": "React, Next.js ve modern web teknolojileriyle geliştirilmiş hızlı, ölçeklenebilir ve SEO dostu web uygulamaları."
-            },
-            "mobile": {
-                "title": "Mobil Uygulamalar",
-                "description": "iOS ve Android için React Native ile mobil uygulamalar. Tek kod tabanı, iki platform."
-            },
-            "desktop": {
-                "title": "Masaüstü Yazılımlar",
-                "description": "Windows ve macOS için Electron tabanlı masaüstü uygulamalar. Güçlü, hızlı ve kullanıcı dostu."
-            },
-            "ai": {
-                "title": "Yapay Zeka & Otomasyon",
-                "description": "Yapay zeka entegrasyonları, makine öğrenmesi modelleri ve iş süreçleri otomasyonuyla verimliliğinizi artırın."
-            },
-            "uiux": {
-                "title": "UI/UX Tasarım",
-                "description": "Kullanıcı odaklı, modern ve dönüşüm optimize edilmiş arayüzler. Figma'dan koda mükemmel geçiş."
-            },
-            "cloud": {
-                "title": "Bulut & DevOps",
-                "description": "AWS, Azure ve GCP üzerinde ölçeklenebilir altyapı kurulumu, CI/CD pipeline ve DevOps danışmanlığı."
-            }
-        }
+    "phrases": [
+      "ArT of technology",
+      "akıl ve ritim",
+      "ürün estetiği",
+      "saha sezgisi",
+      "ACRTECH"
+    ],
+    "telemetry": [
+      "düşünce netleşir",
+      "saha konuşur",
+      "yapay zeka iş görür",
+      "arayüz sadeleşir",
+      "veri anlam kazanır",
+      "ürün ritim bulur",
+      "karar hafifler",
+      "operasyon görünür olur"
+    ],
+    "productsHeading": {
+      "eyebrow": "dört ürün, tek tasarım bilinci",
+      "title": "Her ürün kendi sektörünün sessiz problemini görünür kılar."
     },
-    "products": {
-        "badge": "Ürünlerimiz",
-        "title": "Ürünlerimizi",
-        "titleAccent": "Keşfedin",
-        "subtitle": "İşletmenizi geleceğe taşıyacak yazılım ürünlerimiz."
+    "products": [
+      {
+        "name": "papirus-ai",
+        "signal": "yapay zeka ile sınav değerlendirme",
+        "text": "Akademisyenler için sınav kağıdı okuma ve değerlendirme asistanı. Yapay zeka; cevapları, rubrikleri, güven skorlarını ve inceleme akışını aynı masada buluşturur.",
+        "code": "AI / OCR / RUBRIC / REVIEW",
+        "pulse": "01"
+      },
+      {
+        "name": "domizan",
+        "signal": "SMMM ofisleri için ofis boy",
+        "text": "SMMM ofislerinin yanında 7/24 kesintisiz çalışan yapay zeka destekli bir ofis boy. Evrak, işlem ve takip yükünü daha düzenli, daha görünür bir ofis ritmine taşır.",
+        "code": "AI OFFICE / ACCOUNTING / OPS / DESKTOP",
+        "pulse": "02"
+      },
+      {
+        "name": "fidanys",
+        "signal": "saha ve reel karlılık hafızası",
+        "text": "Fidan üretiminde stok, palet, renk, QR ve saha hareketi tek kayıtta birleşir. Enflasyon oranıyla reel kar analizi, görünen ciro ile gerçek kazanç arasındaki farkı açık eder.",
+        "code": "FIELD / QR / STOCK / REAL PROFIT",
+        "pulse": "03"
+      },
+      {
+        "name": "olric",
+        "signal": "yapay zeka görünürlüğü",
+        "text": "Markaların yapay zeka arama çağındaki izini takip eden görünürlük radarı. Algı, kaynak, cevap ve sıralama sinyalleri ölçülebilir bir stratejiye dönüşür.",
+        "code": "AEO / GEO / SERP / SIGNAL",
+        "pulse": "04"
+      }
+    ],
+    "papirusVisual": {
+      "aria": "Papirus AI kağıt tarama ve değerlendirme animasyonu",
+      "score": "güven skoru",
+      "matched": "rubrik eşleşti"
     },
-    "whyUs": {
-        "badge": "Teknoloji Yığınımız",
-        "title": "Sektörün En Gelişmiş",
-        "titleAccent": "Teknolojileriyle",
-        "subtitle": "İşletmenizin ihtiyaçlarına en uygun araçları seçerek, büyümenizi destekleyecek uçtan uca test edilmiş, güvenli ve ölçeklenebilir altyapılar inşa ediyoruz."
+    "productImageAlt": "{{name}} ekran izi",
+    "productLogoAlt": "{{name}} logo",
+    "productLink": "ürünü incele",
+    "approach": {
+      "eyebrow": "yaklaşım",
+      "title": "Önce işin ritmi, sonra ekranın biçimi.",
+      "aria": "ACRTECH çalışma ritmi",
+      "steps": [
+        "bağlam okunur",
+        "fazlalık ayıklanır",
+        "karar anı sadeleşir",
+        "ürün yaşayan bir düzene kavuşur"
+      ]
     },
-    "cta": {
-        "badge": "İletişim",
-        "title": "İşletmenizi Dijitalde",
-        "titleAccent": "Büyütelim.",
-        "subtitle": "Dünya standartlarında yazılımlarla işletmenizi dönüştürmeye hazır mısınız? Bizimle iletişime geçin.",
-        "primary": "Projenizi Başlatın",
-        "secondary": "Görüşme Ayarlayın",
-        "trust": {
-            "discovery": "Ücretsiz keşif görüşmesi",
-            "response": "24 saat içinde yanıt",
-            "nda": "NDA mevcut"
-        }
+    "signal": {
+      "kicker": "ACRTECH: Art, Reason, Technology",
+      "title": "Teknoloji yalnızca araç değil; doğru kurulduğunda düşüncenin formudur.",
+      "text": "Ürün, veri ve yapay zeka aynı çizgide buluştuğunda daha sakin kararlar, daha görünür operasyonlar ve daha güçlü iş refleksleri ortaya çıkar.",
+      "button": "iletişim kur"
+    }
+  },
+  "projects": {
+    "title": "Projelerimiz",
+    "subtitle": "İşletmenizi geleceğe taşıyacak yazılım çözümleri ve vaka analizlerimiz.",
+    "fixed": {
+      "olric": {
+        "badges": ["GEO", "AEO", "Performans Ölçümü"],
+        "desc": "Web sitelerinin yapay zeka arama motorlarındaki görünürlüğünü ve performansını ölçümleyen bir web uygulaması."
+      },
+      "domizan": {
+        "badges": ["AI", "Muhasebe Operasyonları"],
+        "desc": "Küçük ve orta ölçekli işletmeler için yapay zeka destekli muhasebe ve iş yönetim yazılımı. Operasyonlarınızı dakikalar içinde dijitalleştirin."
+      },
+      "brainmap": {
+        "badges": ["AI", "e-Öğrenme"],
+        "desc": "Yapay zeka destekli e-öğrenme platformu. Eğitim içeriklerinizi kişiselleştirin, öğrenme deneyimini dönüştürün."
+      }
     },
-    "footer": {
-        "description": "Yenilikçi yazılım çözümleriyle işletmelerin dijital geleceğini inşa ediyoruz.",
-        "services": "Hizmetler",
-        "company": "Şirket",
-        "legal": "Yasal",
-        "about": "Hakkımızda",
-        "blog": "Blog",
-        "careers": "Kariyer",
-        "privacy": "Gizlilik",
-        "terms": "Kullanım Şartları",
-        "copyright": "© 2025 ACRTECH. Tüm hakları saklıdır.",
-        "madeWith": "ile yapıldı"
-    },
-    "contact": {
-        "name": "Adınız",
-        "email": "E-posta",
-        "company": "Şirket Adı",
-        "message": "Proje Detayları",
-        "submit": "Gönder",
-        "successTitle": "Harika!",
-        "success": "Mesajınız başarıyla alındı. En kısa sürede sizinle iletişime geçeceğiz.",
-        "availability": "Şu anda yeni projeler kabul ediyoruz",
-        "phone": "Telefon",
-        "location": "Konum",
-        "languages": "Diller"
-    },
-    "languageName": "Türkçe"
+    "fallbackTitle": "Başlıksız Proje",
+    "fallbackDescription": "Açıklama bulunamadı.",
+    "fallbackBadge": "Proje",
+    "errorTitle": "Yüklenemedi",
+    "errorDescription": "İçerik yüklenemedi.",
+    "fixedCta": "Keşfet",
+    "detailCta": "Detayı Gör",
+    "loading": "Yükleniyor...",
+    "notFound": "Proje Bulunamadı",
+    "back": "Projelere Dön",
+    "all": "Tüm Projeler"
+  },
+  "blog": {
+    "title": "ACRTECH Insights",
+    "subtitle": "Yazılım, yapay zeka ve dijital dönüşüm dünyasının en son trendleri.",
+    "fallbackTitle": "Başlıksız Makale",
+    "fallbackDescription": "",
+    "fallbackCategory": "İçgörüler",
+    "errorTitle": "Yüklenemedi",
+    "errorDescription": "İçerik yüklenemedi.",
+    "readMore": "Devamını Oku",
+    "loading": "Yükleniyor...",
+    "notFound": "Makale Bulunamadı",
+    "back": "Blog'a Dön",
+    "all": "Tüm Makaleler",
+    "date": "Tarih",
+    "author": "Yazar",
+    "ctaTitle": "Dijital Dönüşüm Yolculuğunuzda ACRTECH Yanınızda",
+    "ctaText": "İş süreçlerinizi yapay zeka ve otomasyonla hızlandırmak, pazar payınızı artırmak ve güçlü bir altyapı kurmak için bizimle iletişime geçin.",
+    "ctaButton": "Hemen Çalışmaya Başlayın"
+  },
+  "footer": {
+    "madePrefix": "Made with",
+    "madeSuffix": "by",
+    "rights": "Tüm hakları saklıdır."
+  },
+  "contact": {
+    "name": "Adınız",
+    "email": "E-posta",
+    "company": "Şirket Adı",
+    "message": "Proje Detayları",
+    "submit": "Gönder",
+    "submitting": "Gönderiliyor...",
+    "successTitle": "Harika!",
+    "success": "Mesajınız başarıyla alındı. En kısa sürede sizinle iletişime geçeceğiz.",
+    "phone": "Telefon",
+    "location": "Konum",
+    "formTitle": "Bize Ulaşın",
+    "errorDefault": "Mesajınız gönderilirken bir iletişim hatası oluştu. Lütfen daha sonra tekrar deneyin."
+  },
+  "cta": {
+    "title": "İşletmenizi Dijitalde",
+    "titleAccent": "Büyütelim.",
+    "subtitle": "Dünya standartlarında yazılımlarla işletmenizi dönüştürmeye hazır mısınız? Bizimle iletişime geçin.",
+    "trust": {
+      "discovery": "Ücretsiz keşif görüşmesi",
+      "response": "24 saat içinde yanıt",
+      "nda": "NDA mevcut"
+    }
+  }
 }
